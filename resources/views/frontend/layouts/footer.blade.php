@@ -83,5 +83,3 @@
 <script src="{{url('assets2/js/wow.min.js')}}"></script>
 <script src="{{url('assets2/js/custom.js')}}"></script>
 
-@toastr_js
-@toastr_render

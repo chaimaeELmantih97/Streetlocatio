@@ -2,7 +2,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
     <title>Autozone, Home-1</title>
-    <link href="favicon.png" type="image/x-icon" rel="shortcut icon">
     <link href="{{url('assets2/css/master.css')}}" rel="stylesheet">
     <link href="{{url('assets2/plugins/iview/css/iview.css')}}" rel="stylesheet">
     <link href="{{url('assets2/plugins/iview/css/skin/style.css')}}" rel="stylesheet">
@@ -10,7 +9,8 @@
     <script src="{{url('assets2/plugins/jquery/jquery-1.11.1.min.js')}}"></script>
     <link href="{{url('assets2/NV/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
     <link href="{{url('assets2/NV/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
-    {{-- @toastr_css --}}
+   @toastr_css
+ 
     @php
     $settings=DB::table('settings')->get();
     @endphp  

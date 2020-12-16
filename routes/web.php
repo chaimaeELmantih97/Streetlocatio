@@ -52,9 +52,9 @@ Route::get('/Promotions',[App\http\Controllers\PromosController::class,'frontend
 
 // Route::get('/user/chart','AdminController@userPieChart')->name('user.piechart');
 Route::get('/car-grids',[App\http\Controllers\FrontendController::class,'carGrids'])->name('car-grids');
-Route::get('/car-lists',[App\http\Controllers\FrontendController::class,'carLists'])->name('car-lists');
 // AvailableCars
 Route::post('/AvailableCars',[App\http\Controllers\CarController::class,'AvailableCars'])->name('AvailableCars');
+Route::post('/isAvailable',[App\http\Controllers\CarController::class,'isAvailable'])->name('isAvailable');
 Route::post('bookingStep1',[App\http\Controllers\CarController::class,'booking1'])->name('bookingStep1');
 Route::post('bookingStep2',[App\http\Controllers\CarController::class,'booking2'])->name('bookingStep2');
 Route::post('bookingStep3',[App\http\Controllers\CarController::class,'booking3'])->name('bookingStep3');

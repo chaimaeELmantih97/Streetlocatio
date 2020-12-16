@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Models\DemandeReservation;
 
 class CarController extends Controller
 {
@@ -109,7 +110,8 @@ class CarController extends Controller
         $cars=Car::all();
         $cars2=$cars->toArray();
         $AvailableCars=[];
-        
+        session()->put('from', $from);
+        session()->put('to', $to);
         foreach($cars as $key=>$car){
             foreach($unavailables as $un){
                 if($car->id!=$un->car_id){
@@ -124,6 +126,27 @@ class CarController extends Controller
         return view('frontend.pages.product-lists')->with('cars',$AvailableCars)->with('from',$from)->with('to',$to)->with('ville',$request->ville);
     }
 
+    public function isAvailable(Request $request){
+        $url=str_replace(url('/'), '', url()->previous());
+        // dd($url);
+        $from=explode("/",$request->from)[2].'-'.explode("/",$request->from)[1].'-'.explode("/",$request->from)[0];
+        $to=explode("/",$request->to)[2].'-'.explode("/",$request->to)[1].'-'.explode("/",$request->to)[0];
+        $unavailable=Unavailable::where('from','=',$from)
+        ->where('to','=',$to)
+        ->where('car_id','=',$request->id)
+        ->get();
+        if(count($unavailable)<=0){
+        $car=Car::find($request->id);
+        return view('frontend.pages.booking1')->with('car',$car)->with('from',$request->car)->with('to',$request->to)->with('url',$url);
+        }else{
+            // toastr()->danger("cette vehicule n'est pas disponible pendant cette période");
+            // toastr()->warning("cette vehicule n'est pas disponible pendant cette période");
+            toastr()->warning("cette vehicule n'est pas disponible pendant cette période");
+            // return redirect()->route('home');
+            return back();
+        }
+    }
+
     public function paginate($items, $perPage = 9, $page = null, $options = [])
     {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -133,16 +156,56 @@ class CarController extends Controller
 
 
     public function booking1(Request $request){
+        // dd($request);
+        $url=str_replace(url('/'), '', url()->previous());
         $car=Car::find($request->id);
-        return view('frontend.pages.booking1')->with('car',$car)->with('from',$request->car)->with('to',$request->to);
+        return view('frontend.pages.booking1')->with('car',$car)->with('from',$request->from)->with('to',$request->to)->with('url',$url);
     }
     public function booking2(Request $request){
-        return view('frontend.pages.booking2');
+        $car=Car::find($request->id);
+        return view('frontend.pages.booking2')
+        ->with('from',$request->from)
+        ->with('to',$request->to)
+        ->with('car',$car)
+        ->with('prenom',$request->prenom)
+        ->with('nom',$request->nom)
+        ->with('tel',$request->tel)
+        ->with('email',$request->email)
+        ->with('ville',$request->ville)
+        ->with('text',$request->text)
+        ->with('total',$request->total);
         //  return view('frontend.pages.Car-grids')->with('cars',$cars)->with('recent_products',$recent_products);;
     }
     public function booking3(Request $request){
-        return view('frontend.pages.booking3');
-        //  return view('frontend.pages.Car-grids')->with('cars',$cars)->with('recent_products',$recent_products);;
+        $car=Car::find($request->id);
+        $data=$request->all();
+        $data['car_id']=$request->id;
+
+        $path = "storage/demandes/"; 
+        if($request->hasfile('cin')){
+            $img=Image::make($request->cin)
+            ->save('storage/demandes/'.$request->cin->hashName());
+            $data['cin']=$request->cin->hashName();
+        } 
+        if($request->hasfile('permis')){
+            $img=Image::make($request->permis)
+            ->save('storage/demandes/'.$request->permis->hashName());
+            $data['permis']=$request->permis->hashName();
+        } 
+        $data['demande_numero']='demande-'.strtoupper(Str::random(10));
+        $demande=DemandeReservation::create($data); 
+        return view('frontend.pages.booking3')
+        ->with('from',$request->from)
+        ->with('to',$request->to)
+        ->with('car',$car)
+        ->with('prenom',$request->prenom)
+        ->with('nom',$request->nom)
+        ->with('tel',$request->tel)
+        ->with('email',$request->email)
+        ->with('ville',$request->ville)
+        ->with('text',$request->text)
+        ->with('total',$request->total)
+        ->with('numero',$data['demande_numero']);
     }
 
     /**

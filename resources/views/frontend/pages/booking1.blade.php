@@ -3,26 +3,27 @@
 @section('title','E-SHOP || Car PAGE')
 
 @section('main-content')
-    <!-- Google Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/fancybox/jquery.fancybox.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/slick-carousel/slick/slick.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/dzsparallaxer/dzsparallaxer.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/custombox/dist/custombox.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css')}}">
-    <!-- CSS MyTravel Template -->
-    <link rel="stylesheet" href="{{url('travel/assets/css/theme.css')}}">
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
+<link rel="stylesheet"
+    href="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/fancybox/jquery.fancybox.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/slick-carousel/slick/slick.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/dzsparallaxer/dzsparallaxer.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/custombox/dist/custombox.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css')}}">
+<!-- CSS MyTravel Template -->
+<link rel="stylesheet" href="{{url('travel/assets/css/theme.css')}}">
 
 <!-- Breadcrumbs -->
 <div class="block-title">
@@ -38,346 +39,278 @@
     </div><!-- end block-title__inner -->
 </div>
 
-  <!-- ========== MAIN CONTENT ========== -->
-        <main id="content" class="bg-gray space-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-xl-9">
-                        <div class="mb-5 shadow-soft bg-white rounded-sm">
-                            <div class="py-3 px-4 px-xl-12 border-bottom">
-                                <ul class="list-group flex-nowrap overflow-auto overflow-md-visble list-group-horizontal list-group-borderless flex-center-between pt-1">
-                                    <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 bg-primary border-width-2 border border-primary text-white mx-auto rounded-circle">
-                                            1
-                                        </div>
-                                        <div class="text-primary">Informations de client</div>
-                                    </li>
-                                    <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
-                                            2
-                                        </div>
-                                        <div class="text-gray-1">Payment information</div>
-                                    </li>
-                                    <li class="list-group-item text-center flex-shrink-0 flex-md-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
-                                            3
-                                        </div>
-                                        <div class="text-gray-1">Booking is confirmed!</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="pt-4 pb-5 px-5">
-                                <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-4">
-                                    Faites-nous savoir qui vous êtes
-                                </h5>
-                                <!-- Contacts Form -->
-                                <form class="js-validate" method="POST" action="{{route('bookingStep2')}}">
-                                    <div class="row">
-                                        <!-- Input -->
-                                        <div class="col-sm-6 mb-4">
-                                            <div class="js-form-message">
-                                                <label class="form-label">
-                                                    Prénom
-                                                </label>
-
-                                                <input type="text" class="form-control" name="firstName" placeholder="prénom" aria-label="prenom" required
-                                                data-msg="Please enter your first name."
-                                                data-error-class="u-has-error"
-                                                data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-                                        <!-- End Input -->
-
-                                        <!-- Input -->
-                                        <div class="col-sm-6 mb-4">
-                                            <div class="js-form-message">
-                                                <label class="form-label">
-                                                    Nom
-                                                </label>
-
-                                                <input type="text" class="form-control" name="lasstName" placeholder="Nom" aria-label="Nom" required
-                                                data-msg="Please enter your last name."
-                                                data-error-class="u-has-error"
-                                                data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-                                        <!-- End Input -->
-
-                                        <!-- Input -->
-                                        <div class="col-sm-6 mb-4">
-                                            <div class="js-form-message">
-                                                <label class="form-label">
-                                                    Email
-                                                </label>
-
-                                                <input type="email" class="form-control" name="email" placeholder="Email" aria-label="creativelayers088@gmail.com" required
-                                                data-msg="Please enter a valid email address."
-                                                data-error-class="u-has-error"
-                                                data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-                                        <!-- End Input -->
-
-                                        <!-- Input -->
-                                        <div class="col-sm-6 mb-4">
-                                            <div class="js-form-message">
-                                                <label class="form-label">
-                                                    Tel
-                                                </label>
-
-                                                <input type="number" class="form-control" name="phone" placeholder="Tel" aria-label="+90 (254) 458 96 32" required
-                                                data-msg="Please enter a valid phone number."
-                                                data-error-class="u-has-error"
-                                                data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-                                        <!-- End Input -->
-
-                                        <div class="w-100"></div>
-                                        <!-- Input -->
-                                        <div class="col-sm-6 mb-4">
-                                            <div class="js-form-message">
-                                                <label class="form-label">
-                                                    Ville
-                                                </label>
-                                                <input type="text" class="form-control" name="ville" id="ville_input_1"  placeholder="ville" aria-label="creativelayers088@gmail.com" required
-                                                data-msg="Please enter a valid email address."
-                                                data-error-class="u-has-error"
-                                                data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-sm-6 mb-4">
-                                            <!-- Input -->
-                                            <div class="js-form-message mb-6">
-                                                <label class="form-label">
-                                                    Special Requirements
-                                                </label>
-
-                                                <div class="input-group">
-                                                    <textarea class="form-control" rows="4" name="text" placeholder="" aria-label="" required
-                                                    data-msg="Please enter a reason."
-                                                    data-error-class="u-has-error"
-                                                    data-success-class="u-has-success"></textarea>
-                                                </div>
-                                            </div>
-                                            <!-- End Input -->
-                                        </div>
-
-                                        <div class="w-100"></div>
-
-                                        
-                                        <!-- End Input -->
-
-                                        <div class="col-sm-6 align-self-end">
-                                            <div class="text-right">
-                                                <button type="submit" class="btn btn-danger btn-wide rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3">NEXT PAGE</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- End Contacts Form -->
-                            </div>
-                        </div>
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" class="bg-gray space-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-xl-9">
+                <div class="mb-5 shadow-soft bg-white rounded-sm">
+                    <div class="py-3 px-4 px-xl-12 border-bottom">
+                        <ul
+                            class="list-group flex-nowrap overflow-auto overflow-md-visble list-group-horizontal list-group-borderless flex-center-between pt-1">
+                            <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 bg-primary border-width-2 border border-primary text-white mx-auto rounded-circle">
+                                    1
+                                </div>
+                                <div class="text-primary">Informations de client</div>
+                            </li>
+                            <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
+                                    2
+                                </div>
+                                <div class="text-gray-1">Documents</div>
+                            </li>
+                            <li class="list-group-item text-center flex-shrink-0 flex-md-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
+                                    3
+                                </div>
+                                <div class="text-gray-1">confirmation de la réservation!</div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
-                        <div class="shadow-soft bg-white rounded-sm">
-                            <div class="py-5 px-5 border-bottom">
-                                <a href="#" class="d-block mb-3">
-                                    <img class="img-fluid rounded-sm" src="{{url('storage/cars/'.$car->photo)}}" alt="Image-Description">
-                                </a>
-                                <a href="#" class="text-dark font-weight-bold mb-1">{{$car->title}}</a>
-                                <div class="mb-1 flex-horizontal-center text-gray-1">
-                                    <i class="icon flaticon-browser-1 mr-2 font-size-15"></i> Modele: {{$car->modele}} / category: {{$car->categorie}}
+                    <div class="pt-4 pb-5 px-5">
+                        <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-4">
+                            Faites-nous savoir qui vous êtes
+                        </h5>
+                        <!-- Contacts Form -->
+                        <form class="js-validate" method="POST" action="{{route('bookingStep2')}}">
+                            @csrf
+                            <div class="row">
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Prénom
+                                        </label>
+
+                                        <input type="text" class="form-control" name="prenom" placeholder="prénom"
+                                            aria-label="prenom" required data-msg="Please enter your first name."
+                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Nom
+                                        </label>
+
+                                        <input type="text" class="form-control" name="nom" placeholder="Nom"
+                                            aria-label="Nom" required data-msg="Please enter your last name."
+                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Email
+                                        </label>
+
+                                        <input type="email" class="form-control" name="email" placeholder="Email"
+                                            aria-label="creativelayers088@gmail.com" required
+                                            data-msg="Please enter a valid email address."
+                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Tel
+                                        </label>
+
+                                        <input type="number" class="form-control" name="tel" placeholder="Tel"
+                                            aria-label="+90 (254) 458 96 32" required
+                                            data-msg="Please enter a valid phone number." data-error-class="u-has-error"
+                                            data-success-class="u-has-success">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <div class="w-100"></div>
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Ville
+                                        </label>
+                                        <input type="text" class="form-control" name="ville" id="ville_input_1"
+                                            placeholder="ville" aria-label="creativelayers088@gmail.com" required
+                                            data-msg="Please enter a valid email address."
+                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-6 mb-4">
+                                    <!-- Input -->
+                                    <div class="js-form-message mb-6">
+                                        <label class="form-label">
+                                            Special Requirements
+                                        </label>
+
+                                        <div class="input-group">
+                                            <textarea class="form-control" rows="4" name="text" placeholder=""
+                                                aria-label="" required data-msg="Please enter a reason."
+                                                data-error-class="u-has-error"
+                                                data-success-class="u-has-success"></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- End Input -->
+                                </div>
+                                            @php
+                                            $date1 = $from;
+                                            $date2 = $to;
+                                            $diff = strtotime($date2) - strtotime($date1);
+                                            $diff=round($diff / 86400);
+                                            $price=$diff*$car->prix_location
+                                            @endphp
+
+                                <input type="hidden" name="from" value={{$from}}>
+                                <input type="hidden" name="to" value={{$to}}>
+                                <input type="hidden" name="id" value={{$car->id}}>
+                                <input type="hidden" name="total" value="{{$price}}">
+                                <div class="w-100"></div>
+
+
+                                <!-- End Input -->
+
+                                <div class="col-sm-6 align-self-end">
+                                    <div class="text-right">
+                                        <button type="submit"
+                                            class="btn btn-danger btn-wide rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3">NEXT
+                                            PAGE</button>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Basics Accordion -->
-                            <div id="basicsAccordion">
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingOne">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseOne"
-                                                aria-expanded="true"
-                                                aria-controls="basicsCollapseOne">
-                                                Details de reseravtion
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseOne" class="collapse show"
-                                        aria-labelledby="basicsHeadingOne"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            <!-- Fact List -->
-                                            <ul class="list-unstyled font-size-1 mb-0 font-size-16">
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Date <br> {{$from}} <br> {{$to}}</span>
-                                                    <span class="text-secondary"><a href="javascript:history.back()" class="text-underline">Modifier la vehicule</a></span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Modele</span>
-                                                    <span class="text-secondary">{{$car->modele}}</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">categorie</span>
-                                                    <span class="text-secondary">{{$car->categorie}}</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">nombre de porte</span>
-                                                    <span class="text-secondary">{{$car->portes}}</span>
-                                                </li>
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Passagers</span>
-                                                    <span class="text-secondary">{{$car->passagers}}</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Vitesse</span>
-                                                    <span class="text-secondary">{{$car->boite_vitesses}}</span>
-                                                </li>
-                                            </ul>
-                                            <!-- End Fact List -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingTwo">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseTwo"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseTwo">
-                                                Extra
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseTwo" class="collapse"
-                                        aria-labelledby="basicsHeadingTwo"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingThree">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseThree"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseThree">
-                                                Coupon Code
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseThree" class="collapse show"
-                                        aria-labelledby="basicsHeadingThree"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0 pb-4">
-                                            <!-- Subscribe Form -->
-                                            <form class="js-focus-state">
-                                                <label class="sr-only" for="CouponCodeExample1">Coupon Code</label>
-                                                <div class="input-group">
-                                                    <input type="number" class="form-control" name="email" id="CouponCodeExample1" placeholder="" aria-label="" aria-describedby="CouponCodeExample2" required>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-primary py-2" type="button" id="CouponCodeExample2">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- End Subscribe Form -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseFour"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseFour">
-                                                Payment
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseFour" class="collapse show"
-                                        aria-labelledby="basicsHeadingFour"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            <!-- Fact List -->
-                                            <ul class="list-unstyled font-size-1 mb-0 font-size-16">
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Subtotal</span>
-                                                    <span class="text-secondary">€580,00</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Extra Price</span>
-                                                    <span class="text-secondary">€0,00</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Tax</span>
-                                                    <span class="text-secondary">0 %</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2 font-size-17 font-weight-bold">
-                                                    <span class="font-weight-bold">Pay Amount</span>
-                                                    <span class="">€580,00</span>
-                                                </li>
-                                            </ul>
-                                            <!-- End Fact List -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-                            </div>
-                            <!-- End Basics Accordion -->
-                        </div>
+                        </form>
+                        <!-- End Contacts Form -->
                     </div>
                 </div>
             </div>
-        </main>
-        <style>
-            .ap-input-icon{
-                margin-top:-18px;
-            }
-           
-        </style>
-        <!-- ========== END MAIN CONTENT ========== -->
+            <div class="col-lg-4 col-xl-3">
+                <div class="shadow-soft bg-white rounded-sm">
+                    <div class="py-5 px-5 border-bottom">
+                        <a href="#" class="d-block mb-3">
+                            <img class="img-fluid rounded-sm" src="{{url('storage/cars/'.$car->photo)}}"
+                                alt="Image-Description">
+                        </a>
+                        <a href="#" class="text-dark font-weight-bold mb-1">{{$car->title}}</a>
+                        <div class="mb-1 flex-horizontal-center text-gray-1">
+                            <i class="icon flaticon-browser-1 mr-2 font-size-15"></i> Modele: {{$car->modele}} /
+                            category: {{$car->categorie}}
+                        </div>
+                    </div>
+                    <!-- Basics Accordion -->
+                    <div id="basicsAccordion">
+                        <!-- Card -->
+                        <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
+                            <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingOne">
+                                <h5 class="mb-0">
+                                    <button type="button"
+                                        class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                        Details de reseravtion
+                                    </button>
+                                </h5>
+                            </div>
+                            <div>
+                                <div class="card-body px-4 pt-0">
+                                    <!-- Fact List -->
+                                    <ul class="list-unstyled font-size-1 mb-0 font-size-16">
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Modele</span>
+                                            <span class="text-secondary">{{$car->modele}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">categorie</span>
+                                            <span class="text-secondary">{{$car->categorie}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">nombre de porte</span>
+                                            <span class="text-secondary">{{$car->portes}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Passagers</span>
+                                            <span class="text-secondary">{{$car->passagers}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Vitesse</span>
+                                            <span class="text-secondary">{{$car->boite_vitesses}}</span>
+                                        </li>
+                                    </ul>
+                                    <!-- End Fact List -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+
+
+
+
+
+                        <!-- Card -->
+                        <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
+                            <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour"
+                                style="margin-top: -30px;">
+                                <h5 class="mb-0">
+                                    <button type="button"
+                                        class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                        paiement
+                                    </button>
+                                </h5>
+                            </div>
+                            <div>
+                                <div class="card-body px-4 pt-0">
+                                    <!-- Fact List -->
+                                    <ul class="list-unstyled font-size-1 mb-0 font-size-16">
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Prix par jour</span>
+                                            <span class="text-secondary">{{$car->prix_location}} MAD</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Nombre de jours</span>
+                                            
+                                            <span class="text-secondary">{{$diff}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2 font-size-17 font-weight-bold">
+                                            <span class="font-weight-bold">Total</span>
+                                            <span class="">{{$price}} MAD</span>
+                                        </li>
+                                    </ul>
+                                    <!-- End Fact List -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+                    </div>
+                    <!-- End Basics Accordion -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<style>
+    .ap-input-icon {
+        margin-top: -18px;
+    }
+
+</style>
+<!-- ========== END MAIN CONTENT ========== -->
 <!-- JS Implementing Plugins -->
 <script src="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
 <script src="{{url('travel/assets/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
@@ -388,7 +321,8 @@
 <script src="{{url('travel/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
 <script src="{{url('travel/assets/vendor/custombox/dist/custombox.min.js')}}"></script>
 <script src="{{url('travel/assets/vendor/custombox/dist/custombox.legacy.min.js')}}"></script>
-<script src="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
+</script>
 
 <!-- JS MyTravel -->
 <script src="{{url('travel/assets/js/hs.core.js')}}"></script>
@@ -418,13 +352,13 @@
         });
 
         // Page preloader
-        setTimeout(function() {
-          $('#jsPreloader').fadeOut(500)
+        setTimeout(function () {
+            $('#jsPreloader').fadeOut(500)
         }, 800);
     });
 
     $(document).on('ready', function () {
-        
+
         // initialization of datepicker
         $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
 
@@ -446,29 +380,30 @@
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
     });
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
 <script type="text/javascript">
-	  //ALGOLIA PLACES API BEGIN
-	  const reconfigurableOptions = {
-	  // language: 'fr',  //Receives results in German
-	  countries: ['ma'], // Search in the United States of America and in the Russian Federation
-	  type: 'city', // Search only for cities names
-	  // aroundLatLngViaIP: false // disable the extra search/boost around the source IP
-	  };
+    //ALGOLIA PLACES API BEGIN
+    const reconfigurableOptions = {
+        // language: 'fr',  //Receives results in German
+        countries: ['ma'], // Search in the United States of America and in the Russian Federation
+        type: 'city', // Search only for cities names
+        // aroundLatLngViaIP: false // disable the extra search/boost around the source IP
+    };
 
-	  if(document.getElementById('ville_input_1')){
-		  places({
-			  appId: 'plGRTB7YMDRN',
-			  apiKey: '367398e98504ee87362ce203506dbae1',
-			  container: document.querySelector('#ville_input_1'),
-			  }).configure(reconfigurableOptions);
-	  }
-	  
-	  //ALGOLIA PLACES API END
+    if (document.getElementById('ville_input_1')) {
+        places({
+            appId: 'plGRTB7YMDRN',
+            apiKey: '367398e98504ee87362ce203506dbae1',
+            container: document.querySelector('#ville_input_1'),
+        }).configure(reconfigurableOptions);
+    }
 
-  </script>
+    //ALGOLIA PLACES API END
+
+</script>
 @endsection
 @push ('styles')
 

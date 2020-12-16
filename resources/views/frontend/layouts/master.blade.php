@@ -23,4 +23,6 @@
 	@include('frontend.layouts.footer')
 
 </body>
+@toastr_js
+@toastr_render 
 </html>

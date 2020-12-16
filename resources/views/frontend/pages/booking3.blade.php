@@ -53,69 +53,59 @@
                                     </div>
                                     <div class="ml-3">
                                         <h3 class="font-size-18 font-weight-bold text-dark mb-0 text-lh-sm">
-                                            Thank You. Your Booking Order is Confirmed Now.
+                                            Merci. Votre demande de réservation est terminée.
                                         </h3>
-                                        <p class="mb-0">A confirmation email has been sent to your provided email address.</p>
+                                        <p class="mb-0">nous vous contacterons après la validation</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="pt-4 pb-5 px-5 border-bottom">
                                 <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-2">
-                                    Traveler Information
+                                    Information de client
                                 </h5>
                                 <!-- Fact List -->
                                 <ul class="list-unstyled font-size-1 mb-0 font-size-16">
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">Booking number</span>
-                                        <span class="text-secondary text-right">5784-BD245</span>
+                                        <span class="font-weight-medium">Demande numero</span>
+                                        <span class="text-secondary text-right">{{$numero}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">First name</span>
-                                        <span class="text-secondary text-right">Jessica</span>
+                                        <span class="font-weight-medium">Prénom</span>
+                                        <span class="text-secondary text-right">{{$prenom}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">Last name</span>
-                                        <span class="text-secondary text-right">Brown</span>
+                                        <span class="font-weight-medium">Nom</span>
+                                        <span class="text-secondary text-right">{{$nom}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">E-mail address</span>
-                                        <span class="text-secondary text-right">Info@Jessica.com</span>
+                                        <span class="font-weight-medium">Email</span>
+                                        <span class="text-secondary text-right">I{{$email}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">Street Address and number</span>
-                                        <span class="text-secondary text-right">353 Third floor Avenue</span>
+                                        <span class="font-weight-medium">Ville</span>
+                                        <span class="text-secondary text-right">{{$ville}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">Town / City</span>
-                                        <span class="text-secondary text-right">Paris,France</span>
+                                        <span class="font-weight-medium">Vehicule</span>
+                                        <span class="text-secondary text-right">{{$car->title}}</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">ZIP code</span>
-                                        <span class="text-secondary text-right">75800-875</span>
+                                        <span class="font-weight-medium">Prix par jour</span>
+                                        <span class="text-secondary text-right">{{$car->prix_location}} MAD</span>
                                     </li>
 
                                     <li class="d-flex justify-content-between py-2">
-                                        <span class="font-weight-medium">Country</span>
-                                        <span class="text-secondary text-right">United States of america</span>
+                                        <span class="font-weight-medium">Total de Demande</span>
+                                        <span class="text-secondary text-right">{{$total}} MAD</span>
                                     </li>
                                 </ul>
                                 <!-- End Fact List -->
-                            </div>
-                            <div class="pt-4 pb-5 px-5 border-bottom">
-                                <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-3">
-                                    Payment
-                                </h5>
-                                <p class="">
-                                    Praesent dolor lectus, rutrum sit amet risus vitae, imperdiet cursus neque. Nulla tempor nec lorem eu suscipit. Donec dignissim lectus a nunc molestie consectetur. Nulla eu urna in nisi adipiscing placerat. Nam vel scelerisque magna. Donec justo urna,  posuere ut dictum quis.
-                                </p>
-
-                                <a href="#" class="text-underline text-primary">Payment is made by Credit Card Via Paypal.</a>
                             </div>
                             <div class="pt-4 pb-5 px-5">
                                 <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-3">
@@ -133,11 +123,13 @@
                         <div class="shadow-soft bg-white rounded-sm">
                             <div class="py-5 px-5 border-bottom">
                                 <a href="#" class="d-block mb-3">
-                                    <img class="img-fluid rounded-sm" src="{{url('travel/assets/img/240x160/img1.jpg')}}" alt="Image-Description">
+                                    <img class="img-fluid rounded-sm" src="{{url('storage/cars/'.$car->photo)}}"
+                                        alt="Image-Description">
                                 </a>
-                                <a href="#" class="text-dark font-weight-bold mb-1">Mercedes-Benz C 220</a>
+                                <a href="#" class="text-dark font-weight-bold mb-1">{{$car->title}}</a>
                                 <div class="mb-1 flex-horizontal-center text-gray-1">
-                                    <i class="icon flaticon-pin-1 mr-2 font-size-15"></i> United Kingdom
+                                    <i class="icon flaticon-browser-1 mr-2 font-size-15"></i> Modele: {{$car->modele}} /
+                                    category: {{$car->categorie}}
                                 </div>
                             </div>
                             <!-- Basics Accordion -->
@@ -146,48 +138,38 @@
                                 <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
                                     <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingOne">
                                         <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseOne"
-                                                aria-expanded="true"
-                                                aria-controls="basicsCollapseOne">
-                                                Booking Detail
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
+                                            <button type="button"
+                                                class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                                Details de reseravtion
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="basicsCollapseOne" class="collapse show"
-                                        aria-labelledby="basicsHeadingOne"
-                                        data-parent="#basicsAccordion">
+                                    <div>
                                         <div class="card-body px-4 pt-0">
                                             <!-- Fact List -->
                                             <ul class="list-unstyled font-size-1 mb-0 font-size-16">
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Date <br> 22/09/2019, 00:00 AM <br> 23/09/2019, 00:00 AM</span>
-                                                    <span class="text-secondary"><a href="#" class="text-underline">Edit</a></span>
+                                                    <span class="font-weight-medium">Modele</span>
+                                                    <span class="text-secondary">{{$car->modele}}</span>
                                                 </li>
-
+        
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Car type</span>
-                                                    <span class="text-secondary">Hatchbacks</span>
+                                                    <span class="font-weight-medium">categorie</span>
+                                                    <span class="text-secondary">{{$car->categorie}}</span>
                                                 </li>
-
+        
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Pick Up From</span>
-                                                    <span class="text-secondary">Los Angeles</span>
+                                                    <span class="font-weight-medium">nombre de porte</span>
+                                                    <span class="text-secondary">{{$car->portes}}</span>
                                                 </li>
-
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Drop Off To</span>
-                                                    <span class="text-secondary">California</span>
+                                                    <span class="font-weight-medium">Passagers</span>
+                                                    <span class="text-secondary">{{$car->passagers}}</span>
                                                 </li>
-
+        
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Est. Distance</span>
-                                                    <span class="text-secondary">50 kilometer</span>
+                                                    <span class="font-weight-medium">Vitesse</span>
+                                                    <span class="text-secondary">{{$car->boite_vitesses}}</span>
                                                 </li>
                                             </ul>
                                             <!-- End Fact List -->
@@ -195,112 +177,47 @@
                                     </div>
                                 </div>
                                 <!-- End Card -->
-
+        
+        
+        
+        
+        
                                 <!-- Card -->
                                 <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingTwo">
+                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour"
+                                        style="margin-top: -30px;">
                                         <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseTwo"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseTwo">
-                                                Extra
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
+                                            <button type="button"
+                                                class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                                paiement
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="basicsCollapseTwo" class="collapse"
-                                        aria-labelledby="basicsHeadingTwo"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingThree">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseThree"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseThree">
-                                                Coupon Code
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseThree" class="collapse show"
-                                        aria-labelledby="basicsHeadingThree"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0 pb-4">
-                                            <!-- Subscribe Form -->
-                                            <form class="js-focus-state">
-                                                <label class="sr-only" for="CouponCodeExample1">Coupon Code</label>
-                                                <div class="input-group">
-                                                    <input type="number" class="form-control" name="email" id="CouponCodeExample1" placeholder="" aria-label="" aria-describedby="CouponCodeExample2" required>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-primary py-2" type="button" id="CouponCodeExample2">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- End Subscribe Form -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseFour"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseFour">
-                                                Payment
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseFour" class="collapse show"
-                                        aria-labelledby="basicsHeadingFour"
-                                        data-parent="#basicsAccordion">
+                                    <div>
                                         <div class="card-body px-4 pt-0">
                                             <!-- Fact List -->
                                             <ul class="list-unstyled font-size-1 mb-0 font-size-16">
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Subtotal</span>
-                                                    <span class="text-secondary">€580,00</span>
+                                                    <span class="font-weight-medium">Prix par jour</span>
+                                                    <span class="text-secondary">{{$car->prix_location}} MAD</span>
                                                 </li>
-
+        
                                                 <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Extra Price</span>
-                                                    <span class="text-secondary">€0,00</span>
+                                                    <span class="font-weight-medium">Nombre de jours</span>
+                                                    @php
+                                                    $date1 = $from;
+                                                    $date2 = $to;
+                                                    $diff = strtotime($date2) - strtotime($date1);
+                                                    $diff=round($diff / 86400);
+                                                    $price=$diff*$car->prix_location
+                                                    @endphp
+        
+                                                    <span class="text-secondary">{{$diff}}</span>
                                                 </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Tax</span>
-                                                    <span class="text-secondary">0 %</span>
-                                                </li>
-
+        
                                                 <li class="d-flex justify-content-between py-2 font-size-17 font-weight-bold">
-                                                    <span class="font-weight-bold">Pay Amount</span>
-                                                    <span class="">€580,00</span>
+                                                    <span class="font-weight-bold">Total</span>
+                                                    <span class="">{{$price}} MAD</span>
                                                 </li>
                                             </ul>
                                             <!-- End Fact List -->

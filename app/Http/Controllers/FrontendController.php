@@ -58,6 +58,8 @@ class FrontendController extends Controller
     }
 
     public function carDetail($slug){
+        $url=str_replace(url('/'), '', url()->previous());
+        ///AvailableCars
         $car= Car::getProductBySlug($slug);
         // $cars=Car::where('id','!=',$car->id)->limit(3)->get();
         // dd($cars->count());
@@ -66,13 +68,18 @@ class FrontendController extends Controller
         //     dd($img->image);
         // }
         // dd($images->count(),$images);
+        $from = session()->get('from');
+        $to = session()->get('to');
         return view('frontend.pages.product_detail')
             ->with('car',$car)
             ->with('countimages',$images->count())
-            ->with('images',$images);
+            ->with('images',$images)
+            ->with('from',$from)
+            ->with('to',$to)
+            ->with('url',$url);
     }
 
-    public function productGrids(){
+    public function carGrids(){
         $cars=Car::query();
         
         if(!empty($_GET['category'])){

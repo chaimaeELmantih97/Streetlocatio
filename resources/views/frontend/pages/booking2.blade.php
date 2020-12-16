@@ -3,28 +3,144 @@
 @section('title','E-SHOP || Car PAGE')
 
 @section('main-content')
-    <!-- Google Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/fancybox/jquery.fancybox.css')}}">
-    <link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/prism/prism.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/slick-carousel/slick/slick.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/dzsparallaxer/dzsparallaxer.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/custombox/dist/custombox.min.css')}}">
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css')}}">
-    <!-- CSS MyTravel Template -->
-    <link rel="stylesheet" href="{{url('travel/assets/css/theme.css')}}">
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
+<link rel="stylesheet"
+    href="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/fancybox/jquery.fancybox.css')}}">
+<link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/prism/prism.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/slick-carousel/slick/slick.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/dzsparallaxer/dzsparallaxer.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/custombox/dist/custombox.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css')}}">
+<!-- CSS MyTravel Template -->
+<link rel="stylesheet" href="{{url('travel/assets/css/theme.css')}}">
+<link rel="stylesheet" href="{{url('assets2/pic-repeater/pic-repeater.css')}}">
+<style>
+    .file-upload {
+        background-color: #ffffff;
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .file-upload-btn {
+        width: 100%;
+        margin: 0;
+        color: #fff;
+        background: #D42B12;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        border-bottom: 4px solid #D42B12;
+        transition: all .2s ease;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .file-upload-btn:hover {
+        background: #D42B12;
+        color: #ffffff;
+        transition: all .2s ease;
+        cursor: pointer;
+    }
+
+    .file-upload-btn:active {
+        border: 0;
+        transition: all .2s ease;
+    }
+
+    .file-upload-content {
+        display: none;
+        text-align: center;
+    }
+
+    .file-upload-input {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .image-upload-wrap {
+        margin-top: 20px;
+        border: 4px dashed #D42B12;
+        position: relative;
+    }
+
+    .image-dropping,
+    .image-upload-wrap:hover {
+        background-color: #c0544341;
+        border: 4px dashed #ffffff;
+    }
+
+    .image-title-wrap {
+        padding: 0 15px 15px 15px;
+        color: #222;
+    }
+
+    .drag-text {
+        text-align: center;
+    }
+
+    .drag-text h3 {
+        font-weight: 100;
+        text-transform: uppercase;
+        color: #D42B12;
+        padding: 60px 0;
+    }
+
+    .file-upload-image {
+        max-height: 200px;
+        max-width: 200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .remove-image {
+        width: 200px;
+        margin: 0;
+        color: #fff;
+        background: #cd4535;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        border-bottom: 4px solid #b02818;
+        transition: all .2s ease;
+        outline: none;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .remove-image:hover {
+        background: #c13b2a;
+        color: #ffffff;
+        transition: all .2s ease;
+        cursor: pointer;
+    }
+
+    .remove-image:active {
+        border: 0;
+        transition: all .2s ease;
+    }
+
+</style>
 
 <!-- Breadcrumbs -->
 <div class="block-title">
@@ -40,415 +156,247 @@
     </div><!-- end block-title__inner -->
 </div>
 
-  <!-- ========== MAIN CONTENT ========== -->
-        <main id="content" class="bg-gray space-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-xl-9">
-                        <div class="mb-5 shadow-soft bg-white rounded-sm">
-                            <div class="py-3 px-4 px-xl-12 border-bottom">
-                                <ul class="list-group flex-nowrap overflow-auto overflow-md-visble list-group-horizontal list-group-borderless flex-center-between pt-1">
-                                    <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
-                                            1
-                                        </div>
-                                        <div class="text-gray-1">Customer information</div>
-                                    </li>
-                                    <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 bg-primary border-width-2 border border-primary text-white mx-auto rounded-circle">
-                                            2
-                                        </div>
-                                        <div class="text-primary">Payment information</div>
-                                    </li>
-                                    <li class="list-group-item text-center flex-shrink-0 flex-md-shrink-1">
-                                        <div class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
-                                            3
-                                        </div>
-                                        <div class="text-gray-1">Booking is confirmed!</div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="pt-4 pb-5 px-5">
-                                <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-4">
-                                    Your Card Information
-                                </h5>
-                                <!-- Nav Classic -->
-                                <ul class="nav nav-classic nav-choose border-0 nav-justified border mx-n3" role="tablist">
-                                    <li class="nav-item mx-3 mb-4 mb-md-0">
-                                        <a class="rounded py-5 border-width-2 border nav-link font-weight-medium active" id="pills-one-example2-tab" data-toggle="pill" href="#pills-one-example2" role="tab" aria-controls="pills-one-example2" aria-selected="true">
-                                            <div class="height-25 width-25 flex-content-center bg-primary rounded-circle position-absolute left-0 top-0 ml-2 mt-2">
-                                                <i class="flaticon-tick text-white font-size-15"></i>
-                                            </div>
-                                            <div class="d-md-flex justify-content-md-center align-items-md-center flex-wrap">
-                                                <img class="img-fluid mb-3" src="../../assets/img/199x35/img1.jpg" alt="Image-Description">
-                                                <div class="w-100 text-dark">Payment with credit card</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mx-3">
-                                        <a class="rounded py-5 border-width-2 border nav-link font-weight-medium" id="pills-two-example2-tab" data-toggle="pill" href="#pills-two-example2" role="tab" aria-controls="pills-two-example2" aria-selected="false">
-                                            <div class="height-25 width-25 flex-content-center bg-primary rounded-circle position-absolute left-0 top-0 ml-2 mt-2">
-                                                <i class="flaticon-tick text-white font-size-15"></i>
-                                            </div>
-                                            <div class="d-md-flex justify-content-md-center align-items-md-center flex-wrap">
-                                                <img class="img-fluid mb-3" src="../../assets/img/199x35/img2.jpg" alt="Image-Description">
-                                                <div class="w-100 text-dark">Payment with paypal</div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- End Nav Classic -->
-
-                                <!-- Tab Content -->
-                                <div class="tab-content">
-                                    <div class="tab-pane fade pt-8 show active" id="pills-one-example2" role="tabpanel" aria-labelledby="pills-one-example2-tab">
-                                        <!-- Payment Form -->
-                                        <form class="js-validate">
-                                            <div class="row">
-                                                <!-- Input -->
-                                                <div class="col-sm-6 mb-4">
-                                                    <div class="js-form-message">
-                                                        <label class="form-label">
-                                                            Card Holder Name
-                                                        </label>
-
-                                                        <input type="text" class="form-control" name="Cardname" placeholder="" aria-label="" required
-                                                        data-msg="Please enter card holder name."
-                                                        data-error-class="u-has-error"
-                                                        data-success-class="u-has-success">
-                                                    </div>
-                                                </div>
-                                                <!-- End Input -->
-
-                                                <!-- Input -->
-                                                <div class="col-sm-6 mb-4">
-                                                    <div class="js-form-message">
-                                                        <label class="form-label">
-                                                            Card Number
-                                                        </label>
-
-                                                        <input type="number" class="form-control" name="Cardnumber" placeholder="" aria-label="" required
-                                                        data-msg="Please enter card number."
-                                                        data-error-class="u-has-error"
-                                                        data-success-class="u-has-success">
-                                                    </div>
-                                                </div>
-                                                <!-- End Input -->
-
-                                                <div class="w-100"></div>
-
-                                                <!-- Input -->
-                                                <div class="col-sm-6 mb-4">
-                                                    <div class="row">
-                                                        <div class="col-sm-6 mb-4 mb-md-0">
-                                                            <div class="js-form-message">
-                                                                <label class="form-label">
-                                                                    Expiry Month
-                                                                </label>
-
-                                                                <input type="number" class="form-control" name="Expirymonth" placeholder="" aria-label="" required
-                                                                data-msg="Please enter expiry month."
-                                                                data-error-class="u-has-error"
-                                                                data-success-class="u-has-success">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="js-form-message">
-                                                                <label class="form-label">
-                                                                    Expiry Year
-                                                                </label>
-
-                                                                <input type="number" class="form-control" name="Expiryyear" placeholder="" aria-label="" required
-                                                                data-msg="Please enter expiry year."
-                                                                data-error-class="u-has-error"
-                                                                data-success-class="u-has-success">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Input -->
-
-                                                <!-- Input -->
-                                                <div class="col-sm-6 mb-4">
-                                                    <div class="js-form-message">
-                                                        <label class="form-label">
-                                                            CCV
-                                                        </label>
-
-                                                        <input type="number" class="form-control" name="ccvnumber" placeholder="" aria-label="" required
-                                                        data-msg="Please enter ccv number."
-                                                        data-error-class="u-has-error"
-                                                        data-success-class="u-has-success">
-                                                    </div>
-                                                </div>
-                                                <!-- End Input -->
-
-                                                <div class="w-100"></div>
-
-                                                <div class="col">
-                                                    <!-- Checkbox -->
-                                                    <div class="js-form-message mb-5">
-                                                        <div class="custom-control custom-checkbox d-flex align-items-center text-muted">
-                                                            <input type="checkbox" class="custom-control-input" id="termsCheckbox" name="termsCheckbox" required
-                                                            data-msg="Please accept our Terms and Conditions."
-                                                            data-error-class="u-has-error"
-                                                            data-success-class="u-has-success">
-                                                            <label class="custom-control-label" for="termsCheckbox">
-                                                                <small>
-                                                                    By continuing, you agree to the
-                                                                    <a class="link-muted" href="../pages/terms.html">Terms and Conditions</a>
-                                                                </small>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Checkbox -->
-                                                    <button type="submit" class="btn btn-primary w-100 rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3">CONFIRM BOOKING</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <!-- End Payment Form -->
-                                    </div>
-
-                                    <div class="tab-pane fade pt-8" id="pills-two-example2" role="tabpanel" aria-labelledby="pills-two-example2-tab">
-                                        <form class="js-validate">
-                                            <!-- Login -->
-                                            <div id="login" data-target-group="idForm">
-                                                <!-- Form Group -->
-                                                <div class="form-group">
-                                                    <div class="js-form-message js-focus-state">
-                                                        <label class="sr-only" for="signinEmail">Email</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="signinEmailLabel">
-                                                                    <span class="fas fa-user"></span>
-                                                                </span>
-                                                            </div>
-                                                            <input type="email" class="form-control" name="email" id="signinEmail" placeholder="Email" aria-label="Email" aria-describedby="signinEmailLabel" required
-                                                            data-msg="Please enter a valid email address."
-                                                            data-error-class="u-has-error"
-                                                            data-success-class="u-has-success">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Form Group -->
-
-                                                <!-- Form Group -->
-                                                <div class="form-group mb-4">
-                                                    <div class="js-form-message js-focus-state">
-                                                        <label class="sr-only" for="signinPassword">Password</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text" id="signinPasswordLabel">
-                                                                    <span class="fas fa-lock"></span>
-                                                                </span>
-                                                            </div>
-                                                            <input type="password" class="form-control" name="password" id="signinPassword" placeholder="Password" aria-label="Password" aria-describedby="signinPasswordLabel" required
-                                                            data-msg="Your password is invalid. Please try again."
-                                                            data-error-class="u-has-error"
-                                                            data-success-class="u-has-success">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- End Form Group -->
-
-                                                <div class="mb-2">
-                                                    <button type="submit" class="btn btn-block btn-primary transition-3d-hover">Login</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" class="bg-gray space-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-xl-9">
+                <div class="mb-5 shadow-soft bg-white rounded-sm">
+                    <div class="py-3 px-4 px-xl-12 border-bottom">
+                        <ul
+                            class="list-group flex-nowrap overflow-auto overflow-md-visble list-group-horizontal list-group-borderless flex-center-between pt-1">
+                            <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
+                                    1
                                 </div>
-                                <!-- End Tab Content -->
-                            </div>
-                        </div>
+                                <div class="text-gray-1">Informations du client</div>
+                            </li>
+                            <li class="list-group-item text-center flex-shrink-0 flex-xl-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 bg-primary border-width-2 border border-primary text-white mx-auto rounded-circle">
+                                    2
+                                </div>
+                                <div class="text-primary">Documents</div>
+                            </li>
+                            <li class="list-group-item text-center flex-shrink-0 flex-md-shrink-1">
+                                <div
+                                    class="flex-content-center mb-3 width-40 height-40 border  border-width-2 border-gray mx-auto rounded-circle">
+                                    3
+                                </div>
+                                <div class="text-gray-1">confirmation de la réservation</div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-lg-4 col-xl-3">
-                        <div class="shadow-soft bg-white rounded-sm">
-                            <div class="py-5 px-5 border-bottom">
-                                <a href="#" class="d-block mb-3">
-                                    <img class="img-fluid rounded-sm" src="{{url('travel/assets/img/240x160/img1.jpg')}}" alt="Image-Description">
-                                </a>
-                                <a href="#" class="text-dark font-weight-bold mb-1">Mercedes-Benz C 220</a>
-                                <div class="mb-1 flex-horizontal-center text-gray-1">
-                                    <i class="icon flaticon-pin-1 mr-2 font-size-15"></i> United Kingdom
+                    <div class="pt-4 pb-5 px-5">
+                        <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-4">
+                            SVP enregister votre Carte d'Identité et Permis de Conduire
+                        </h5>
+                        <!-- Contacts Form -->
+                        <form class="js-validate" method="POST" action="{{route('bookingStep3')}}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <input type="hidden" class="form-control" name="prenom" value="{{$prenom}}">
+                                <input type="hidden" class="form-control" name="nom" value="{{$nom}}">
+
+                                <input type="hidden" class="form-control" name="email" value="{{$email}}">
+                                <input type="hidden" class="form-control" name="tel" value="{{$tel}}">
+                                <input type="hidden" class="form-control" name="ville" value="{{$ville}}">
+                                <textarea hidden>{{$text}}</textarea>
+                                <input type="hidden" name="from" value={{$from}}>
+                                <input type="hidden" name="to" value={{$to}}>
+                                <input type="hidden" name="id" value={{$car->id}}>
+                                <input type="hidden" name="total" value="{{$total}}">
+
+                                {{-- <div  id="pic1" style="margin-top:20px;">
+                                                
+                                            </div>
+                                            <div class="col-sm-6 align-self-end" id="pic2" style="margin-top:20px;">
+                                                
+                                            </div> --}}
+                                <div class="col-sm-6 align-self-end text-center" style="margin-top:20px">
+                                    <label for=""> CIN</label>
+                                    <div class="file-upload" id="file-upload1">
+                                        <button class="file-upload-btn" id="file-upload-btn1" type="button"
+                                            onclick="$('#file-upload-input1').trigger( 'click' )">Ajouter une image</button>
+
+                                        <div class="image-upload-wrap" id="image-upload-wrap1">
+                                            <input class="file-upload-input" id="file-upload-input1" type='file'
+                                                name="cin" onchange="readURL1(this);" accept="image/*" />
+                                            <div class="drag-text">
+                                                <h3>Glisser-déposer un fichier ou sélectionner et Ajouter une image</h3>
+                                            </div>
+                                        </div>
+                                        <div class="file-upload-content" id="file-upload-content1">
+                                            <img class="file-upload-image" id="file-upload-image1" src="#"
+                                                alt="your image" />
+                                            <div class="image-title-wrap" id="image-title-wrap1">
+                                                <button type="button" onclick="removeUpload1()" class="remove-image"
+                                                    id="remove-image1">Supprimer <span class="image-title"
+                                                        id="image-title1">Image téléchargée</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 align-self-end text-center" style="margin-top:20px">
+                                    <label for=""> Permit de Conduire</label>
+                                    <div class="file-upload" id="file-upload2">
+                                        <button class="file-upload-btn" id="file-upload-btn2" type="button"
+                                            onclick="$('#file-upload-input2').trigger( 'click' )">Ajouter une Image</button>
+
+                                        <div class="image-upload-wrap" id="image-upload-wrap2">
+                                            <input class="file-upload-input" id="file-upload-input2" type='file'
+                                                name="permis" onchange="readURL2(this);" accept="image/*" />
+                                            <div class="drag-text">
+                                                <h3>Glisser-déposer un fichier ou sélectionner et Ajouter une image</h3>
+                                            </div>
+                                        </div>
+                                        <div class="file-upload-content" id="file-upload-content2">
+                                            <img class="file-upload-image" id="file-upload-image2" src="#"
+                                                alt="your image" />
+                                            <div class="image-title-wrap" id="image-title-wrap2">
+                                                <button type="button" onclick="removeUpload2()" class="remove-image"
+                                                    id="remove-image2">Supprimer <span class="image-title"
+                                                        id="image-title2">Image téléchargée</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Basics Accordion -->
-                            <div id="basicsAccordion">
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingOne">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseOne"
-                                                aria-expanded="true"
-                                                aria-controls="basicsCollapseOne">
-                                                Booking Detail
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseOne" class="collapse show"
-                                        aria-labelledby="basicsHeadingOne"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            <!-- Fact List -->
-                                            <ul class="list-unstyled font-size-1 mb-0 font-size-16">
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Date <br> 22/09/2019, 00:00 AM <br> 23/09/2019, 00:00 AM</span>
-                                                    <span class="text-secondary"><a href="#" class="text-underline">Edit</a></span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Car type</span>
-                                                    <span class="text-secondary">Hatchbacks</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Pick Up From</span>
-                                                    <span class="text-secondary">Los Angeles</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Drop Off To</span>
-                                                    <span class="text-secondary">California</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Est. Distance</span>
-                                                    <span class="text-secondary">50 kilometer</span>
-                                                </li>
-                                            </ul>
-                                            <!-- End Fact List -->
+                                    <div class="row" style="margin-top:20px">
+                                        <div class="col-md-6 ">
+                                            <a href="javascript:history.back()"
+                                                class="btn float-right bg-secondary  btn-wide rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3" style="color:white; border-bottom:2px solid rgb(247, 56, 56)"><i class="fa fa-arrow-left mr-2"></i>page précédente</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="submit"
+                                                class="btn btn-wide rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3" style="background-color: #D42B12; color:white; border-bottom:2px solid rgb(77, 77, 77)">page suivante <i class="fa fa-arrow-right"></i></button>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- End Card -->
+                                
 
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingTwo">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseTwo"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseTwo">
-                                                Extra
+                            
+                        </form>
+                        <!-- End Contacts Form -->
 
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseTwo" class="collapse"
-                                        aria-labelledby="basicsHeadingTwo"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingThree">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseThree"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseThree">
-                                                Coupon Code
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseThree" class="collapse show"
-                                        aria-labelledby="basicsHeadingThree"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0 pb-4">
-                                            <!-- Subscribe Form -->
-                                            <form class="js-focus-state">
-                                                <label class="sr-only" for="CouponCodeExample1">Coupon Code</label>
-                                                <div class="input-group">
-                                                    <input type="number" class="form-control" name="email" id="CouponCodeExample1" placeholder="" aria-label="" aria-describedby="CouponCodeExample2" required>
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-primary py-2" type="button" id="CouponCodeExample2">Apply</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <!-- End Subscribe Form -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-
-                                <!-- Card -->
-                                <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
-                                    <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour">
-                                        <h5 class="mb-0">
-                                            <button type="button" class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-17 font-weight-bold text-dark"
-                                                data-toggle="collapse"
-                                                data-target="#basicsCollapseFour"
-                                                aria-expanded="false"
-                                                aria-controls="basicsCollapseFour">
-                                                Payment
-
-                                                <span class="card-btn-arrow font-size-14 text-dark">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </span>
-                                            </button>
-                                        </h5>
-                                    </div>
-                                    <div id="basicsCollapseFour" class="collapse show"
-                                        aria-labelledby="basicsHeadingFour"
-                                        data-parent="#basicsAccordion">
-                                        <div class="card-body px-4 pt-0">
-                                            <!-- Fact List -->
-                                            <ul class="list-unstyled font-size-1 mb-0 font-size-16">
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Subtotal</span>
-                                                    <span class="text-secondary">€580,00</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Extra Price</span>
-                                                    <span class="text-secondary">€0,00</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2">
-                                                    <span class="font-weight-medium">Tax</span>
-                                                    <span class="text-secondary">0 %</span>
-                                                </li>
-
-                                                <li class="d-flex justify-content-between py-2 font-size-17 font-weight-bold">
-                                                    <span class="font-weight-bold">Pay Amount</span>
-                                                    <span class="">€580,00</span>
-                                                </li>
-                                            </ul>
-                                            <!-- End Fact List -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Card -->
-                            </div>
-                            <!-- End Basics Accordion -->
-                        </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <!-- ========== END MAIN CONTENT ========== -->
+            <div class="col-lg-4 col-xl-3">
+                <div class="shadow-soft bg-white rounded-sm">
+                    <div class="py-5 px-5 border-bottom">
+                        <a href="#" class="d-block mb-3">
+                            <img class="img-fluid rounded-sm" src="{{url('storage/cars/'.$car->photo)}}"
+                                alt="Image-Description">
+                        </a>
+                        <a href="#" class="text-dark font-weight-bold mb-1">{{$car->title}}</a>
+                        <div class="mb-1 flex-horizontal-center text-gray-1">
+                            <i class="icon flaticon-browser-1 mr-2 font-size-15"></i> Modele: {{$car->modele}} /
+                            category: {{$car->categorie}}
+                        </div>
+                    </div>
+                    <!-- Basics Accordion -->
+                    <div id="basicsAccordion">
+                        <!-- Card -->
+                        <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
+                            <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingOne">
+                                <h5 class="mb-0">
+                                    <button type="button"
+                                        class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                        Details de reseravtion
+                                    </button>
+                                </h5>
+                            </div>
+                            <div>
+                                <div class="card-body px-4 pt-0">
+                                    <!-- Fact List -->
+                                    <ul class="list-unstyled font-size-1 mb-0 font-size-16">
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Modele</span>
+                                            <span class="text-secondary">{{$car->modele}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">categorie</span>
+                                            <span class="text-secondary">{{$car->categorie}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">nombre de porte</span>
+                                            <span class="text-secondary">{{$car->portes}}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Passagers</span>
+                                            <span class="text-secondary">{{$car->passagers}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Vitesse</span>
+                                            <span class="text-secondary">{{$car->boite_vitesses}}</span>
+                                        </li>
+                                    </ul>
+                                    <!-- End Fact List -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+
+
+
+
+
+                        <!-- Card -->
+                        <div class="card rounded-0 border-top-0 border-left-0 border-right-0">
+                            <div class="card-header card-collapse bg-transparent border-0" id="basicsHeadingFour"
+                                style="margin-top: -30px;">
+                                <h5 class="mb-0">
+                                    <button type="button"
+                                        class="btn btn-link border-0 btn-block d-flex justify-content-between card-btn py-3 px-4 font-size-20 font-weight-bold text-dark">
+                                        paiement
+                                    </button>
+                                </h5>
+                            </div>
+                            <div>
+                                <div class="card-body px-4 pt-0">
+                                    <!-- Fact List -->
+                                    <ul class="list-unstyled font-size-1 mb-0 font-size-16">
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Prix par jour</span>
+                                            <span class="text-secondary">{{$car->prix_location}} MAD</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2">
+                                            <span class="font-weight-medium">Nombre de jours</span>
+                                            @php
+                                            $date1 = $from;
+                                            $date2 = $to;
+                                            $diff = strtotime($date2) - strtotime($date1);
+                                            $diff=round($diff / 86400);
+                                            $price=$diff*$car->prix_location
+                                            @endphp
+
+                                            <span class="text-secondary">{{$diff}}</span>
+                                        </li>
+
+                                        <li class="d-flex justify-content-between py-2 font-size-17 font-weight-bold">
+                                            <span class="font-weight-bold">Total</span>
+                                            <span class="">{{$price}} MAD</span>
+                                        </li>
+                                    </ul>
+                                    <!-- End Fact List -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Card -->
+                    </div>
+                    <!-- End Basics Accordion -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
 <!-- JS Implementing Plugins -->
 <script src="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
 <script src="{{url('travel/assets/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
@@ -459,7 +407,8 @@
 <script src="{{url('travel/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
 <script src="{{url('travel/assets/vendor/custombox/dist/custombox.min.js')}}"></script>
 <script src="{{url('travel/assets/vendor/custombox/dist/custombox.legacy.min.js')}}"></script>
-<script src="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
+</script>
 
 <!-- JS MyTravel -->
 <script src="{{url('travel/assets/js/hs.core.js')}}"></script>
@@ -476,6 +425,7 @@
 <script src="{{url('travel/assets/js/components/hs.g-map.js')}}"></script>
 <script src="{{url('travel/assets/js/components/hs.modal-window.js')}}"></script>
 <script src="{{url('travel/assets/js/components/hs.malihu-scrollbar.js')}}"></script>
+<script src="{{url('assets2/pic-repeater/pic-repeater.js')}}"></script>
 
 <!-- JS Plugins Init. -->
 <script>
@@ -489,13 +439,13 @@
         });
 
         // Page preloader
-        setTimeout(function() {
-          $('#jsPreloader').fadeOut(500)
+        setTimeout(function () {
+            $('#jsPreloader').fadeOut(500)
         }, 800);
     });
 
     $(document).on('ready', function () {
-        
+
         // initialization of datepicker
         $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
 
@@ -517,6 +467,75 @@
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
     });
+
+</script>
+<script>
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image-upload-wrap1').hide();
+
+                $('#file-upload-image1').attr('src', e.target.result);
+                $('#file-upload-content1').show();
+
+                $('#image-title1').html(input.files[0].name);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+
+        } else {
+            removeUpload1();
+        }
+    }
+
+    function removeUpload1() {
+        $('#file-upload-input1').replaceWith($('.file-upload-input').clone());
+        $('#file-upload-content1').hide();
+        $('#image-upload-wrap1').show();
+    }
+    $('#image-upload-wrap1').bind('dragover', function () {
+        $('#image-upload-wrap1').addClass('image-dropping');
+    });
+    $('#image-upload-wrap1').bind('dragleave', function () {
+        $('#image-upload-wrap1').removeClass('image-dropping');
+    });
+
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image-upload-wrap2').hide();
+
+                $('#file-upload-image2').attr('src', e.target.result);
+                $('#file-upload-content2').show();
+
+                $('#image-title2').html(input.files[0].name);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+
+        } else {
+            removeUpload2();
+        }
+    }
+
+    function removeUpload2() {
+        $('#file-upload-input2').replaceWith($('.file-upload-input').clone());
+        $('#file-upload-content2').hide();
+        $('#image-upload-wrap2').show();
+    }
+    $('#image-upload-wrap2').bind('dragover', function () {
+        $('#image-upload-wrap2').addClass('image-dropping');
+    });
+    $('#image-upload-wrap2').bind('dragleave', function () {
+        $('#image-upload-wrap2').removeClass('image-dropping');
+    });
+
 </script>
 
 @endsection

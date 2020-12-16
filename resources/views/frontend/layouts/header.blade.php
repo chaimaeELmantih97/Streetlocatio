@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xs-12"> 
-                    <a href="index.html" class="logo"> 
+                    <a href="{{route('home')}}" class="logo"> 
                     @php
                         $settings=DB::table('settings')->get();
                     @endphp  
@@ -45,8 +45,9 @@
                             <a href="javascript:void(0);" class="navbar-brand"></a> </div>
                         <div id="navbar-collapse-1" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="home.html">HOME</a></li>
-                                <li><a href="vehicle-listings.html">A propos de nous</a> </li>
+                                <li><a href="{{route('home')}}">HOME</a></li>
+                                <li><a href="{{route('car-grids')}}">Liste des vehicules</a></li>
+                                <li><a href="{{route('about-us')}}">A propos de nous</a> </li>
                                 <li><a href="car-details.html">Contact</a></li>
                                 <li class="dropdown"><a href="#"><i class="fa fa-user mr-2"></i> </a>
                                   <ul role="menu" class="dropdown-menu">
@@ -56,7 +57,7 @@
                                             target="_blank"><i class="fa fa-user mr-2"></i> Tableu de bord</a></li>
                                     @else
                                     <li > <a 
-                                            href=""
+                                            href="{{route('user')}}"
                                             target="_blank"><i class="fa fa-user mr-2"></i> Tableu dee bord</a></li>
                                     @endif
                                     <li> <a 
@@ -65,7 +66,10 @@
     
                                     @else
                                     <li > <a 
-                                            href="{{route('login.form')}}"><i class="fa fa-user mr-2"></i> s'identifier / s'enregister</a>
+                                            href="{{route('login.form')}}"><i class="fa fa-user mr-2"></i> s'identifier</a>
+                                    </li>
+                                    <li > <a 
+                                        href="{{route('login.form')}}"><i class="fa fa-user mr-2"></i> s'enregister</a>
                                     </li>
                                     @endauth
                                   </ul>

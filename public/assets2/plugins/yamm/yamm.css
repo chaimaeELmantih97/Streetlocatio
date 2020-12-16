@@ -102,8 +102,8 @@
 	position: relative;
 }
 .yamm .dropdown-menu {
-    padding: 0;
-    left: auto;
+	padding: 0;
+    left: 360px;
     background: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 0;

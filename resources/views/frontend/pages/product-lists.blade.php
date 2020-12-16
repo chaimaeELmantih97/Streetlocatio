@@ -1303,6 +1303,7 @@
                                                     <input type="hidden" name="from" id="" value="{{$from}}">
                                                     <input type="hidden" name="to" value="{{$to}}">
                                                     <button class="btn" type="submit" style="background-color:#DC2D13;cursor:pointer; font-size:14px; color:#fdfdfd; "><i class="fa fa-bookmark" aria-hidden="true"></i> Réserver</button>
+                                                    
                                                 </form>
                                                 
                                             </div>
