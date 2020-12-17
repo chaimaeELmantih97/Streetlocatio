@@ -9,7 +9,7 @@ class DemandeReservation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'demande_numero','prenom', 'nom', 'email', 'tel', 'ville', 'cin', 'permis', 'from', 'to', 'car_id','total'
+        'demande_numero','prenom', 'nom', 'email', 'tel', 'ville', 'cin', 'permis', 'from', 'to', 'car_id','total','status'
     ];
 
 

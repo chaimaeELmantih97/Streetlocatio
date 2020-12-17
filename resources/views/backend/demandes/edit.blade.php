@@ -78,12 +78,11 @@
                 <label>Catégorie</label>
                 <select class="form-control custom-select @error('categorie') is-invalid @enderror" name="categorie" required>
                     <option>Choisissez une catégorie</option>
-                    <option value="voitures de luxe" @if($voiture->categorie == 'voitures de luxe') selected @endif>voitures de luxe</option>
-                    <option value="motorcycles" @if($voiture->categorie == 'motorcycles') selected @endif>motorcycles</option>
-                    <option value="voitures sportives" @if($voiture->categorie == 'voitures sportives') selected @endif>voitures sportives</option>
-                    <option value="camionnettes" @if($voiture->categorie == 'camionnettes') selected @endif>camionnettes</option>
-                    <option value="voitures suvs" @if($voiture->categorie == 'voitures suvs') selected @endif>voitures suvs</option>
-                    <option value="camions" @if($voiture->categorie == 'camions') selected @endif>camions</option>
+                    <option value="cec" @if($voiture->categorie == 'cec') selected @endif>Citadine et compacte</option>
+                    <option value="pre" @if($voiture->categorie == 'pre') selected @endif>Premium</option>
+                    <option value="fem" @if($voiture->categorie == 'fem') selected @endif>Familiale et minibus</option>
+                    <option value="uti" @if($voiture->categorie == 'uti') selected @endif>Utilitaire</option>
+                    <option value="suv" @if($voiture->categorie == 'suv') selected @endif>SUV et 4x4</option>
                 </select>
                     
                 @error('categorie')

@@ -3,243 +3,150 @@
 @section('title','E-Shop || Login Page')
 
 @section('main-content')
-<!-- Breadcrumbs -->
+
 <style>
-    img {
-        max-width: 100%;
+    .login-container {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
     }
 
-    ::-moz-selection {
-        background: #19b9e7;
-        color: #fff;
-        text-shadow: none;
+    .login-logo {
+        position: relative;
+        margin-left: -41.5%;
     }
 
-    ::selection {
-        background: #19b9e7;
-        color: #fff;
-        text-shadow: none;
+    .login-logo img {
+        position: absolute;
+        width: 20%;
+        margin-top: 25%;
+        background: #282726;
+        border-radius: 4.5rem;
+        padding: 5%;
     }
 
-
-    .btn-link-1 {
-        display: inline-block;
-        height: 50px;
-        margin: 5px;
-        padding: 16px 20px 0 20px;
-        background: #19b9e7;
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 16px;
-        color: #fff;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
+    .login-form-1 {
+        padding: 9%;
+        background: #282726;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        height: 100vh;
     }
 
-    .btn-link-1:hover,
-    .btn-link-1:focus,
-    .btn-link-1:active {
-        outline: 0;
-        opacity: 0.6;
+    .login-form-1 h3 {
+        margin-top: 20%;
+        text-align: center;
+        margin-bottom: 12%;
         color: #fff;
     }
 
-    .btn-link-1.btn-link-1-facebook {
-        background: #4862a3;
+    .login-form-2 {
+        padding: 9%;
+        background: #D42B12;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        height: 100vh;
     }
 
-    .btn-link-1.btn-link-1-twitter {
-        background: #000000;
-    }
-
-    .btn-link-1.btn-link-1-google-plus {
-        background: #dd4b39;
-    }
-
-    .btn-link-1 i {
-        padding-right: 5px;
-        vertical-align: middle;
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    .btn-link-2 {
-        display: inline-block;
-        height: 50px;
-        margin: 5px;
-        padding: 15px 20px 0 20px;
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid #fff;
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 16px;
-        color: #fff;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-    }
-
-    .btn-link-2:hover,
-    .btn-link-2:focus,
-    .btn-link-2:active,
-    .btn-link-2:active:focus {
-        outline: 0;
-        opacity: 0.6;
-        background: rgba(0, 0, 0, 0.3);
+    .login-form-2 h3 {
+        margin-top: 20%;
+        text-align: center;
+        margin-bottom: 12%;
         color: #fff;
     }
 
-
-    /***** Top content *****/
-
-    .inner-bg {
-        padding: 60px 0 80px 0;
+    .btnSubmit {
+        font-weight: 600;
+        width: 50%;
+        color: #282726;
+        background-color: #fff;
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
     }
 
-    .top-content .description {
-        margin: 20px 0 10px 0;
+    .btnForgetPwd {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
     }
 
-    .top-content .description a:hover,
-    .top-content .description a:focus {
-        border-bottom: 1px dotted #19b9e7;
+    .btnForgetPwd:hover {
+        text-decoration: none;
+        color: #fff;
     }
 
-    .form-box {
-        margin-top: 10px;
+    .logomovement{
+        animation: slidein 1s ease-in infinite ;
     }
-
-    .form-top {
-        overflow: hidden;
-        padding: 0 25px 15px 25px;
-        background: #f3f3f3;
-        -moz-border-radius: 4px 4px 0 0;
-        -webkit-border-radius: 4px 4px 0 0;
-        border-radius: 4px 4px 0 0;
-        text-align: left;
-    }
-
-    .form-top-left {
-        float: left;
-        width: 75%;
-        padding-top: 25px;
-    }
-
-    .form-top-left h3 {
-        margin-top: 0;
-    }
-
-    .form-top-right {
-        float: left;
-        width: 25%;
-        padding-top: 5px;
-        font-size: 66px;
-        color: #ddd;
-        line-height: 100px;
-        text-align: right;
-    }
-
-    .form-bottom {
-        padding: 25px 25px 30px 25px;
-        background: #eee;
-        -moz-border-radius: 0 0 4px 4px;
-        -webkit-border-radius: 0 0 4px 4px;
-        border-radius: 0 0 4px 4px;
-        text-align: left;
-    }
-
-    .form-bottom form textarea {
-        height: 100px;
-    }
-
-    .form-bottom form button.btn {
-        width: 100%;
-    }
-
-    .form-bottom form .input-error {
-        border-color: #19b9e7;
-    }
-
-    .social-login {
-        margin-top: 35px;
-    }
-
-    .social-login-buttons {
-        margin-top: 25px;
-    }
-
-    .middle-border {
-        min-height: 300px;
-        margin-top: 170px;
-        border-right: 1px solid #ddd;
-    }
-
-
-    /***** Footer *****/
-
-    footer {
-        padding-bottom: 70px;
-    }
-
-    footer .footer-border {
-        width: 200px;
-        margin: 0 auto;
-        padding-bottom: 30px;
-        border-top: 1px solid #ddd;
-    }
-
-    footer a:hover,
-    footer a:focus {
-        border-bottom: 1px dotted #19b9e7;
-    }
-
-
-    /***** Media queries *****/
-
-    @media (min-width: 992px) and (max-width: 1199px) {}
-
-    @media (min-width: 768px) and (max-width: 991px) {}
-
-    @media (max-width: 767px) {
-
-        .middle-border {
-            min-height: auto;
-            margin: 65px 30px 0 30px;
-            border-right: 0;
-            border-top: 1px solid #ddd;
+    @keyframes slidein {
+        0% {
+            margin-left: 0px;
         }
 
-    }
-
-    @media (max-width: 415px) {
-
-        h1,
-        h2 {
-            font-size: 32px;
+        50% {
+            margin-left: 10px;
         }
 
+        100% {
+            margin-left: 0px;
+        }
     }
-
 </style>
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-wrap">
-                    <nav aria-label="breadcrumb">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Login / Register</li>
-                        </ul>
-                    </nav>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>S'identifier</h3>
+            <form role="form" id="login" method="post" action="{{route('login.submit')}}" class="login-form">
+                @csrf
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" value="{{old('email')}}"
+                        placeholder="L'Email..." />
                 </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" required placeholder="Mot de Passe..."
+                        value="{{old('password')}}" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btnForgetPwd">Forget Password?</a>
+                </div>
+            </form>
+
+        </div>
+        <div class="col-md-6 login-form-2">
+            @php
+            $settings=DB::table('settings')->get();
+            @endphp
+            @foreach($settings as $data)
+
+            <div class="login-logo">
+                <img src="{{url('storage/settings/'.$data->logo)}}" class="logomovement" alt="" />
             </div>
+            @endforeach
+
+            <h3>s'inscrire</h3>
+            <form role="form" id="login" method="post" action="{{route('register.submit')}}"class="login-form">
+                @csrf
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" value="{{old('name')}}"
+                        placeholder="Nom et prenom..." />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" value="{{old('email')}}"
+                        placeholder="L'Email..." />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" required placeholder="Mot de Passe..."
+                        value="{{old('password')}}" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="register" />
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- End Breadcrumbs -->
-
 <div class="top-content">
 
     <div class="inner-bg">
@@ -262,8 +169,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="sr-only" for="form-username">Username</label>
-                                    <input type="text" name="email" required placeholder="Username..."
-                                        value="{{old('email')}}" class="form-username form-control" id="form-username">
+                                    <input type="text" name="email" value="{{old('email')}}" required
+                                        placeholder="Username..." class="form-username form-control" id="form-username">
                                     {{-- <input type="email"  placeholder="" required="" > --}}
                                     @error('email')
                                     <span class="text-danger">{{$message}}</span>
@@ -279,7 +186,8 @@
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <button type="submit"  class="btn">{{__('messages.Log3',[],Session::get('locale'))}}</button>
+                                <button type="submit"
+                                    class="btn">{{__('messages.Log3',[],Session::get('locale'))}}</button>
                             </form>
                         </div>
                     </div>
@@ -305,7 +213,7 @@
                 {{-- <div class="col-sm-1 middle-border"></div>
                 <div class="col-sm-1"></div> --}}
 
-                
+
             </div>
 
         </div>

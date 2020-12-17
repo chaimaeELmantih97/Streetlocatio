@@ -27,6 +27,7 @@ class CreateDemandeReservationsTable extends Migration
             $table->date('to');
             $table->unsignedBigInteger('total');
             $table->unsignedBigInteger('car_id');
+            $table->enum('status',['nouvel','validée','annulée'])->default('nouvel');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('CASCADE');
             $table->timestamps();
         });

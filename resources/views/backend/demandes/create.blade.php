@@ -77,12 +77,11 @@
         <label>Catégorie</label>
         <select class="form-control custom-select mb-3 @error('categorie') is-invalid @enderror" name="categorie" value="{{ old('categorie') }}" required autocomplete="categorie">
             <option selected>Choisissez une catégorie</option>
-            <option value="voitures de luxe">voitures de luxe</option>
-            <option value="motorcycles">motorcycles</option>
-            <option value="voitures sportives">voitures sportives</option>
-            <option value="voitures suvs">voitures suvs</option>
-            <option value="camionnettes">camionnettes</option>
-            <option value="camions">camions</option>
+            <option value="cec">Citadine et compacte</option>
+            <option value="pre">Premium</option>
+            <option value="fem">Familiale et minibus</option>
+            <option value="uti">Utilitaire</option>
+            <option value="suv">SUV et 4x4</option>
         </select>
             
         @error('categorie')

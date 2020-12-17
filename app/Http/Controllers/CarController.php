@@ -102,8 +102,16 @@ class CarController extends Controller
     }
 
     public function AvailableCars(Request $request){
+        // dd($request->all());
         $from=explode("/",$request->from)[2].'-'.explode("/",$request->from)[1].'-'.explode("/",$request->from)[0];
         $to=explode("/",$request->to)[2].'-'.explode("/",$request->to)[1].'-'.explode("/",$request->to)[0];
+        $today=date("Y-m-d");
+        // dd($from,$to,$today);
+        if($from>=$to || $from<=$today || $to<=$today){
+            toastr()->warning("assurez-vous d'entrer des données valides SVP!");
+            // return redirect()->route('home');
+            return back();
+        }
         $unavailables=Unavailable::where('from','=',$from)->where('to','=',$to)->get();
         // $unavailables2=Unavailable::all();
         // dd($unavailables,$from,$to);
@@ -122,7 +130,7 @@ class CarController extends Controller
         if(count($unavailables)<=0){
             $AvailableCars=$cars;
         }
-        $AvailableCars=$this->paginate($AvailableCars);
+        // $AvailableCars=$this->paginate($AvailableCars);
         return view('frontend.pages.product-lists')->with('cars',$AvailableCars)->with('from',$from)->with('to',$to)->with('ville',$request->ville);
     }
 
@@ -137,7 +145,7 @@ class CarController extends Controller
         ->get();
         if(count($unavailable)<=0){
         $car=Car::find($request->id);
-        return view('frontend.pages.booking1')->with('car',$car)->with('from',$request->car)->with('to',$request->to)->with('url',$url);
+        return view('frontend.pages.booking1')->with('car',$car)->with('from',$from)->with('to',$to)->with('url',$url);
         }else{
             // toastr()->danger("cette vehicule n'est pas disponible pendant cette période");
             // toastr()->warning("cette vehicule n'est pas disponible pendant cette période");

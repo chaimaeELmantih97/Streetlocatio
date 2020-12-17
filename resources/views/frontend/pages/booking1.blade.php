@@ -79,16 +79,67 @@
                         <form class="js-validate" method="POST" action="{{route('bookingStep2')}}">
                             @csrf
                             <div class="row">
+                                @if (Auth::check())
                                 <!-- Input -->
+                                @php
+                                $nomC=explode (' ' ,Auth::user()->name);
+                                $nom=$nomC[0];
+                                $prenom=$nomC[1];
+                                @endphp
                                 <div class="col-sm-6 mb-4">
                                     <div class="js-form-message">
                                         <label class="form-label">
                                             Prénom
                                         </label>
-
                                         <input type="text" class="form-control" name="prenom" placeholder="prénom"
                                             aria-label="prenom" required data-msg="Please enter your first name."
-                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            value="{{$nom}}">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Nom
+                                        </label>
+
+                                        <input type="text" class="form-control" name="nom" placeholder="Nom"
+                                            aria-label="Nom" required data-msg="Please enter your last name."
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            value="{{$prenom}}">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Input -->
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Email
+                                        </label>
+
+                                        <input type="email" class="form-control" name="email" placeholder="Email"
+                                            aria-label="creativelayers088@gmail.com" required
+                                            data-msg="Please enter a valid email address."
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            value="{{Auth::user()->email}}">
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                @else
+                                <div class="col-sm-6 mb-4">
+                                    <div class="js-form-message">
+                                        <label class="form-label">
+                                            Prénom
+                                        </label>
+                                        <input type="text" class="form-control" name="prenom" placeholder="prénom"
+                                            aria-label="prenom" required data-msg="Please enter your first name."
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            >
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -122,6 +173,8 @@
                                 </div>
                                 <!-- End Input -->
 
+
+                                @endif
                                 <!-- Input -->
                                 <div class="col-sm-6 mb-4">
                                     <div class="js-form-message">
@@ -136,7 +189,6 @@
                                     </div>
                                 </div>
                                 <!-- End Input -->
-
                                 <div class="w-100"></div>
                                 <!-- Input -->
                                 <div class="col-sm-6 mb-4">
@@ -156,7 +208,7 @@
                                     <!-- Input -->
                                     <div class="js-form-message mb-6">
                                         <label class="form-label">
-                                            Special Requirements
+                                            Exigences particulières
                                         </label>
 
                                         <div class="input-group">
@@ -168,13 +220,13 @@
                                     </div>
                                     <!-- End Input -->
                                 </div>
-                                            @php
-                                            $date1 = $from;
-                                            $date2 = $to;
-                                            $diff = strtotime($date2) - strtotime($date1);
-                                            $diff=round($diff / 86400);
-                                            $price=$diff*$car->prix_location
-                                            @endphp
+                                @php
+                                $date1 = $from;
+                                $date2 = $to;
+                                $diff = strtotime($date2) - strtotime($date1);
+                                $diff=round($diff / 86400);
+                                $price=$diff*$car->prix_location
+                                @endphp
 
                                 <input type="hidden" name="from" value={{$from}}>
                                 <input type="hidden" name="to" value={{$to}}>
@@ -185,12 +237,11 @@
 
                                 <!-- End Input -->
 
-                                <div class="col-sm-6 align-self-end">
-                                    <div class="text-right">
-                                        <button type="submit"
-                                            class="btn btn-danger btn-wide rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3">NEXT
-                                            PAGE</button>
-                                    </div>
+                                <div class="col-md-12 float-left">
+                                    <button type="submit"
+                                        class="btn btn-wide  float-left rounded-sm transition-3d-hover font-size-16 font-weight-bold py-3"
+                                        style="background-color: #D42B12; color:white; border-bottom:2px solid rgb(77, 77, 77)"
+                                        type="submit">page suivante <i class="fa fa-arrow-right"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -283,7 +334,7 @@
 
                                         <li class="d-flex justify-content-between py-2">
                                             <span class="font-weight-medium">Nombre de jours</span>
-                                            
+
                                             <span class="text-secondary">{{$diff}}</span>
                                         </li>
 

@@ -5,6 +5,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Models\Message;
 use App\Events\MessageSent;
+use Helper;
 class MessageController extends Controller
 {
     /**
@@ -62,7 +63,10 @@ class MessageController extends Controller
         $data['photo']=Auth()->user()->photo;
         // return $data;    
         event(new MessageSent($data));
+        toastr()->success("Merci !");
+        return back();
         exit();
+
     }
 
     /**

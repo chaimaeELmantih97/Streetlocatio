@@ -66,13 +66,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#productCollapse" aria-expanded="true" aria-controls="productCollapse">
           <i class="fas fa-cubes"></i>
-          <span>cars</span>
+          <span>Vehicules</span>
         </a>
         <div id="productCollapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Car Options:</h6>
-            <a class="collapse-item" href="{{route('cars.index')}}">cars</a>
-            <a class="collapse-item" href="{{route('cars.create')}}">Add Car</a>
+            <h6 class="collapse-header">Options:</h6>
+            <a class="collapse-item" href="{{route('cars.index')}}">Liste des vehicules</a>
+            <a class="collapse-item" href="{{route('cars.create')}}">Ajouter une vehicule</a>
           </div>
         </div>
 
@@ -120,9 +120,9 @@
 
     <!--Orders -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('order.index')}}">
+        <a class="nav-link" href="{{route('demandes.index')}}">
             <i class="fas fa-hammer fa-chart-area"></i>
-            <span>Orders</span>
+            <span>Demandes de reservation</span>
         </a>
     </li>
         <!-- Divider -->

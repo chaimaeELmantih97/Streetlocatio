@@ -20,7 +20,7 @@ Route::get('/clear', function() {
     return "Cleared!";
 });
 
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('user/login',[App\http\Controllers\FrontendController::class,'login'])->name('login.form');
 Route::post('user/login',[App\http\Controllers\FrontendController::class,'loginSubmit'])->name('login.submit');
@@ -59,6 +59,7 @@ Route::post('bookingStep1',[App\http\Controllers\CarController::class,'booking1'
 Route::post('bookingStep2',[App\http\Controllers\CarController::class,'booking2'])->name('bookingStep2');
 Route::post('bookingStep3',[App\http\Controllers\CarController::class,'booking3'])->name('bookingStep3');
 Route::match(['get','post'],'/filter',[App\http\Controllers\FrontendController::class,'carFilter'])->name('shop.filter');
+Route::match(['get','post'],'/filterCategory',[App\http\Controllers\FrontendController::class,'carFilter2'])->name('filter');
 
 // Blog
 Route::get('/blog',[App\http\Controllers\FrontendController::class,'blog'])->name('blog');
@@ -99,6 +100,9 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
     Route::post('/profile/{id}',[App\http\Controllers\AdminController::class,'profileUpdate'])->name('profile-update');
     // car
     Route::resource('/cars',App\http\Controllers\CarController::class);
+      // demande
+      Route::resource('/demandes',App\http\Controllers\DemandeReservationController::class);
+      Route::get('demande/pdf/{id}',[App\http\Controllers\DemandeReservationController::class,'pdf'])->name('demande.pdf');
    
     // POST category
     Route::resource('/post-category',App\http\Controllers\PostCategoryController::class);
@@ -136,29 +140,29 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 
 // User section start
-// Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
-//     Route::get('/','HomeController@index')->name('user');
+Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+    Route::get('/','HomeController@index')->name('user');
      // Profile
-    //  Route::get('/profile','HomeController@profile')->name('user-profile');
-    //  Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
+     Route::get('/profile','HomeController@profile')->name('user-profile');
+     Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
     //  Order
-    // Route::get('/order',"HomeController@orderIndex")->name('user.order.index');
-    // Route::get('/order/show/{id}',"HomeController@orderShow")->name('user.order.show');
-    // Route::delete('/order/delete/{id}','HomeController@userOrderDelete')->name('user.order.delete');
+    Route::get('/order',"HomeController@orderIndex")->name('user.order.index');
+    Route::get('/order/show/{id}',"HomeController@orderShow")->name('user.order.show');
+    Route::delete('/order/delete/{id}','HomeController@userOrderDelete')->name('user.order.delete');
     // car Review
-    // Route::get('/user-review','HomeController@carReviewIndex')->name('user.carreview.index');
-    // Route::delete('/user-review/delete/{id}','HomeController@carReviewDelete')->name('user.carreview.delete');
-    // Route::get('/user-review/edit/{id}','HomeController@carReviewEdit')->name('user.carreview.edit');
-    // Route::patch('/user-review/update/{id}','HomeController@carReviewUpdate')->name('user.carreview.update');
+    Route::get('/user-review','HomeController@carReviewIndex')->name('user.carreview.index');
+    Route::delete('/user-review/delete/{id}','HomeController@carReviewDelete')->name('user.carreview.delete');
+    Route::get('/user-review/edit/{id}','HomeController@carReviewEdit')->name('user.carreview.edit');
+    Route::patch('/user-review/update/{id}','HomeController@carReviewUpdate')->name('user.carreview.update');
     
     // Post comment
-    // Route::get('user-post/comment','HomeController@userComment')->name('user.post-comment.index');
-    // Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
-    // Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
-    // Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
+    Route::get('user-post/comment','HomeController@userComment')->name('user.post-comment.index');
+    Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
+    Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
+    Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
     
     // Password Change
-    // Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
-    // Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');
+    Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
+    Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');
 
-// });
+});

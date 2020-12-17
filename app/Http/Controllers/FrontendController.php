@@ -125,7 +125,7 @@ class FrontendController extends Controller
         // Sort by name , price, category
 
       
-        return view('frontend.pages.Car-grids')->with('cars',$cars)->with('recent_products',$recent_products);
+        return view('frontend.pages.product-grids')->with('cars',$cars)->with('recent_products',$recent_products);
     }
     public function carLists(){
         $cars=Car::query();
@@ -177,55 +177,77 @@ class FrontendController extends Controller
     }
 
    
-    public function productFilter(Request $request){
+    public function carFilter(Request $request){
+
             $data= $request->all();
-            // dd($data);
-            $showURL="";
-            if(!empty($data['show'])){
-                $showURL .='&show='.$data['show'];
-            }
-
-            $sortByURL='';
-            if(!empty($data['sortBy'])){
-                $sortByURL .='&sortBy='.$data['sortBy'];
-            }
-
-            $catURL="";
-            if(!empty($data['category'])){
-                foreach($data['category'] as $category){
-                    if(empty($catURL)){
-                        $catURL .='&category='.$category;
-                    }
-                    else{
-                        $catURL .=','.$category;
-                    }
-                }
-            }
-
-            $brandURL="";
-            if(!empty($data['brand'])){
-                foreach($data['brand'] as $brand){
-                    if(empty($brandURL)){
-                        $brandURL .='&brand='.$brand;
-                    }
-                    else{
-                        $brandURL .=','.$brand;
-                    }
-                }
-            }
-            // return $brandURL;
-
-            $priceRangeURL="";
-            if(!empty($data['price_range'])){
-                $priceRangeURL .='&price='.$data['price_range'];
-            }
-            if(request()->is('e-shop.loc/Car-grids')){
-                return redirect()->route('Car-grids',$catURL.$brandURL.$priceRangeURL.$showURL.$sortByURL);
-            }
-            else{
-                return redirect()->route('Car-lists',$catURL.$brandURL.$priceRangeURL.$showURL.$sortByURL);
-            }
+            $cars=Car::where('status', 'active')
+            ->whereBetween('prix_location', [$request->price1, $request->price2])
+            ->get();
+            return view('frontend.pages.product-grids')->with('cars',$cars);
     }
+    public function carFilter2(Request $request){
+        // "Luxe" => "voitures de luxe"
+        // "motorcycles" => "motorcycles"
+        // "voitures_sportives" => "voitures sportives"
+        // "voitures_suvs" => "voitures suvs"
+        // "camionnettes" => "camionnettes"
+        // "camions" => "camions"
+        $cars=null;
+        $data= $request->all();
+        if($request->Luxe!=null){
+            $cars=Car::where('categorie', $request->Luxe)
+            ->get();
+        }
+
+        if($request->motorcycles!=null){
+            $cars2=Car::where('categorie',$request->motorcycles)
+            ->get();
+            if($cars!=null){
+                $cars= $cars->concat($cars2);
+            }else{
+                $cars=$cars2;
+            } 
+        }
+        if($request->voitures_sportives!=null){
+            $cars3=Car::where('categorie',$request->voitures_sportives)
+            ->get();
+            if($cars!=null){
+            $cars= $cars->concat($cars3);
+            }else{
+                $cars=$cars3;
+            }
+        }
+
+        if($request->voitures_suvs!=null){
+            $cars4=Car::where('categorie',$request->voitures_suvs)
+            ->get();
+            if($cars!=null){
+                 $cars= $cars->concat($cars4);
+            }else{
+                $cars=$cars4;
+            }
+        }
+        if($request->camionnettes!=null){
+            $cars5=Car::where('categorie',$request->camionnettes)
+            ->get();
+            if($cars!=null){
+                $cars= $cars->concat($cars5);
+           }else{
+               $cars=$cars5;
+           }
+        }
+        if($request->camions!=null){
+            $cars6=Car::where('categorie',$request->camions)
+            ->get();
+            if($cars!=null){
+                $cars= $cars->concat($cars6);
+           }else{
+               $cars=$cars6;
+           }
+        }
+        return view('frontend.pages.product-grids')->with('cars',$cars);
+}
+
     public function CarSearch(Request $request){
         $recent_products=Car::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $cars=Car::orwhere('title','like','%'.$request->search.'%')

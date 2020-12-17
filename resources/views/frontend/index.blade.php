@@ -908,35 +908,37 @@
       <!-- end row -->
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-          <form class="form-contact" action="post">
+          <form class="form-contact" method="post" action="{{route('contact.store')}}" id="contactForm" novalidate="novalidate">
+            @csrf
             <div class="row">
               <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="First Name" required>
+                <input class="form-control" type="text" placeholder="First Name" required name="name">
               </div>
-              <!-- end col -->
               <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="Last Name" required>
+                <input class="form-control" type="text" name="phone" placeholder="Phone No." required>
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
             <div class="row">
               <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="Phone No." required>
+                <input class="form-control" type="email"  name="email" placeholder="Email" required>
+              </div>
+
+              <div class="col-sm-6">
+                <input class="form-control" type="text" name="subject" placeholder="Subject" required>
               </div>
               <!-- end col -->
-              <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="Subject" required>
-              </div>
+              
               <!-- end col -->
             </div>
             <!-- end row -->
             <div class="row">
               <div class="col-xs-12">
-                <textarea class="form-control" placeholder="Message Details ..." required rows="7"></textarea>
+                <textarea class="form-control" name="message" placeholder="Message Details ..." required rows="7"></textarea>
                 <div class="btn">
                   <div class="wrap__btn-skew-r">
-                    <button class="btn-skew-r btn-effect "><span class="btn-skew-r__inner">send
+                    <button class="btn-skew-r btn-effect " type="submit"><span class="btn-skew-r__inner">send
                         message</span></button>
                   </div>
                 </div>

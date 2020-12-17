@@ -3,593 +3,496 @@
 @section('title','E-SHOP || Car PAGE')
 
 @section('main-content')
+    <!-- Google Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
+
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
+<link rel="stylesheet"
+    href="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/fancybox/jquery.fancybox.css')}}">
+<link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/documentation/assets/vendor/prism/prism.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/slick-carousel/slick/slick.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/dzsparallaxer/dzsparallaxer.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/custombox/dist/custombox.min.css')}}">
+<link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css')}}">
+<!-- CSS MyTravel Template -->
+<link rel="stylesheet" href="{{url('travel/assets/css/theme.css')}}">
 
 <!-- Breadcrumbs -->
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcrumb-wrap">
-                    <nav aria-label="breadcrumb">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}"><i class="fa fa-home"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop List</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="block-title">
+    <div class="block-title__inner section-bg section-bg_second">
+        <div class="bg-inner">
+            <h1 class="ui-title-page">Liste des vehicules</h1>
+            <div class="decor-1 center-block"></div>
+            <ol class="breadcrumb">
+                <li><a href="{{route('home')}}">HOME</a></li>
+                <li class="active">Liste des vehicules</li>
+            </ol>
+        </div><!-- end bg-inner -->
+    </div><!-- end block-title__inner -->
 </div>
-<!-- End Breadcrumbs -->
-<form action="{{route('shop.filter')}}" method="POST">
-    @csrf
-    <!-- page main wrapper start -->
-    <div class="shop-main-wrapper section-padding">
-        <div class="container">
-            <div class="row">
-                <!-- sidebar area start -->
-                <div class="col-lg-3 order-2 order-lg-1">
-                    <aside class="sidebar-wrapper">
-                        <!-- single sidebar start -->
-                        <div class="sidebar-single">
-                            <h5 class="sidebar-title">categories</h5>
-                            <div class="sidebar-body">
-                                <ul class="shop-categories">
-                                    @php
-                                        // $category = new Category();
-                                        $menu=App\Models\Category::getAllParentWithChild();
-									@endphp
-                                    @if($menu)
-                                    @foreach($menu as $cat_info)
-                                        {{-- @if ($cat_info->isparent==1) --}}
-                                        <li class="mt-2 "><a href="{{route('Car-cat',$cat_info->slug)}}" class="{{ (request()->segment(2) == $cat_info->slug) ? 'active' : '' }}"  style="font-size: 26px;"> 
-                                            @if (Session::get('locale')=='en')
-                                            {{$cat_info->titleEN}}
-                                            @else 
-                                            {{$cat_info->title}}
-                                            @endif
-                                        </a></li>
-                                        {{-- @endif --}}
-                                        @if($cat_info->child_cat->count()>0)
-                                            <li class="mt-2">
-                                                @foreach($cat_info->child_cat as $sub_menu)
-                                                    <li><a  style="font-size: 20px; margin-left:14px;" class="{{ (request()->segment(3) == $cat_info->slug) ? 'active' : '' }}" href="{{route('Car-sub-cat',[$cat_info->slug,$sub_menu->slug])}}">  <i ></i>
-                                                        @if (Session::get('locale')=='en')
-                                                        {{$sub_menu->titleEN}}
-                                                        @else 
-                                                        {{$sub_menu->title}}
-                                                        @endif
-                                                    </a></li>
-                                                @endforeach
-                                            </li>
-                                       @endif
-                                     @endforeach
-                                    @endif
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- single sidebar end -->
 
-                        <!-- single sidebar start -->
-                        <div class="sidebar-single">
-                            <h5 class="sidebar-title">price</h5>
-                            <div class="sidebar-body">
-                                <div class="price-range-wrap">
-                                    @php
-                                    $max=DB::table('cars')->max('price');
-                                    // dd($max);
-                                    @endphp
-                                    <div class="price-range" data-min="1" data-max="{{$max}}"></div>
-                                    <div class="range-slider">
-                                        {{-- <form action="#" class="d-flex align-items-center justify-content-between"> --}}
-                                            <div class="price-input">
-                                                <label for="amount">Price: </label>
-                                                <input type="text" id="amount" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif" name="price_range">
+<main id="content" role="main" class="pt-6 pt-xl-10">
+    <div class="container">
+        <div class="row mb-8">
+            <div class="col-lg-4 col-xl-3 order-lg-1 width-md-50">
+                <div class="navbar-expand-lg navbar-expand-lg-collapse-block">
+                    <button class="btn d-lg-none mt-3 mb-4 p-0 collapsed" type="button" data-toggle="collapse"
+                        data-target="#sidebar" aria-controls="sidebar" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="far fa-caret-square-down text-primary font-size-20 card-btn-arrow ml-0"></i>
+                        <span class="text-primary ml-2">Sidebar</span>
+                    </button>
+                    <div id="sidebar" class="collapse navbar-collapse">
+                        <div class="mb-6 w-100">
+                            <div class="pb-4 mb-2">
+                                <div class="sidebar border rounded">
+                                    <div class="p-4 m-1">
+                                       
+                                        <form method="POST" style="padding-top: 20px"  action="{{route('AvailableCars')}}" id="available">
+                                            @csrf
+                                             <!-- Input -->
+                                        <span class="d-block text-gray-1  font-weight-normal mb-0 text-left">La ville</span>
+                                        <div class="mb-4">
+                                            <div class="input-group border-bottom border-width-2 border-color-1">
+                                                <i
+                                                    class="flaticon-pin-1 d-flex align-items-center mr-2 text-primary font-weight-semi-bold font-size-22"></i>
+                                                <input type="text" name="ville"
+                                                    class="form-control font-size-16 shadow-none hero-form font-weight-bold border-0 p-0"
+                                                    placeholder="ville" autocomplete="off">
                                             </div>
-                                            <button class="filter-btn" type="submit">filter</button>
-                                        {{-- </form> --}}
+                                        </div>
+                                        <!-- End Input -->
+
+                                        <!-- Input -->
+                                            <span class="d-block text-gray-1 font-weight-normal mb-0 text-left">Date de prise ..</span>
+                                        <div class="mb-4">
+                                            <div class="border-bottom border-width-2 border-color-1">
+                                                <div id="datepickerWrapperPick" class="u-datepicker input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="d-flex align-items-center mr-3 font-size-21">
+                                                            <i
+                                                                class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        class="js-range-datepicker font-size-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0 flatpickr-input p-0"
+                                                        type="text" name="from" placeholder="jj/mm/aaaa" aria-label="jj/mm/aaaa"
+                                                        data-rp-wrapper="#datepickerWrapperPick"
+                                                        data-rp-date-format="d/m/Y" autocomplete="off">
+                                                </div>
+                                                <!-- End Datepicker -->
+                                            </div>
+                                        </div>
+                                        <!-- End Input -->
+                                        <!-- Input -->
+                                        <span class="d-block text-gray-1 font-weight-normal mb-0 text-left">Date de Retour</span>
+                                        <div class="mb-4 pb-1">
+                                            <div class="border-bottom border-width-2 border-color-1">
+                                                <div id="datepickerWrapperReturn" class="u-datepicker input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="d-flex align-items-center mr-3 font-size-21">
+                                                            <i
+                                                                class="flaticon-calendar text-primary font-weight-semi-bold"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        class="js-range-datepicker font-size-16 shadow-none font-weight-bold form-control hero-form bg-transparent border-0 flatpickr-input p-0"
+                                                        type="text" name='to' placeholder="jj/mm/aaaa" aria-label="jj/mm/aaaa"
+                                                         data-rp-wrapper="#datepickerWrapperReturn" data-rp-date-format="d/m/Y" autocomplete="off">
+                                                </div>
+                                                <!-- End Datepicker -->
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center mt-3 mb-3">
+                                                    <button type="button"  onclick="document.getElementById('available').submit()" class="btn btn-block bg-danger text-white" style="cursor:pointer;" > chercher vehicules disponibles </button>
+                                                
+                                            </div>
+                                        
+                                        </form>
+                                        
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- single sidebar end -->
-
-                        <!-- single sidebar start -->
-                        {{-- <div class="sidebar-banner">
-                            <div class="img-container">
-                                <a href="#">
-                                    <img src="assets/img/banner/sidebar-banner.jpg" alt="">
-                                </a>
-                            </div>
-                        </div> --}}
-                        <!-- single sidebar end -->
-                    </aside>
-                </div>
-                <!-- sidebar area end -->
-
-                <!-- shop main wrapper start -->
-                <div class="col-lg-9 order-1 order-lg-2">
-                    <div class="shop-Car-wrapper">
-                        <!-- shop Car top wrap start -->
-                        <div class="shop-top-bar">
-                            <div class="row align-items-center">
-                                <div class="col-lg-7 col-md-6 order-2 order-md-1">
-                                    <div class="top-bar-left">
-                                        <div class="Car-view-mode">
-                                            <a class="active" href="#" data-target="grid-view" data-toggle="tooltip" title="Grid View"><i class="fa fa-th"></i></a>
-                                            <a href="#" data-target="list-view" data-toggle="tooltip" title="List View"><i class="fa fa-list"></i></a>
+                            <!-- Checkboxes -->
+                            <div class="sidenav border rounded">
+                                <!-- Accordiaon -->
+                                <div id="shopCartAccordion" class="accordion rounded shadow-none">
+                                    <div class="border-0">
+                                        <div class="card-collapse" id="shopCardHeadingOne">
+                                            <h3 class="mb-0">
+                                                <button type="button"
+                                                    class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3 collapsed"
+                                                    data-toggle="collapse" data-target="#shopCardOne"
+                                                    aria-expanded="false" aria-controls="shopCardOne">
+                                                    <span class="row align-items-center">
+                                                        <span class="col-9">
+                                                            <span
+                                                                class="d-block font-size-lg-15 font-size-17 font-weight-bold text-dark">Intervalle de prix</span>
+                                                        </span>
+                                                        <span class="col-3 text-right">
+                                                            <span class="card-btn-arrow">
+                                                                <span class="fas fa-chevron-down small"></span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            </h3>
                                         </div>
-                                        <div class="Car-amount">
-                                            <select class="show" name="show" onchange="this.form.submit();">
-                                                <option value="">show</option>
-                                                <option value="9" @if(!empty($_GET['show']) && $_GET['show']=='9' )
-                                                    selected @endif>09</option>
-                                                <option value="15" @if(!empty($_GET['show']) && $_GET['show']=='15' )
-                                                    selected @endif>15</option>
-                                                <option value="21" @if(!empty($_GET['show']) && $_GET['show']=='21' )
-                                                    selected @endif>21</option>
-                                                <option value="30" @if(!empty($_GET['show']) && $_GET['show']=='30' )
-                                                    selected @endif>30</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-6 order-1 order-md-2">
-                                    <div class="top-bar-right">
-                                        <div class="Car-short">
-                                            <p>Sort By : </p>
-                                            <select class="nice-select" name='sortBy' onchange="this.form.submit();">
-                                                <option value="">Default</option>
-                                                <option value="title" @if(!empty($_GET['sortBy']) &&
-                                                    $_GET['sortBy']=='title' ) selected @endif>Name</option>
-                                                <option value="price" @if(!empty($_GET['sortBy']) &&
-                                                    $_GET['sortBy']=='price' ) selected @endif>Price</option>
-                                                <option value="category" @if(!empty($_GET['sortBy']) &&
-                                                    $_GET['sortBy']=='category' ) selected @endif>Category</option>
-                                                {{-- <option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Brand</option> --}}
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- shop Car top wrap start -->
-
-                        <!-- Car item list wrapper start -->
-                        <div class="shop-Car-wrap list-view row mbn-30">
-                            @if(count($cars))
-                                @foreach($cars as $Car)
-                                <!-- Car single item start -->
-                                <div class="col-md-4 col-sm-6">
-                                    <!-- Car grid start -->
-                                    <!-- Car item start -->
-                                    <div class="Car-item">
-                                        <figure class="Car-thumb">
-                                            <a href="{{route('Car-detail',$Car->slug)}}">
-                                                <img class="pri-img" src="{{url('storage/cars/'.$Car->photo)}}"
-                                                    alt="Car">
-                                                <img class="sec-img" src="{{url('storage/cars/'.$Car->photo)}}"
-                                                    alt="Car">
-                                            </a>
-
-                                            <div class="Car-badge">
-                                                @if($Car->stock<=0) <div class="Car-label discount">
-                                                    <span>Out Of stock</span>
-                                            </div>
-                                            @elseif($Car->condition=='new')
-                                            <div class="Car-label new">
-                                                <span>New</span>
-                                            </div>
-                                            @elseif($Car->condition=='hot')
-                                            <div class="Car-label new">
-                                                <span>Hot</span>
-                                            </div>
-                                            @else
-                                            <div class="Car-label discount">
-                                                <span>{{$Car->discount}}% Off</span>
-                                            </div>
-                                            @endif
-                                            <div class="button-group">
-                                                <a href="{{route('add-to-wishlist',$Car->slug)}}" data-toggle="tooltip"
-                                                    data-placement="left" title="Add to wishlist"><i
-                                                        class="pe-7s-like"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#modal2{{$Car->id}}"><span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick View"><i
-                                                            class="pe-7s-search"></i></span></a>
-                                            </div>
-                                            <div class="cart-hover">
-                                                <a title="Add to cart" class="btn btn-cart"
-                                                    href="{{route('add-to-cart',$Car->slug)}}">Add to cart</a>
-                                            </div>
-                                        </figure>
-                                        <div class="Car-caption text-center">
-                                            <ul class="color-categories">
-                                            </ul>
-                                            <h6 class="Car-name">
-                                                <a href="{{route('Car-detail',$Car->slug)}}">{{$Car->title}}</a>
-                                            </h6>
-                                            <div class="price-box">
-                                                @php
-                                                $after_discount=($Car->price-($Car->price*$Car->discount)/100);
-                                                @endphp
-                                                <span class="price-regular">{{number_format($after_discount,2)}}</span>
-                                                <span
-                                                    class="price-old"><del>{{number_format($Car->price,2)}}</del></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Car item end -->
-                                    <!-- Car grid end -->
-
-                                    <!-- Car list item end -->
-                                    <div class="Car-list-item">
-                                        <figure class="Car-thumb">
-                                            <a href="{{route('Car-detail',$Car->slug)}}">
-                                                <img class="pri-img" src="{{url('storage/cars/'.$Car->photo)}}" alt="Car">
-                                                <img class="sec-img" src="{{url('storage/cars/'.$Car->photo)}}" alt="Car">
-                                            </a>
-                                            <div class="Car-badge">
-                                                @if($Car->stock<=0) <div class="Car-label discount">
-                                                    <span>Out Of stock</span>
-                                            </div>
-                                            @elseif($Car->condition=='new')
-                                            <div class="Car-label new">
-                                                <span>New</span>
-                                            </div>
-                                            @elseif($Car->condition=='hot')
-                                            <div class="Car-label new">
-                                                <span>Hot</span>
-                                            </div>
-                                            @else
-                                            <div class="Car-label discount">
-                                                <span>{{$Car->discount}}% Off</span>
-                                            </div>
-                                            @endif
-                                            <div class="button-group">
-                                                <a href="{{route('add-to-wishlist',$Car->slug)}}" data-toggle="tooltip"
-                                                    data-placement="left" title="Add to wishlist"><i
-                                                        class="pe-7s-like"></i></a>
-                                                <a href="#" data-toggle="modal" data-target="#modal2{{$Car->id}}"><span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick View"><i
-                                                            class="pe-7s-search"></i></span></a>
-                                            </div>
-                                            <div class="cart-hover">
-                                                <a  href="{{route('add-to-cart',$Car->slug)}}" class="btn btn-cart">add to cart</a >
+                                        <div id="shopCardOne" class="collapse show" aria-labelledby="shopCardHeadingOne"
+                                            data-parent="#shopCartAccordion">
+                                            <div class="card-body pt-0 px-5">
+                                                <div class="pb-3 mb-1 d-flex text-lh-1">
                                                     
+                                                    <span id="rangeSliderExample3MinResult" class=""></span>
+                                                    <span>MAD</span>
+                                                    <span class="mx-0dot5"> — </span>
+                                                    <span id="rangeSliderExample3MaxResult" class="" ></span>
+                                                    <span>MAD</span>
+                                                </div>
+                                                <input class="js-range-slider" type="text" name="price"
+                                                    data-extra-classes="u-range-slider height-35" data-type="double"
+                                                    data-grid="false" data-hide-from-to="true" data-min="0"
+                                                    data-max="3456" data-from="200" data-to="3456" data-prefix="$"
+                                                    data-result-min="#rangeSliderExample3MinResult"
+                                                    data-result-max="#rangeSliderExample3MaxResult">
                                             </div>
-                                        </figure>
-                                        <div class="Car-content-list">
-                                            <div class="manufacturer-name">
-                                                <a href="{{route('Car-detail',$Car->slug)}}">{{$Car->slug}}</a>
+                                              <div class="col-12 text-center mt-3 mb-3">
+                                            <form action="{{route('shop.filter')}}" method="POST" id="filterf">
+		                                        @csrf
+                                                    <input type="hidden" name="price1" id="price1">
+                                                    <input type="hidden" name="price2" id="price2">
+                                                    <button type="button" class="btn btn-block bg-danger text-white" style="cursor:pointer;" onclick="priceRange()"> Filtrer par prix</button>
+                                                
+                                            </form>
                                             </div>
-                                            <h5 class="Car-name"><a href="{{route('Car-detail',$Car->slug)}}">{{$Car->title}}</a></h5>
-                                            <div class="price-box">
-                                                <span class="price-regular">{{number_format($after_discount,2)}}</span>
-                                                <span class="price-old"><del>{{number_format($Car->price,2)}}</del></span>
-                                            </div>
-                                            <p>{!!($Car->summary)!!}</p>
+                                            <script>
+                                                function priceRange(){
+                                                    var p1=document.getElementById('rangeSliderExample3MinResult').innerHTML;
+                                                    var p2=document.getElementById('rangeSliderExample3MaxResult').innerHTML;
+                                                    document.getElementById('price1').value=p1;
+                                                    document.getElementById('price2').value=p2;
+                                                    document.getElementById('filterf').submit();
+                                                }
+                                            </script>
+                                        
+                                            
                                         </div>
                                     </div>
-                                    <!-- Car list item end -->
                                 </div>
-                                @endforeach
-                                
-                                @else 
-                                <div class="d-flex justify-content-center align-items-center text-center" style="width: 100%; height:100%;">
-                                    <img src="storage/out-of-stock.png" alt="">
-                                    {{-- <p></p> --}}
-                               </div>
-                                 @endif
-                            <!-- Car single item start -->
+                                <div id="shopCategoryAccordion" class="accordion rounded-0 shadow-none border-top">
+                                    <div class="border-0">
+                                        <div class="card-collapse" id="shopCategoryHeadingOne">
+                                            <h3 class="mb-0">
+                                                <button type="button"
+                                                    class="btn btn-link btn-block card-btn py-2 px-5 text-lh-3">
+                                                    <span class="row align-items-center">
+                                                        <span class="col-9">
+                                                            <span
+                                                                class="d-block font-size-lg-15 font-size-17 font-weight-bold text-dark">Categories</span>
+                                                        </span>
+                                                        <span class="col-3 text-right">
+                                                            <span class="card-btn-arrow">
+                                                                <span class="fas fa-chevron-down small"></span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                            </h3>
+                                        </div> 
+                                        <form action="{{route('filter')}}" method="POST" id="filterCat">
+                                            @csrf
+                                        <div id="shopCategoryOne"
+                                            aria-labelledby="shopCategoryHeadingOne"
+                                            data-parent="#shopCategoryAccordion">
+                                            <div class="card-body pt-0 mt-1 px-5">
+                                           
+                                                <!-- Checkboxes -->
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="Luxe" value="voitures de luxe" class="custom-control-input"
+                                                            id="brandAdidas">
+                                                        <label class="custom-control-label text-color-1"
+                                                            for="brandAdidas">voitures de luxe</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="motorcycles" value="motorcycles" class="custom-control-input"
+                                                            id="brandNewBalance">
+                                                        <label class="custom-control-label text-color-1"
+                                                            for="brandNewBalance">motorcycles</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="voitures sportives" value="voitures sportives" class="custom-control-input"
+                                                            id="brandNike">
+                                                        <label class="custom-control-label text-color-1"
+                                                            for="brandNike">voitures sportives</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="voitures suvs" value="voitures suvs" class="custom-control-input"
+                                                            id="brandFredPerry">
+                                                        <label class="custom-control-label text-color-1"
+                                                            for="brandFredPerry">voitures suvs</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" name="camionnettes" value="camionnettes" class="custom-control-input"
+                                                            id="brandGucci">
+                                                        <label class="custom-control-label text-color-1"
+                                                            for="brandGucci">camionnettes</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" name="camions" value="camions" class="custom-control-input"
+                                                                id="brandMango">
+                                                            <label class="custom-control-label text-color-1"
+                                                                for="brandMango">camions</label>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group font-size-14 text-lh-md text-secondary mb-3">
+                                                    {{-- <div class="col-md-12 text-center mt-3 mb-3"> --}}
+                                                        <button type="button" onclick="document.getElementById('filterCat').submit()" class="btn btn-block bg-danger text-white" style="cursor:pointer;" > Filtrer par Categorie</button>
+                                                    {{-- </div> --}}
+                                                </div>     
+                                            </div>
+                                            
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Accordion -->
+                            </div>
                         </div>
-                        <!-- Car item list wrapper end -->
-
-                        <!-- start pagination area -->
-                        <!-- end pagination area -->
                     </div>
                 </div>
-                <!-- shop main wrapper end -->
             </div>
-        </div>
-    </div>
-    <!-- page main wrapper end -->
-</form>
-<!-- Modal -->
-@if($cars)
-@foreach($cars as $key=>$Car)
-<div class="modal" id="modal2{{$Car->id}}">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body customC">
-                <!-- Car details inner end -->
-                <div class="Car-details-inner">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="Car-large-slider">
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{url('storage/cars/'.$Car->photo)}}" alt="Car-details" />
+            <div class="col-lg-8 col-xl-9 order-md-1 order-lg-2 pb-5 pb-lg-0">
+                <!-- Shop-control-bar Title -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="font-size-21 font-weight-bold mb-0 text-lh-1">{{count($cars)}} véhicules</h3>
+                    {{-- <ul class="nav tab-nav-shop" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link font-size-22 p-0 ml-2 active" id="pills-one-example1-tab" data-toggle="pill" href="#pills-one-example1" role="tab" aria-controls="pills-one-example1" aria-selected="false">
+                                <div class="d-md-flex justify-content-md-center align-items-md-center">
+                                    <i class="fa fa-th"></i>
                                 </div>
-                                @foreach ($Car->images as $img)
-                                <div class="pro-large-img img-zoom">
-                                    <img src="{{url('storage/cars/'.$img->image)}}" alt="Car-details" />
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="pro-nav slick-row-10 slick-arrow-style">
-                                <div class="pro-nav-thumb">
-                                    <img src="{{url('storage/cars/'.$Car->photo)}}" alt="Car-details" />
-                                </div>
-                                @foreach ($Car->images as $img)
-                                <div class="pro-nav-thumb">
-                                    <img src="{{url('storage/cars/'.$img->image)}}" alt="Car-details" />
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="Car-details-des">
-                                <div class="manufacturer-name">
-                                    <a href="{{route('Car-detail',$Car->slug)}}">{{$Car->slug}}</a>
-                                </div>
-                                <h3 class="Car-name">{{$Car->title}}</h3>
-                                @php
-                                $rate=DB::table('product_reviews')->where('product_id',$Car->id)->avg('rate');
-                                $rate_count=DB::table('product_reviews')->where('product_id',$Car->id)->count();
-                                @endphp
-                                <div class="ratings d-flex">
-                                    @for($i=1; $i<=5; $i++) @if($rate>=$i)
-                                        <span><i class="fa fa-star-o text-worning"></i></span>
-                                        @else
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        @endif
-                                        @endfor
-                                        <div class="pro-review">
-                                            <span>{{$rate_count}} Reviews</span>
+                            </a>
+                        </li>
+                    </ul> --}}
+                </div>
+                <!-- End shop-control-bar Title -->
+
+                <!-- Slick Tab carousel -->
+                <div class="u-slick__tab">
+
+                    <!-- Tab Content -->
+                    <div class="tab-content " id="pills-tabContent">
+
+                        {{-- <div class="tab-pane fade mb-5 mb-xl-0 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups"> --}}
+                        <div class="row">
+                            @foreach ($cars as $car)
+                            <div class="col-md-6 col-xl-4 mb-3 mb-md-4 pb-1">
+                                <div class="card transition-3d-hover shadow-hover-2">
+                                    <div class="position-relative">
+                                        <a href="{{route('car-detail',$car->slug)}}"
+                                            class="d-block gradient-overlay-half-bg-gradient-v5">
+                                            <img class="card-img-top" style="max-height:200px; min-height:200px; object-fit:cover;"
+                                                src="{{url('storage/cars/'.$car->photo)}}">
+                                        </a>
+                                        <div class="position-absolute top-0 right-0 pt-5 pr-3">
+                                            <button type="button" class="btn btn-sm btn-icon text-white rounded-circle"
+                                                data-toggle="tooltip" data-placement="top" title=""
+                                                data-original-title="Save for later">
+                                                <span class="flaticon-heart-1 font-size-20"></span>
+                                            </button>
                                         </div>
-                                </div>
-                                <div class="price-box">
-                                    @php
-                                    $after_discount=($Car->price-($Car->price*$Car->discount)/100);
-                                    @endphp
-                                    <span class="price-regular" id="p1{{$Car->id}}">{{number_format($after_discount,2)}}</span>
-                                    <span class="price-old"><del id="p2{{$Car->id}}">{{number_format($Car->price,2)}}</del></span>
-                                </div>
-                                <div class="availability">
-                                    @if($Car->stock >0)
-                                    <i class="fa fa-check-circle"></i>
-                                    <span>{{$Car->stock}} in stock</span>
-                                    @else
-                                    <i class="fa fa-check-circle text-danger"></i>
-                                    <span>Car Out of Stock</span>
-                                    @endif
-                                </div>
-                                <p class="pro-desc">{!! html_entity_decode($Car->summary) !!}</p>
-                                <form action="{{route('single-add-to-cart')}}" method="POST">
-                                    <input type="text" hidden  name="price" id="price{{$Car->id}}" value="{{number_format($Car->price,2)}}">
-                                    <input type="text" hidden  name="size" id="size{{$Car->id}}" value="{{$Car->size}}">
-                                    @csrf 
-                                    <div class="quantity-cart-box d-flex align-items-center">
-                                        @if(count($Car->sizes)>=1)
-                                        <label class="mr-2">Taille</label>
-                                    <select name="sizes" class="sizes" class="sizes nice-select">
-                                            @foreach($Car->sizes as $key => $productsize)
-                                                <option value="{{ $productsize->id }}#{{ $Car->id }}">  {{ $productsize->size }} /  {{ $productsize->price }}</option>
-                                            @endforeach
-                                        </select>
-                                       
-                                        @endif
-                                    </div>
-                                        <input type="hidden" name="slug" value="{{$Car->slug}}">
-                                        
-                                        <div class="quantity-cart-box d-flex align-items-center">
-                                            <h6 class="option-title">qty:</h6>
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1" id="quantity">
+                                        <div class="position-absolute bottom-0 left-0 right-0">
+                                            <div class="px-3 pb-2">
+                                                <a href="{{route('car-detail',$car->slug)}}">
+                                                    <span class="text-white font-weight-bold font-size-17">{{$car->title}}</span>
+                                                </a>
+                                                <div class="text-white my-2">
+                                                    {{-- <span class="mr-1 font-size-14">From</span> --}}
+                                                    <span class="font-weight-bold font-size-19">{{$car->prix_location}} MAD</span>
                                                 </div>
                                             </div>
-                                            <div class="action_link">
-                                                <button type="submit" class="btn btn-cart2" id="testlkhmiss">Add to cart</button>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute top-0 left-0 pt-5 pl-3">
+                                        <a href="../cars/cars-single-v1.html">
+                                            <span
+                                                class="badge badge-pill bg-white text-primary px-3 py-2 font-size-14 font-weight-normal">Featured</span>
+                                        </a>
+                                    </div>
+                                    <div class="card-body px-4 py-3 border-bottom">
+                                        <a href="../cars/cars-single-v1.html" class="d-block">
+                                            <div class="d-flex align-items-center font-size-14 text-gray-1">
+                                                <i class="icon flaticon-browser-1 mr-2 font-size-20"></i> Modele: {{$car->modele}} / category: {{$car->categorie}}
+                                            </div>
+                                        </a>
+                                        {{-- <div class="mt-1">
+                                            <span
+                                                class="py-1 font-size-14 border-radius-3 font-weight-normal pagination-v2-arrow-color">2.5/5
+                                                Excellant</span>
+                                            <span class="font-size-14 text-gray-1 ml-2">48 reviews</span>
+                                        </div> --}}
+                                    </div>
+                                    <div class="px-4 pt-3 pb-2">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="media mb-2 text-gray-1 align-items-center">
+                                                        <small class="mr-2">
+                                                            <small class="flaticon-meter font-size-16"></small>
+                                                        </small>
+                                                        <div class="media-body font-size-1">
+                                                            {{$car->boite_vitesses}}
+                                                        </div>
+                                                    </li>
+                                                    <li class="media mb-2 text-gray-1 align-items-center">
+                                                        <small class="mr-2">
+                                                            <small
+                                                                class="flaticon-user font-size-16"></small>
+                                                        </small>
+                                                        <div class="media-body font-size-1">
+                                                            {{$car->passagers}}
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="media mb-2 text-gray-1 align-items-center">
+                                                        <small class="mr-2">
+                                                            <small class="flaticon-fuel font-size-16"></small>
+                                                        </small>
+                                                        <div class="media-body font-size-1">
+                                                           {{$car->carburant}}
+                                                        </div>
+                                                    </li>
+                                                    <li class="media mb-2 text-gray-1 align-items-center">
+                                                        <small class="mr-2">
+                                                            <small class="flaticon-event font-size-16"></small>
+                                                        </small>
+                                                        <div class="media-body font-size-1">
+                                                            {{$car->annee_modele}}
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                     </form>
-                                <div class="useful-links mt-2">
-
-                                    <a href="{{route('add-to-wishlist',$Car->slug)}}" data-toggle="tooltip"
-                                        title="Wishlist"><i class="pe-7s-like"></i>wishlist</a>
-                                </div>
-                                <div class="default-social mt-2">
-                                    <!-- ShareThis BEGIN -->
-                                    <div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+                                    </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
+                        {{-- <div class="text-center text-md-left font-size-14 mb-3 text-lh-1">Showing 1–15</div>
+                        <nav aria-label="Page navigation">
+                            {{ $cars->links() }}
+                        
+                        </nav> --}}
                     </div>
-                </div> <!-- Car details inner end -->
+                    {{-- </div> --}}
+                    <!-- End Tab Content -->
+                </div>
+                <!-- Slick Tab carousel -->
             </div>
         </div>
     </div>
-</div>
-@endforeach
-@endif
-<!-- service policy area start -->
-<div class="service-policy section-padding">
-    <div class="container">
-        <div class="row mtn-30">
-            <div class="col-sm-6 col-lg-3">
-                <div class="policy-item">
-                    <div class="policy-icon">
-                        <i class="pe-7s-plane"></i>
-                    </div>
-                    <div class="policy-content">
-                        <h6>{{__('messages.FS1',[],Session::get('locale'))}}</h6>
-                        <p>{{__('messages.FS2',[],Session::get('locale'))}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="policy-item">
-                    <div class="policy-icon">
-                        <i class="pe-7s-help2"></i>
-                    </div>
-                    <div class="policy-content">
-                        <h6>{{__('messages.Sp1',[],Session::get('locale'))}}</h6>
-                        <p>{{__('messages.SP2',[],Session::get('locale'))}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="policy-item">
-                    <div class="policy-icon">
-                        <i class="pe-7s-back"></i>
-                    </div>
-                    <div class="policy-content">
-                        <h6>{{__('messages.MR1',[],Session::get('locale'))}}</h6>
-                        <p>{{__('messages.MR2',[],Session::get('locale'))}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="policy-item">
-                    <div class="policy-icon">
-                        <i class="pe-7s-credit"></i>
-                    </div>
-                    <div class="policy-content">
-                        <h6>{{__('messages.100P',[],Session::get('locale'))}}</h6>
-                        <p>{{__('messages.100P2',[],Session::get('locale'))}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- service policy area end -->
-
-<!-- Modal end -->
-<script>
-    var cars=@json($Car);
-    console.log(cars);
-    // var productsizes = @json($Car->sizes);
-    
-    $('.sizes').on('change', function() {
-        var arr = $(this).val().split('#');
-        var size_id = arr[0];
-        // console.log(size_id);
-        var price = null;
-        var size = null;
-        var discount= null;
-        var Car=cars.find(x => (x.id== arr[1]));
-        // console.log(Car);
-        for(const element of Car.sizes) {
-            discount=Car.discount;
-            console.table(element);
-            if(element.id == size_id) {
-                console.log('true');
-                price = element.price;
-                console.log('price '+price);
-                size = element.size;
-            }
-        }
-
-        $('#p2'+Car.id).html(`${price.toFixed(2)}`);
-        let Pafter=(price-(price*discount)/100);
-        // alert(Pafter);
-        $('#p1'+Car.id).html(`${Pafter.toFixed(2)}`);
-        $('#price'+Car.id).val(Pafter.toFixed(2));
-        $('#size'+Car.id).val(size_id);
-
-        
-    });
+</main>
+<!-- JS Implementing Plugins -->
+<script src="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
+<script src="{{url('travel/assets/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/slick-carousel/slick/slick.js')}}"></script>
+<script src="{{url('travel/assets/vendor/gmaps/gmaps.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/custombox/dist/custombox.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/custombox/dist/custombox.legacy.min.js')}}"></script>
+<script src="{{url('travel/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}">
 </script>
+
+<!-- JS MyTravel -->
+<script src="{{url('travel/assets/js/hs.core.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.header.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.unfold.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.validation.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.show-animation.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.range-datepicker.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.selectpicker.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.range-slider.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.go-to.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.slick-carousel.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.quantity-counter.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.g-map.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.modal-window.js')}}"></script>
+<script src="{{url('travel/assets/js/components/hs.malihu-scrollbar.js')}}"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+    $(window).on('load', function () {
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            pageContainer: $('.container'),
+            breakpoint: 1199.98,
+            hideTimeOut: 0
+        });
+
+        // Page preloader
+        setTimeout(function () {
+            $('#jsPreloader').fadeOut(500)
+        }, 800);
+    });
+
+    $(document).on('ready', function () {
+
+        // initialization of datepicker
+        $.HSCore.components.HSRangeDatepicker.init('.js-range-datepicker');
+
+        // initialization of forms
+        $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+
+        // initialization of select
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+    });
+
+</script>
+
 @endsection
 @push ('styles')
-<style>
-    .pagination {
-        display: inline-flex;
-    }
 
-    .filter_button {
-        /* height:20px; */
-        text-align: center;
-        background: #F7941D;
-        padding: 8px 16px;
-        margin-top: 10px;
-        color: white;
-    }
-
-</style>
 @endpush
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-{{-- <script>
-        $('.cart').click(function(){
-            var quantity=1;
-            var pro_id=$(this).data('id');
-            $.ajax({
-                url:"{{route('add-to-cart')}}",
-type:"POST",
-data:{
-_token:"{{csrf_token()}}",
-quantity:quantity,
-pro_id:pro_id
-},
-success:function(response){
-console.log(response);
-if(typeof(response)!='object'){
-response=$.parseJSON(response);
-}
-if(response.status){
-swal('success',response.msg,'success').then(function(){
-document.location.href=document.location.href;
-});
-}
-else{
-swal('error',response.msg,'error').then(function(){
-// document.location.href=document.location.href;
-});
-}
-}
-})
-});
-</script> --}}
-<script>
-    $(document).ready(function () {
-        /*----------------------------------------------------*/
-        /*  Jquery Ui slider js
-        /*----------------------------------------------------*/
-        if ($("#slider-range").length > 0) {
-            const max_value = parseInt($("#slider-range").data('max')) || 500;
-            const min_value = parseInt($("#slider-range").data('min')) || 0;
-            const currency = $("#slider-range").data('currency') || '';
-            let price_range = min_value + '-' + max_value;
-            if ($("#price_range").length > 0 && $("#price_range").val()) {
-                price_range = $("#price_range").val().trim();
-            }
-
-            let price = price_range.split('-');
-            $("#slider-range").slider({
-                range: true,
-                min: min_value,
-                max: max_value,
-                values: price,
-                slide: function (event, ui) {
-                    $("#amount").val(currency + ui.values[0] + " -  " + currency + ui.values[1]);
-                    $("#price_range").val(ui.values[0] + "-" + ui.values[1]);
-                }
-            });
-        }
-        if ($("#amount").length > 0) {
-            const m_currency = $("#slider-range").data('currency') || '';
-            $("#amount").val(m_currency + $("#slider-range").slider("values", 0) +
-                "  -  " + m_currency + $("#slider-range").slider("values", 1));
-        }
-    })
-
-</script>
 
 @endpush
