@@ -248,7 +248,7 @@ html .header .logo {
 	left: 17px;
 	margin: 0;
 	position: absolute;
-	top: 4px;
+	top: -15px;
 }
 .sp-arrow {
 	display: none !important;

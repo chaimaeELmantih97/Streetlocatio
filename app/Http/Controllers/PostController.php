@@ -90,7 +90,7 @@ class PostController extends Controller
             request()->session()->flash('success','post ajouté avec succes');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post.index');
     }
@@ -155,7 +155,7 @@ class PostController extends Controller
             request()->session()->flash('success','post modifié avec succes');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post.index');
     }

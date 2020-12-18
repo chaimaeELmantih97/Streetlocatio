@@ -31,7 +31,7 @@ $(document).ready(function() {
     var $preloader = $('#page-preloader'),
     $spinner = $preloader.find('.spinner-loader');
     $spinner.fadeOut();
-    $preloader.delay(50).fadeOut('slow');
+    $preloader.delay(3000).fadeOut('slow');
 
 
 

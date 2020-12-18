@@ -3,12 +3,12 @@
 @section('main-content')
 
 <div class="card">
-    <h5 class="card-header">Add Car</h5>
+    <h5 class="card-header">Add Une vehicule</h5>
     <div class="card-body">
       <form method="post" action="{{route('cars.store')}}" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Titre Français <span class="text-danger">*</span></label>
+          <label for="inputTitle" class="col-form-label">Titre  <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
@@ -16,14 +16,14 @@
         </div>
 
         <div class="form-group">
-          <label for="summary" class="col-form-label">Summary Français <span class="text-danger">*</span></label>
+          <label for="summary" class="col-form-label">Resumé <span class="text-danger">*</span></label>
           <textarea class="form-control" id="summary" name="summary">{{old('summary')}}</textarea>
           @error('summary')
           <span class="text-danger">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group">
-          <label for="description" class="col-form-label">Description Français </label>
+          <label for="description" class="col-form-label">Description  </label>
           <textarea class="form-control" id="description" name="description">{{old('description')}}</textarea>
           @error('description')
           <span class="text-danger">{{$message}}</span>
@@ -161,8 +161,8 @@
         <div class="form-group mt-2">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="active">activé</option>
+              <option value="inactive">desactivé</option>
           </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>
@@ -170,8 +170,8 @@
         </div>
         
         <div class="form-group mb-3">
-          <button type="reset" class="btn btn-warning">Reset</button>
-           <button class="btn btn-success" type="submit">Submit</button>
+          <button type="reset" class="btn btn-warning">renitialiser</button>
+           <button class="btn btn-success" type="submit">Ajouter</button>
         </div>
       </form>
     </div>
@@ -191,7 +191,8 @@
 <script>
     $(document).ready(function() {
       $('#summary').summernote({
-        placeholder: "Write short description.....",
+            placeholder: "entrer une brève description.....",
+
           tabsize: 2,
           height: 100
       });
@@ -199,7 +200,8 @@
 
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail description.....",
+              placeholder: "entrer une  description Detaillé.....",
+
           tabsize: 2,
           height: 150
       });

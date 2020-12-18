@@ -8,7 +8,7 @@
     <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
 
 <!-- CSS Implementing Plugins -->
-<link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
+{{-- <link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}"> --}}
 <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
 <link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
 <link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">
@@ -335,13 +335,13 @@
                                         </div>
                                     </div>
                                     <div class="position-absolute top-0 left-0 pt-5 pl-3">
-                                        <a href="../cars/cars-single-v1.html">
+                                        <a href="{{route('car-detail',$car->slug)}}">
                                             <span
                                                 class="badge badge-pill bg-white text-primary px-3 py-2 font-size-14 font-weight-normal">Featured</span>
                                         </a>
                                     </div>
                                     <div class="card-body px-4 py-3 border-bottom">
-                                        <a href="../cars/cars-single-v1.html" class="d-block">
+                                        <a href="{{route('car-detail',$car->slug)}}" class="d-block">
                                             <div class="d-flex align-items-center font-size-14 text-gray-1">
                                                 <i class="icon flaticon-browser-1 mr-2 font-size-20"></i> Modele: {{$car->modele}} / category: {{$car->categorie}}
                                             </div>

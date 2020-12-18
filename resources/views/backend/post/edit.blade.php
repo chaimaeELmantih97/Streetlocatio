@@ -90,7 +90,8 @@
 
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail description.....",
+              placeholder: "entrer une  description Detaillé.....",
+
           tabsize: 2,
           height: 150
       });

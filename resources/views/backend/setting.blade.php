@@ -98,7 +98,8 @@
     $('#lfm1').filemanager('image');
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+          placeholder: "entrer une brève description.....",
+
         tabsize: 2,
         height: 150
     });
@@ -113,7 +114,8 @@
     });
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail description.....",
+              placeholder: "entrer une  description Detaillé.....",
+
           tabsize: 2,
           height: 150
       });

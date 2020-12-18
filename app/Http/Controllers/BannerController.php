@@ -62,10 +62,10 @@ class BannerController extends Controller
         // return $slug;
         $status=Banner::create($data);
         if($status){
-            request()->session()->flash('success','Banner successfully added');
+            request()->session()->flash('success','Banniere ajouter avec succes');
         }
         else{
-            request()->session()->flash('error','Error occurred while adding banner');
+            request()->session()->flash('error','Un probleme est survenue');
         }
         return redirect()->route('banner.index');
     }
@@ -125,10 +125,10 @@ class BannerController extends Controller
         $data['status']=$request->status;
         $status=$banner->fill($data)->save();
         if($status){
-            request()->session()->flash('success','Banner successfully updated');
+            request()->session()->flash('success','Banniére est modifié avec succés');
         }
         else{
-            request()->session()->flash('error','Error occurred while updating banner');
+            request()->session()->flash('error','Opps Un erreur est survenue');
         }
         return redirect()->route('banner.index');
     }
@@ -144,10 +144,10 @@ class BannerController extends Controller
         $banner=Banner::findOrFail($id);
         $status=$banner->delete();
         if($status){
-            request()->session()->flash('success','Banner successfully deleted');
+            request()->session()->flash('success','Banniére est supprimé avec succes');
         }
         else{
-            request()->session()->flash('error','Error occurred while deleting banner');
+            request()->session()->flash('error','Oppss! Un erreur est survenue');
         }
         return redirect()->route('banner.index');
     }

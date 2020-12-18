@@ -33,6 +33,7 @@ class HomeController extends Controller
 
 
     public function index(){
+        // dd("aaaaaaaaa");
         return view('user.index');
     }
 
@@ -43,21 +44,28 @@ class HomeController extends Controller
     }
 
     public function profileUpdate(Request $request,$id){
-        // return $request->all();
         $user=User::findOrFail($id);
         $data=$request->all();
+        $data['photo']=$user->photo;
         $path = "storage/users/"; 
         if($request->hasfile('photo')){
             $img=Image::make($request->photo)
-            ->save('storage/users/'.$request->photo->hashName());
+            ->save('storage/users/'.$request->photo->hashName()); 
+            $data['photo']=$request->photo->hashName();
         } 
-        $data['photo']=$request->photo->hashName();
+        if($request->current_password!=null){
+            if(!Hash::check($request->current_password, $user->password)){
+                toastr()->warning("Ancien mot de passe est incorrecte!");
+                return back();
+            }
+       }
         $status=$user->fill($data)->save();
+        $user->update(['password'=> Hash::make($request->new_password)]);
         if($status){
-            request()->session()->flash('success','Successfully updated your profile');
+            toastr()->success("Profil modifié avec succés!");
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            toastr()->error("Opps veuillez réessayer!");
         }
         return redirect()->back();
     }
@@ -227,12 +235,11 @@ class HomeController extends Controller
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
             'new_password' => ['required'],
-            'new_confirm_password' => ['same:new_password'],
         ]);
    
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
    
-        return redirect()->route('user')->with('success','Password successfully changed');
+        return redirect()->route('user')->with('success','Mot de passe modifié avec succes');
     }
 
     

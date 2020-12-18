@@ -169,8 +169,8 @@
         <div class="form-group">
           <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
-            <option value="active" {{(($voiture->status=='active')? 'selected' : '')}}>Active</option>
-            <option value="inactive" {{(($voiture->status=='inactive')? 'selected' : '')}}>Inactive</option>
+            <option value="active" {{(($voiture->status=='active')? 'selected' : '')}}>activé</option>
+            <option value="inactive" {{(($voiture->status=='inactive')? 'selected' : '')}}>desactivé</option>
         </select>
           @error('status')
           <span class="text-danger">{{$message}}</span>
@@ -199,14 +199,16 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+          placeholder: "entrer une brève description.....",
+
         tabsize: 2,
         height: 150
     });
     });
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail Description.....",
+              placeholder: "entrer une  description Detaillé.....",
+
           tabsize: 2,
           height: 150
       });

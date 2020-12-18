@@ -9,8 +9,8 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Banners List</h6>
-      <a href="{{route('banner.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Banner</a>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Liste des Bannière</h6>
+      <a href="{{route('banner.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i>  Ajouter Bannière</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -18,8 +18,8 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>id</th>
+              <th>titre</th>
               <th>Slug</th>
               <th>Photo</th>
               <th>Status</th>
@@ -28,8 +28,8 @@
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
+              <th>id</th>
+              <th>titre</th>
               <th>Slug</th>
               <th>Photo</th>
               <th>Status</th>
@@ -141,32 +141,32 @@
         }
   </script>
   <script>
-      $(document).ready(function(){
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-          $('.dltBtn').click(function(e){
-            var form=$(this).closest('form');
-              var dataID=$(this).data('id');
-              // alert(dataID);
-              e.preventDefault();
-              swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                       form.submit();
-                    } else {
-                        swal("Your data is safe!");
-                    }
-                });
-          })
-      })
-  </script>
+    $(document).ready(function(){
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+        $('.dltBtn').click(function(e){
+          var form=$(this).closest('form');
+            var dataID=$(this).data('id');
+            // alert(dataID);
+            e.preventDefault();
+            swal({
+                  title: "Etes-vous sûr ?",
+                  text : "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                  if (willDelete) {
+                     form.submit();
+                  } else {
+                      swal ("Vos données sont en sécurité !") ;
+                  }
+              });
+        })
+    })
+</script>
 @endpush

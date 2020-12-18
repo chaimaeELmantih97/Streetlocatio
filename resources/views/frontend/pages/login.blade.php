@@ -109,7 +109,7 @@
                     <input type="submit" class="btnSubmit" value="Login" />
                 </div>
                 <div class="form-group">
-                    <a href="#" class="btnForgetPwd">Forget Password?</a>
+                    <a href="{{url('resetpassword')}}" class="btnForgetPwd">Forget Password?</a>
                 </div>
             </form>
 
@@ -147,77 +147,5 @@
         </div>
     </div>
 </div>
-<div class="top-content">
 
-    <div class="inner-bg">
-        <div class="container">
-            <div class="row d-flex justify-content-center align-item-center">
-                <div class="col-sm-6">
-                    <div class="form-box">
-                        <div class="form-top">
-                            <div class="form-top-left">
-                                <h3>{{__('messages.Loginsite',[],Session::get('locale'))}}</h3>
-                                <p>{{__('messages.log2',[],Session::get('locale'))}}</p>
-                            </div>
-                            <div class="form-top-right">
-                                <i class="fa fa-key"></i>
-                            </div>
-                        </div>
-                        <div class="form-bottom">
-                            <form role="form" id="login" method="post" action="{{route('login.submit')}}"
-                                class="login-form">
-                                @csrf
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-username">Username</label>
-                                    <input type="text" name="email" value="{{old('email')}}" required
-                                        placeholder="Username..." class="form-username form-control" id="form-username">
-                                    {{-- <input type="email"  placeholder="" required="" > --}}
-                                    @error('email')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="password" required placeholder="Password..."
-                                        value="{{old('password')}}" class="form-password form-control"
-                                        id="form-password">
-                                    {{-- <input type="password"  placeholder="" ="required" > --}}
-                                    @error('password')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                                </div>
-                                <button type="submit"
-                                    class="btn">{{__('messages.Log3',[],Session::get('locale'))}}</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="social-login">
-                        <h3>{{__('messages.Log4',[],Session::get('locale'))}}</h3>
-                        <div class="social-login-buttons">
-                            <a class="btn btn-link-1 btn-link-1-facebook" href="{{route('login.redirect','facebook')}}">
-                                <i class="fa fa-facebook"></i> Facebook
-                            </a>
-                            <a class="btn btn-link-1 btn-link-1-twitter" href="{{route('login.redirect','github')}}">
-                                <i class="fa fa-github"></i> Github
-                            </a>
-                            <a class="btn btn-link-1 btn-link-1-google-plus"
-                                href="{{route('login.redirect','google')}}">
-                                <i class="fa fa-google-plus"></i> Google Plus
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                {{-- <div class="col-sm-1 middle-border"></div>
-                <div class="col-sm-1"></div> --}}
-
-
-            </div>
-
-        </div>
-    </div>
-
-</div>
 @endsection

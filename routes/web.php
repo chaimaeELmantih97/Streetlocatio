@@ -28,8 +28,12 @@ Route::get('user/logout',[App\http\Controllers\FrontendController::class,'logout
 
 Route::get('user/register',[App\http\Controllers\FrontendController::class,'register'])->name('register.form');
 Route::post('user/register',[App\http\Controllers\FrontendController::class,'registerSubmit'])->name('register.submit');
+
 // Reset password
-Route::post('password-reset', [App\http\Controllers\FrontendController::class,'showResetForm'])->name('password.reset'); 
+Route::get('resetpassword', [App\http\Controllers\FrontendController::class,'showResetForm'])->name('passwordReset'); 
+Route::get('password-reset', [App\http\Controllers\FrontendController::class,'showResetForm2'])->name('password.reset');
+Route::post('password.update', [App\http\Controllers\FrontendController::class,'updatepassword'])->name('password.update');
+
 // Socialite 
 Route::get('login/{provider}/', [App\http\Controllers\Auth\LoginController::class,'redirect'])->name('login.redirect');
 Route::get('login/{provider}/callback/', [App\http\Controllers\Auth\LoginController::class,'Callback'])->name('login.callback');
@@ -39,7 +43,7 @@ Route::get('/',[App\http\Controllers\FrontendController::class,'home'])->name('h
 // Frontend Routes
 Route::get('/home', [App\http\Controllers\FrontendController::class,'index']);
 Route::get('/about-us',[App\http\Controllers\FrontendController::class,'aboutUs'])->name('about-us');
-Route::get('/contact',[App\http\Controllers\FrontendController::class,'index'])->name('contact');
+Route::get('/contact-us',[App\http\Controllers\FrontendController::class,'contact'])->name('contact-us');
 Route::post('/contact/message',[App\http\Controllers\MessageController::class,'store'])->name('contact.store');
 Route::get('car-detail/{slug}',[App\http\Controllers\FrontendController::class,'CarDetail'])->name('car-detail');
 Route::post('/car/search',[App\http\Controllers\FrontendController::class,'CarSearch'])->name('Car.search');
@@ -87,40 +91,40 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 // Backend section start
-
+// 
 // Route::group(['prefix'=>'/admin','middleware'=>['auth','admin']],function(){
     Route::get('/admin',[App\http\Controllers\AdminController::class,'index'])->name('admin');
     // user route
-    Route::resource('users',App\http\Controllers\UsersController::class);
+    Route::resource('/admin/users',App\http\Controllers\UsersController::class);
     // Banner
-    Route::resource('banner',App\http\Controllers\BannerController::class);
+    Route::resource('/admin/banner',App\http\Controllers\BannerController::class);
     
     // Profile
-    Route::get('/profile',[App\http\Controllers\AdminController::class,'profile'])->name('admin-profile');
-    Route::post('/profile/{id}',[App\http\Controllers\AdminController::class,'profileUpdate'])->name('profile-update');
+    Route::get('/admin/profile',[App\http\Controllers\AdminController::class,'profile'])->name('admin-profile');
+    Route::post('/admin/profile/{id}',[App\http\Controllers\AdminController::class,'profileUpdate'])->name('profile-update');
     // car
-    Route::resource('/cars',App\http\Controllers\CarController::class);
-      // demande
-      Route::resource('/demandes',App\http\Controllers\DemandeReservationController::class);
-      Route::get('demande/pdf/{id}',[App\http\Controllers\DemandeReservationController::class,'pdf'])->name('demande.pdf');
+    Route::resource('/admin/cars',App\http\Controllers\CarController::class);
+      // demandefchange.password.form
+      Route::resource('/admin/demandes',App\http\Controllers\DemandeReservationController::class);
+      Route::get('/admin/demande/pdf/{id}',[App\http\Controllers\DemandeReservationController::class,'pdf'])->name('demande.pdf');
    
     // POST category
-    Route::resource('/post-category',App\http\Controllers\PostCategoryController::class);
+    Route::resource('/admin/post-category',App\http\Controllers\PostCategoryController::class);
     // Post tag
-    Route::resource('/post-tag',App\http\Controllers\PostTagController::class);
+    Route::resource('/admin/post-tag',App\http\Controllers\PostTagController::class);
     // Post
-    Route::resource('/post',App\http\Controllers\PostController::class);
+    Route::resource('/admin/post',App\http\Controllers\PostController::class);
     // Message
-    Route::resource('/message',App\http\Controllers\MessageController::class);
-    Route::get('/message/five',[App\http\Controllers\MessageController::class,'messageFive'])->name('messages.five');
+    Route::resource('/admin/message',App\http\Controllers\MessageController::class);
+    Route::get('/admin/message/five',[App\http\Controllers\MessageController::class,'messageFive'])->name('messages.five');
 
     // Order
-    Route::resource('/order',App\http\Controllers\OrderController::class);
+    Route::resource('/admin/order',App\http\Controllers\OrderController::class);
   
     // Settings
-    Route::get('settings',[App\http\Controllers\AdminController::class,'settings'])->name('settings');
-    Route::post('setting/update',[App\http\Controllers\AdminController::class,'settingsUpdate'])->name('settings.update');
-
+    Route::get('/admin/settings',[App\http\Controllers\AdminController::class,'settings'])->name('settings');
+    Route::post('/admin/setting/update',[App\http\Controllers\AdminController::class,'settingsUpdate'])->name('settings.update');
+    Route::get('/income',[App\http\Controllers\CarController::class,'income'])->name('product.order.income');
     // Notification
     // Route::get('/notification/{id}','NotificationController@show')->name('admin.notification');
     // Route::get('/notifications','NotificationController@index')->name('all.notification');
@@ -140,29 +144,27 @@ Route::get('payment/success', 'PayPalController@success')->name('payment.success
 
 
 // User section start
-Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
-    Route::get('/','HomeController@index')->name('user');
+// Route::group(['prefix'=>'/user','middleware'=>['user']],function(){
+    Route::get('/user',[App\http\Controllers\HomeController::class,'index'])->name('user');
      // Profile
-     Route::get('/profile','HomeController@profile')->name('user-profile');
-     Route::post('/profile/{id}','HomeController@profileUpdate')->name('user-profile-update');
+     Route::get('/profile',[App\http\Controllers\HomeController::class,'profile'])->name('user-profile');
+     Route::post('/profile/{id}',[App\http\Controllers\HomeController::class,'profileUpdate'])->name('user-profile-update');
     //  Order
-    Route::get('/order',"HomeController@orderIndex")->name('user.order.index');
-    Route::get('/order/show/{id}',"HomeController@orderShow")->name('user.order.show');
-    Route::delete('/order/delete/{id}','HomeController@userOrderDelete')->name('user.order.delete');
+    Route::get('/order',[App\http\Controllers\HomeController::class,'orderIndex'])->name('user.order.index');
+    Route::get('/order/show/{id}',[App\http\Controllers\HomeController::class,'orderShow"'])->name('user.order.show');
+    Route::delete('/order/delete/{id}',[App\http\Controllers\HomeController::class,'userOrderDelete'])->name('user.order.delete');
     // car Review
-    Route::get('/user-review','HomeController@carReviewIndex')->name('user.carreview.index');
-    Route::delete('/user-review/delete/{id}','HomeController@carReviewDelete')->name('user.carreview.delete');
-    Route::get('/user-review/edit/{id}','HomeController@carReviewEdit')->name('user.carreview.edit');
-    Route::patch('/user-review/update/{id}','HomeController@carReviewUpdate')->name('user.carreview.update');
+    Route::get('/user-review',[App\http\Controllers\HomeController::class,'carReviewIndex'])->name('user.carreview.index');
+    Route::delete('/user-review/delete/{id}',[App\http\Controllers\HomeController::class,'carReviewDelete'])->name('user.carreview.delete');
+    Route::get('/user-review/edit/{id}',[App\http\Controllers\HomeController::class,'carReviewEdit'])->name('user.carreview.edit');
+    Route::patch('/user-review/update/{id}',[App\http\Controllers\HomeController::class,'carReviewUpdate'])->name('user.carreview.update');
     
     // Post comment
-    Route::get('user-post/comment','HomeController@userComment')->name('user.post-comment.index');
-    Route::delete('user-post/comment/delete/{id}','HomeController@userCommentDelete')->name('user.post-comment.delete');
-    Route::get('user-post/comment/edit/{id}','HomeController@userCommentEdit')->name('user.post-comment.edit');
-    Route::patch('user-post/comment/udpate/{id}','HomeController@userCommentUpdate')->name('user.post-comment.update');
+    Route::get('user-post/comment',[App\http\Controllers\HomeController::class,'userComment'])->name('user.post-comment.index');
+    Route::delete('user-post/comment/delete/{id}',[App\http\Controllers\HomeController::class,'userCommentDelete'])->name('user.post-comment.delete');
+    Route::get('user-post/comment/edit/{id}',[App\http\Controllers\HomeController::class,'userCommentEdit'])->name('user.post-comment.edit');
+    Route::patch('user-post/comment/udpate/{id}',[App\http\Controllers\HomeController::class,'userCommentUpdate'])->name('user.post-comment.update');
     
     // Password Change
-    Route::get('change-password', 'HomeController@changePassword')->name('user.change.password.form');
-    Route::post('change-password', 'HomeController@changPasswordStore')->name('change.password');
 
-});
+// });

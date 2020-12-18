@@ -292,14 +292,16 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+          placeholder: "entrer une brève description.....",
+
         tabsize: 2,
         height: 150
     });
     });
     $(document).ready(function() {
       $('#description').summernote({
-        placeholder: "Write detail Description.....",
+              placeholder: "entrer une  description Detaillé.....",
+
           tabsize: 2,
           height: 150
       });

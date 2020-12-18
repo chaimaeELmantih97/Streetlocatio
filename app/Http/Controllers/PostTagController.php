@@ -52,7 +52,7 @@ class PostTagController extends Controller
             request()->session()->flash('success','Post Tag Successfully added');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post-tag.index');
     }
@@ -101,7 +101,7 @@ class PostTagController extends Controller
             request()->session()->flash('success','Post Tag Successfully updated');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post-tag.index');
     }

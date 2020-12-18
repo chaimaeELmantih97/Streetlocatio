@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-    <title>Autozone, Home-1</title>
+    <title>StreetLocation, Home-1</title>
     <link href="{{url('assets2/css/master.css')}}" rel="stylesheet">
     <link href="{{url('assets2/plugins/iview/css/iview.css')}}" rel="stylesheet">
     <link href="{{url('assets2/plugins/iview/css/skin/style.css')}}" rel="stylesheet">
@@ -25,7 +25,7 @@
       position: relative;
       background-color: rgb(255, 255, 255);
       margin-top: -16vh;
-      z-index: 1000;
+      z-index: 10;
       box-shadow: 0 0 0 rgba(70, 70, 70, 0.459);
       border-radius: 5px;
       width: 90vw;

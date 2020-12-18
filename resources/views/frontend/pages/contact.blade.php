@@ -1,154 +1,222 @@
 @extends('frontend.layouts.master')
 
 @section('main-content')
-	<!-- Breadcrumbs -->
-	<div class="breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="bread-inner">
-						<ul class="bread-list">
-							<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="javascript:void(0);">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Breadcrumbs -->
+<div class="block-title">
+    <div class="block-title__inner section-bg section-bg_second">
+        <div class="bg-inner">
+            <h1 class="ui-title-page">Contactez nous</h1>
+            <div class="decor-1 center-block"></div>
+            <ol class="breadcrumb">
+                <li><a href="{{route('home')}}">HOME</a></li>
+                <li class="active">Contactez nous</li>
+            </ol>
+        </div><!-- end bg-inner -->
+    </div><!-- end block-title__inner -->
+</div>
   
-	<!-- Start Contact -->
-	<section id="contact-us" class="contact-us section">
-		<div class="container">
-				<div class="contact-head">
-					<div class="row">
-						<div class="col-lg-8 col-12">
-							<div class="form-main">
-								<div class="title">
-									@php
-										$settings=DB::table('settings')->get();
-									@endphp
-									<h4>Get in touch</h4>
-									<h3>Write us a message @auth @else<span style="font-size:12px;" class="text-danger">[You need to login first]</span>@endauth</h3>
-								</div>
-								<form class="form-contact form contact_form" method="post" action="{{route('contact.store')}}" id="contactForm" novalidate="novalidate">
-									@csrf
-									<div class="row">
-										<div class="col-lg-6 col-12">
-											<div class="form-group">
-												<label>Your Name<span>*</span></label>
-												<input name="name" id="name" type="text" placeholder="Enter your name">
-											</div>
-										</div>
-										<div class="col-lg-6 col-12">
-											<div class="form-group">
-												<label>Your Subjects<span>*</span></label>
-												<input name="subject" type="text" id="subject" placeholder="Enter Subject">
-											</div>
-										</div>
-										<div class="col-lg-6 col-12">
-											<div class="form-group">
-												<label>Your Email<span>*</span></label>
-												<input name="email" type="email" id="email" placeholder="Enter email address">
-											</div>	
-										</div>
-										<div class="col-lg-6 col-12">
-											<div class="form-group">
-												<label>Your Phone<span>*</span></label>
-												<input id="phone" name="phone" type="number" placeholder="Enter your phone">
-											</div>	
-										</div>
-										<div class="col-12">
-											<div class="form-group message">
-												<label>your message<span>*</span></label>
-												<textarea name="message" id="message" cols="30" rows="9" placeholder="Enter Message"></textarea>
-											</div>
-										</div>
-										<div class="col-12">
-											<div class="form-group button">
-												<button type="submit" class="btn ">Send Message</button>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<div class="col-lg-4 col-12">
-							<div class="single-head">
-								<div class="single-info">
-									<i class="fa fa-phone"></i>
-									<h4 class="title">Call us Now:</h4>
-									<ul>
-										<li>@foreach($settings as $data) {{$data->phone}} @endforeach</li>
-									</ul>
-								</div>
-								<div class="single-info">
-									<i class="fa fa-envelope-open"></i>
-									<h4 class="title">Email:</h4>
-									<ul>
-										<li><a href="mailto:info@yourwebsite.com">@foreach($settings as $data) {{$data->email}} @endforeach</a></li>
-									</ul>
-								</div>
-								<div class="single-info">
-									<i class="fa fa-location-arrow"></i>
-									<h4 class="title">Our Address:</h4>
-									<ul>
-										<li>@foreach($settings as $data) {{$data->address}} @endforeach</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</section>
-	<!--/ End Contact -->
-	
-	<!-- Map Section -->
-	<div class="map-section">
-		<div id="myMap">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14130.857353934944!2d85.36529494999999!3d27.6952226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sne!2snp!4v1595323330171!5m2!1sne!2snp" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-		</div>
-	</div>
-	<!--/ End Map Section -->
-	
-	<!-- Start Shop Newsletter  -->
-	@include('frontend.layouts.newsletter')
-	<!-- End Shop Newsletter -->
-	<!--================Contact Success  =================-->
-	<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-				<h2 class="text-success">Thank you!</h2>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<p class="text-success">Your message is successfully sent...</p>
-			</div>
-		  </div>
-		</div>
-	</div>
-	
-	<!-- Modals error -->
-	<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-				<h2 class="text-warning">Sorry!</h2>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<p class="text-warning">Something went wrong.</p>
-			</div>
-		  </div>
-		</div>
-	</div>
+
+
+<section class="section_map section-bg-2 wow bounceInUp" data-wow-duration="2s">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="ui-title-block">Contactez nous</h2>
+                <div class="ui-subtitle-block_mod-b">envoyez-nous vos suggestions, questions ou idées </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+    <div class="map"><img class="img-responsive" src="{{url('assets2/img/map.jpg')}}" height="520" width="1600"
+            alt="map"></div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="decor-2"><i class="icon fa fa-caret-down"></i></div>
+                <h2 class="ui-title-inner">n'hésitez pas à nous envoyer un message <br>
+                  ou demandez un devis GRATUIT</h2>
+                <div class="decor-1 center-block"></div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <form class="form-contact" method="post" action="{{route('contact.store')}}" id="contactForm"
+                    novalidate="novalidate">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" required placeholder="Nom" required name="name">
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" required name="phone" placeholder="Tel" required>
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="email" required name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" required name="subject" placeholder="Sujet" required>
+                        </div>
+                        <!-- end col -->
+
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <textarea class="form-control" name="message" placeholder="Message ....." required
+                                rows="7" required></textarea>
+                            <div class="btn">
+                                <div class="wrap__btn-skew-r">
+                                    <button class="btn-skew-r btn-effect " type="submit"><span
+                                            class="btn-skew-r__inner">Envoyer Le messafe</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </form>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+    <!--HOME SLIDER-->
+    <script src="{{url('assets2/plugins/sliderpro/js/jquery.sliderPro.min.js')}}"></script>
+    <script src="{{url('assets2/NV/datepicker/moment.min.js')}}"></script>
+    <script src="{{url('assets2/NV/datepicker/daterangepicker.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
+    <script type="text/javascript">
+        //ALGOLIA PLACES API BEGIN
+        const reconfigurableOptions = {
+            // language: 'fr',  //Receives results in German
+            countries: ['ma'], // Search in the United States of America and in the Russian Federation
+            type: 'city', // Search only for cities names
+            // aroundLatLngViaIP: false // disable the extra search/boost around the source IP
+        };
+
+        if (document.getElementById('ville_input_1')) {
+            places({
+                appId: 'plGRTB7YMDRN',
+                apiKey: '367398e98504ee87362ce203506dbae1',
+                container: document.querySelector('#ville_input_1'),
+            }).configure(reconfigurableOptions);
+        }
+
+        //ALGOLIA PLACES API END
+
+    </script>
+    <script>
+        (function ($) {
+            'use strict';
+            /*==================================================================
+                [ Daterangepicker ]*/
+            try {
+                $('#js-datepicker').daterangepicker({
+                    "singleDatePicker": true,
+                    "showDropdowns": true,
+                    "autoUpdateInput": false,
+                    locale: {
+                        format: 'DD/MM/YYYY'
+                    },
+                });
+                $('#js-datepicker2').daterangepicker({
+                    "singleDatePicker": true,
+                    "showDropdowns": true,
+                    "autoUpdateInput": false,
+                    locale: {
+                        format: 'DD/MM/YYYY'
+                    },
+                });
+
+
+                var myCalendar = $('#js-datepicker');
+                var isClick = 0;
+
+                $(window).on('click', function () {
+                    isClick = 0;
+                });
+
+                $(myCalendar).on('apply.daterangepicker', function (ev, picker) {
+                    isClick = 0;
+                    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+
+                });
+
+                $('#js-btn-calendar').on('click', function (e) {
+                    e.stopPropagation();
+
+                    if (isClick === 1) isClick = 0;
+                    else if (isClick === 0) isClick = 1;
+
+                    if (isClick === 1) {
+                        myCalendar.focus();
+                    }
+                });
+
+                $(myCalendar).on('click', function (e) {
+                    e.stopPropagation();
+                    isClick = 1;
+                });
+
+                $('#daterangepicker').on('click', function (e) {
+                    e.stopPropagation();
+                });
+
+
+                var myCalendar2 = $('#js-datepicker2');
+                var isClick = 0;
+
+                $(window).on('click', function () {
+                    isClick = 0;
+                });
+
+                $(myCalendar2).on('apply.daterangepicker', function (ev, picker) {
+                    isClick = 0;
+                    $(this).val(picker.startDate.format('DD/MM/YYYY'));
+
+                });
+
+                $('#js-btn-calendar2').on('click', function (e) {
+                    e.stopPropagation();
+
+                    if (isClick === 1) isClick = 0;
+                    else if (isClick === 0) isClick = 1;
+
+                    if (isClick === 1) {
+                        myCalendar2.focus();
+                    }
+                });
+
+                $(myCalendar2).on('click', function (e) {
+                    e.stopPropagation();
+                    isClick = 1;
+                });
+
+                $('#daterangepicker2').on('click', function (e) {
+                    e.stopPropagation();
+                });
+
+
+            } catch (er) {
+                console.log(er);
+            }
+
+
+        })(jQuery);
+
+    </script>
+</section>
+<!-- end section_default -->
+	<!-- end section_default -->
 @endsection
 
 @push('styles')

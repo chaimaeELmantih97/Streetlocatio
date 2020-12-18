@@ -53,7 +53,7 @@ class PostCategoryController extends Controller
             request()->session()->flash('success','Post Category Successfully added');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post-category.index');
     }
@@ -102,7 +102,7 @@ class PostCategoryController extends Controller
             request()->session()->flash('success','Post Category Successfully updated');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('post-category.index');
     }

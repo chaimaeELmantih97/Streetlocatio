@@ -112,7 +112,8 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+          placeholder: "entrer une brève description.....",
+
         tabsize: 2,
         height: 150
     });

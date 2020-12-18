@@ -433,7 +433,8 @@ class FrontendController extends Controller
             // return redirect()->intended('defaultpage');
         }
         else{
-            request()->session()->flash('error','Invalid email and password pleas try again!');
+            // request()->session()->flash('error','Courriel ou mot de passe invalides : essayez encore !');
+            toastr()->warning("Courriel ou mot de passe invalides : essayez encore !");
             return redirect()->back();
         }
     }
@@ -441,7 +442,8 @@ class FrontendController extends Controller
     public function logout(){
         Session::forget('user');
         Auth::logout();
-        request()->session()->flash('success','Logout successfully');
+        // request()->session()->flash('success','Logout successfully');
+        toastr()->success("Déconnexion réussie");
         return back();
     }
 
@@ -460,11 +462,14 @@ class FrontendController extends Controller
         $check=$this->create($data);
         Session::put('user',$data['email']);
         if($check){
-            request()->session()->flash('success','Successfully registered');
+            // request()->session()->flash('success','Successfully registered');
+            toastr()->success("Inscription réussie");
             return redirect()->route('home');
         }
         else{
-            request()->session()->flash('error','Please try again!');
+            // request()->session()->flash('error','Please try again!');
+           toastr()->error("Un erreur est survenu");
+
             return back();
         }
     }
@@ -477,10 +482,37 @@ class FrontendController extends Controller
             ]);
     }
     // Reset password
+    // Reset password
     public function showResetForm(){
         return view('auth.passwords.old-reset');
     }
+    public function showResetForm2(Request $request, $token = null)
+    {   
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
 
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8',
+        ];
+    }
+
+    public function updatepassword(Request $request)
+    {   
+        $user=User::where('email',$request->email)->get();
+        // dd($request->email);
+        $user[0]->update(
+        [
+            'password'=> Hash::make($request->password)
+        ]);
+        // dd($user[0]->password,Hash::make($request->password));
+        return redirect()->route('home')->with('success','Password successfully changed');
+    }
     public function subscribe(Request $request){
 
         Mail::to($request->email)->send(new SubscribeEmail());

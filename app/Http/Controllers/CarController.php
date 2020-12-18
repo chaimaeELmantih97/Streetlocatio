@@ -92,10 +92,11 @@ class CarController extends Controller
         if($status){
 
             
-            request()->session()->flash('success','vaoiture ajouté avec succes');
+            request()->session()->flash('success','Vehicule ajouté avec succes');
+            
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+            request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('cars.index');
 
@@ -297,7 +298,7 @@ class CarController extends Controller
             request()->session()->flash('success','Voiture modifié avec succes');
         }
         else{
-            request()->session()->flash('error','Please try again!!');
+           request()->session()->flash('error','une erreur est survenue!!');
         }
         return redirect()->route('cars.index');
     }
@@ -314,14 +315,40 @@ class CarController extends Controller
         $status=$Car->delete();
         
         if($status){
-            request()->session()->flash('success','Car successfully deleted');
+            request()->session()->flash('success','Vehicule supprimé avec succes');
         }
         else{
-            request()->session()->flash('error','Error while deleting Car');
+            request()->session()->flash('error','Un erreur est survenue');
         }
         return redirect()->route('cars.index');
     }
 
 
+
+    public function income(Request $request){
+        $year=\Carbon\Carbon::now()->year;
+        // dd($year);
+        $items=DemandeReservation::whereYear('created_at',$year)->where('status','validée')->get()
+            ->groupBy(function($d){
+                return \Carbon\Carbon::parse($d->created_at)->format('m');
+            });
+            // dd($items);
+        $result=[];
+        foreach($items as $month=>$item_collections){
+            foreach($item_collections as $item){
+                $amount=$item->sum('total');
+                // dd($amount);
+                $m=intval($month);
+                // return $m;
+                isset($result[$m]) ? $result[$m] += $amount :$result[$m]=$amount;
+            }
+        }
+        $data=[];
+        for($i=1; $i <=12; $i++){
+            $monthName=date('F', mktime(0,0,0,$i,1));
+            $data[$monthName] = (!empty($result[$i]))? number_format((float)($result[$i]), 2, '.', '') : 0.0;
+        }
+        return $data;
+    }
     
 }

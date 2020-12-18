@@ -110,7 +110,7 @@
         </table>
         <span style="float:right">{{$demandes->links()}}</span>
         @else
-          <h6 class="text-center">No cars found!!! Please create Car</h6>
+          <h6 class="text-center">Il n'y a pas de demandes</h6>
         @endif
       </div>
     </div>

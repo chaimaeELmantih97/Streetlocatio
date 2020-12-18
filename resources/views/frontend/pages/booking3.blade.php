@@ -8,7 +8,7 @@
     <link href="//fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap" rel="stylesheet">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{url('travel/assets/vendor/font-awesome/css/fontawesome-all.min.css')}}"> --}}
     <link rel="stylesheet" href="{{url('travel/assets/vendor/animate.css/animate.min.css')}}">
     <link rel="stylesheet" href="{{url('travel/assets/css/font-mytravel.css')}}">
     <link rel="stylesheet" href="{{url('travel/assets/vendor/hs-megamenu/src/hs.megamenu.css')}}">

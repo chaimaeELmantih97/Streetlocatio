@@ -1,11 +1,27 @@
-@extends('layouts.app')
+@extends('frontend.layouts.master')
 
-@section('content')
-<div class="container">
+@section('title','StreetLocatio|| Blog Detail page')
+
+@section('main-content')
+
+<div class="block-title">
+    <div class="block-title__inner section-bg section-bg_second">
+        <div class="bg-inner">
+            <h1 class="ui-title-page">Réinitialisation du mot de passe</h1>
+            <div class="decor-1 center-block"></div>
+            <ol class="breadcrumb">
+                <li><a href="{{route('home')}}">HOME</a></li>
+                <li class="active">Réinitialisation du mot de passe</li>
+            </ol>
+        </div><!-- end bg-inner -->
+    </div><!-- end block-title__inner -->
+</div><!-- end block-title -->
+<div class="container" style="background: #F5F5F5">
     <div class="row justify-content-center">
+        <div class="col-md-2" style="height: 0px"></div>
+
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+            <div class="card" style="background: #F5F5F5">
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
@@ -17,7 +33,8 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" disabled name="email2" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" hidden   name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -60,6 +77,8 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-2" style="height: 0px"></div>
+
     </div>
 </div>
 @endsection

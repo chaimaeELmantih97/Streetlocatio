@@ -8,7 +8,11 @@
 	<div id="this-top" class="layout-theme animated-css" data-header="sticky" data-header-top="200">
 
 		<!-- Loader -->
-		<div id="page-preloader"><span class="spinner"></span></div>
+		<div id="page-preloader">
+			<div class="loader-img">
+				<img src="{{url('storage/street-location.gif')}}" alt="" style="height: 100px; object-fit: contain">
+			</div>
+		</div>
 		<!-- Loader end -->
 	
 		<div id="wrapper">

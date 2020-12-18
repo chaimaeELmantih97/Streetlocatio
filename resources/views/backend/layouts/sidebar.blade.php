@@ -15,7 +15,7 @@
     <li class="nav-item active">
       <a class="nav-link" href="{{route('admin')}}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Dashboard</span></a>
+        <span>Tableau de bord</span></a>
     </li>
 
     <!-- Divider -->
@@ -23,7 +23,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Banner
+        Banniére
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -31,22 +31,22 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-image"></i>
-        <span>Banners</span>
+        <span>Banniéres</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Banner Options:</h6>
-          <a class="collapse-item" href="{{route('banner.index')}}">Banners</a>
-          <a class="collapse-item" href="{{route('banner.create')}}">Add Banners</a>
+          <h6 class="collapse-header"> Options:</h6>
+          <a class="collapse-item" href="{{route('banner.index')}}">Liste des banniéres</a>
+          <a class="collapse-item" href="{{route('banner.create')}}">Ajouter une banniére</a>
         </div>
       </div>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
         <!-- Heading -->
-        <div class="sidebar-heading">
+        {{-- <div class="sidebar-heading">
             Shop
-        </div>
+        </div> --}}
 
     <!-- Categories -->
     {{-- <li class="nav-item">
@@ -130,29 +130,29 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-          Posts
+          Blogs et Artcles
         </div>
     
         <!-- Posts -->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postCollapse" aria-expanded="true" aria-controls="postCollapse">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Posts</span>
+            <span>Articles</span>
           </a>
           <div id="postCollapse" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Post Options:</h6>
-              <a class="collapse-item" href="{{route('post.index')}}">Posts</a>
-              <a class="collapse-item" href="{{route('post.create')}}">Add Post</a>
+              <a class="collapse-item" href="{{route('post.index')}}">Articles</a>
+              <a class="collapse-item" href="{{route('post.create')}}">Ajouter un article</a>
             </div>
           </div>
         </li>
     <!-- Reviews -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="{{route('review.index')}}">
             <i class="fas fa-comments"></i>
             <span>Reviews</span></a>
-    </li>
+    </li> --}}
     
 
     <!-- Divider -->
@@ -221,7 +221,7 @@
     {{-- <hr class="sidebar-divider d-none d-md-block"> --}}
      <!-- Heading -->
     <div class="sidebar-heading">
-        General Settings
+        Parametres generals
     </div>
     {{-- <li class="nav-item">
       <a class="nav-link" href="{{route('coupon.index')}}">
@@ -232,13 +232,13 @@
      <li class="nav-item">
         <a class="nav-link" href="{{route('users.index')}}">
             <i class="fas fa-users"></i>
-            <span>Users</span></a>
+            <span>Utilisateurs</span></a>
     </li>
      <!-- General settings -->
      <li class="nav-item">
         <a class="nav-link" href="{{route('settings')}}">
             <i class="fas fa-cog"></i>
-            <span>Settings</span></a>
+            <span>Parametres</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->

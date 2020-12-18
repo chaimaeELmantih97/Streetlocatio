@@ -13,8 +13,8 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Subject</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Sujet</th>
           <th scope="col">Date</th>
           <th scope="col">Action</th>
         </tr>
@@ -44,7 +44,7 @@
       {{$messages->links()}}
     </nav>
     @else
-      <h2>Messages Empty!</h2>
+      <h2>il n'y a pas de nouveaus messages</h2>
     @endif
   </div>
 </div>
