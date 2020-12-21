@@ -40,12 +40,12 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
-        $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            // 'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
-        ]);
+        // $this->validate($request,[
+        //     'title'=>'string|required|max:50',
+        //     'description'=>'string|nullable',
+        //     // 'photo'=>'string|required',
+        //     'status'=>'required|in:active,inactive',
+        // ]);
         $data=$request->all();
         $path = "storage/banners/";
         if($request->hasfile('photo')){
@@ -104,13 +104,13 @@ class BannerController extends Controller
     {
         $banner=Banner::findOrFail($id);
         
-        $this->validate($request,[
-            'title'=>'string|required|max:50',
-            'description'=>'string|nullable',
-            // 'photo'=>'string|required',
-            'status'=>'required|in:active,inactive',
+        // $this->validate($request,[
+        //     'title'=>'string|required|max:50',
+        //     'description'=>'string|nullable',
+        //     // 'photo'=>'string|required',
+        //     'status'=>'required|in:active,inactive',
 
-        ]);
+        // ]);
         $i=$banner->photo;
         $data=$request->all();
         $path = "storage/banners/";

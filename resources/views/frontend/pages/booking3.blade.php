@@ -109,13 +109,16 @@
                             </div>
                             <div class="pt-4 pb-5 px-5">
                                 <h5 id="scroll-description" class="font-size-21 font-weight-bold text-dark mb-3">
-                                    View Booking Details
+                                   Reservation
                                 </h5>
-                                <p class="">
-                                    Praesent dolor lectus, rutrum sit amet risus vitae, imperdiet cursus neque. Nulla tempor nec lorem eu suscipit. Donec dignissim lectus a nunc molestie consectetur. Nulla eu urna in nisi adipiscing placerat. Nam vel scelerisque magna. Donec justo urna,  posuere ut dictum quis.
+                                <p>
+                                    Merci pour votre réservation .
+                                </p>
+                                <p class="">                         
+                                    Nous traiterons votre commande et vous répondrons dès que possible .
                                 </p>
 
-                                <a href="#" class="text-underline text-primary">https://www.mytravel.com/booking-details/?=f4acb19f-9542-4a5c-b8ee</a>
+                                <a href="{{route('car-grids')}}" class="text-underline text-primary">consultez nos autres véhicules qui pourraient vous plaire.</a>
                             </div>
                         </div>
                     </div>

@@ -303,7 +303,7 @@
 
                     <!-- Tab Content -->
                     <div class="tab-content " id="pills-tabContent">
-
+                        @if(count($cars)>0)
                         {{-- <div class="tab-pane fade mb-5 mb-xl-0 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups"> --}}
                         <div class="row">
                             @foreach ($cars as $car)
@@ -414,6 +414,14 @@
                             @endforeach
 
                         </div>
+                        @else
+                        <div class="row" style="width: 100%; display: flex; flex-direction:column; justify-content: center; align-items: center">
+                            <img src="{{url('storage/no-car.png')}}" alt="" style="height: 300px; width: 300px;">
+                            
+                            <span style="color: #AB3D47; font-size:30px"> il n'y a pas de véhicules </span>
+                        </div>
+                        @endif
+                        
                         {{-- <div class="text-center text-md-left font-size-14 mb-3 text-lh-1">Showing 1–15</div>
                         <nav aria-label="Page navigation">
                             {{ $cars->links() }}

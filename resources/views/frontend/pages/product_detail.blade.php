@@ -301,14 +301,14 @@
                         <div class="col-xs-8 col-xs-offset-2">
                             <div class="input-group " style="width:100%; height:100%;margin-top:20px;">
                                 <input class="input--style-1 js-datepicker" id="js-datepicker" type="text"
-                                    placeholder="jj/mm/aaaa" name="from">
+                                    placeholder="jj/mm/aaaa" autocomplete="off" name="from">
                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar" id="js-btn-calendar"></i>
                             </div>
                         </div>
                         <div class="col-xs-8 col-xs-offset-2">
                             <div class="input-group " style="width:100%; height:100%;margin-top:20px;">
                                 <input class="input--style-1 js-datepicker" id="js-datepicker2" type="text"
-                                    placeholder="jj/mm/aaaa" name="to">
+                                    placeholder="jj/mm/aaaa" autocomplete="off" name="to">
                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar" id="js-btn-calendar2"></i>
                             </div>
                         </div>

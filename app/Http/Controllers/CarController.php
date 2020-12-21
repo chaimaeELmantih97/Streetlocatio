@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Mail\NotificationEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Category;
@@ -113,7 +114,9 @@ class CarController extends Controller
             // return redirect()->route('home');
             return back();
         }
-        $unavailables=Unavailable::where('from','=',$from)->where('to','=',$to)->get();
+        // $unavailables=Unavailable::where('from','=',$from)->where('to','=',$to)->get();
+        $unavailables=Unavailable::whereBetween('from',[$from, $to])
+        ->get();
         // $unavailables2=Unavailable::all();
         // dd($unavailables,$from,$to);
         $cars=Car::all();
@@ -140,10 +143,21 @@ class CarController extends Controller
         // dd($url);
         $from=explode("/",$request->from)[2].'-'.explode("/",$request->from)[1].'-'.explode("/",$request->from)[0];
         $to=explode("/",$request->to)[2].'-'.explode("/",$request->to)[1].'-'.explode("/",$request->to)[0];
-        $unavailable=Unavailable::where('from','=',$from)
-        ->where('to','=',$to)
-        ->where('car_id','=',$request->id)
+        $today=date("Y-m-d");
+        if($from>=$to || $from<=$today || $to<=$today){
+            toastr()->warning("assurez-vous d'entrer des données valides SVP!");
+            // return redirect()->route('home');
+            return back();
+        }
+        // $unavailable=Unavailable::where('from','=',$from)
+        // ->where('to','=',$to)
+        // ->where('car_id','=',$request->id)
+        // ->get();
+        
+        $unavailable=Unavailable:: where('car_id','=',$request->id)
+        ->whereBetween('from',[$from, $to])
         ->get();
+        // dd($unavailable);
         if(count($unavailable)<=0){
         $car=Car::find($request->id);
         return view('frontend.pages.booking1')->with('car',$car)->with('from',$from)->with('to',$to)->with('url',$url);
@@ -189,7 +203,7 @@ class CarController extends Controller
         $car=Car::find($request->id);
         $data=$request->all();
         $data['car_id']=$request->id;
-
+        $voiture=Car::find($request->id);
         $path = "storage/demandes/"; 
         if($request->hasfile('cin')){
             $img=Image::make($request->cin)
@@ -203,6 +217,10 @@ class CarController extends Controller
         } 
         $data['demande_numero']='demande-'.strtoupper(Str::random(10));
         $demande=DemandeReservation::create($data); 
+        $body="une nouvelle demande de la voiture: ".$voiture->title."  a été passée sur votre site web 
+        de  ".$data['nom'].' '.$data['prenom']." avec un total de ".$data['total']."MAD";
+        Mail::to('celmantih8@gmail.com')->send(new NotificationEmail($body,null,null));
+        toastr()->success("votre réservation est maintenant terminée !");
         return view('frontend.pages.booking3')
         ->with('from',$request->from)
         ->with('to',$request->to)

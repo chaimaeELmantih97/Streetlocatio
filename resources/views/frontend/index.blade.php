@@ -18,7 +18,7 @@
             <div class="item-wrap sp-layer  sp-padding" data-horizontal="100" data-vertical="300"
                 data-show-transition="left" data-hide-transition="up" data-show-delay="400" data-hide-delay="200">
                 <div class="main-slider__inner text-left col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="custom-caption ">
+                    <div class="custom-caption">
                         <div class="custom-caption">
                             <div class="decor-1"></div>
                             <div class="main-slider__text">découvrez nos véhicules</div>
@@ -92,9 +92,9 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="main-block text-center wow bounceInUp" data-wow-duration="2s">
-                        <div class="main-block__label">welcome to</div>
+                        <div class="main-block__label">BIENVENUE À</div>
                         <div class="decor-1 center-block"></div>
-                        <h1 class="main-block__title"><strong>StreetLocation</strong>the ONLINE AUTOS world</h1>
+                        <h1 class="main-block__title" style="color:#A01010 ">StreetLocation</h1>
                         <div class="decor-2"><i class="icon fa fa-caret-down"></i></div>
                     </div>
                     <div class="wrap-link-img">
@@ -134,29 +134,28 @@
 
             <div class="row">
                 <div class="col-sm-6 wow bounceInLeft" data-wow-duration="2s" data-wow-delay="1s">
-                    <p>Integer tortor bibendum est faucibus gravida aliquam nulla lectus lacinia eget pulvinar mattis
-                        risus
-                        quisque sagittis lorem acdua eros pharetral interdum quisque convallis nulla dpsum val mualiquam
-                        arcu
-                        arcu lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven quis
-                        nostrud
-                        exercitation ulamco laboris nisi ut aliquip exl commodo consequat. Duis auteir dolor in
-                        reprehenderit
-                        voluptate velit esse cillum dolore eu fugiat.</p>
+                    
+                    <p>Faites de vraies économies avec STREETLOCATION93 !
+                        Louez votre voiture à prix avantageux & nous vous garantissons un large choix de voitures de location et véhicules utilitaires.
+                        </p>
+                    <p>Pour un confort et une expérience agréable, optez pour STREETLOCATION93 !</p>
+                        <p>
+                            <span>STREETLOCATION93</span>
+                             vous offre un service de haute qualité et vous propose différentes gammes de voitures à louer sur Meknès en réponse à tous vos besoins.
+                        </p>
+                        <p>
+                            <span>STREETLOCATION93</span> c’est le meilleur rapport qualité/prix. Plus besoin de se déplacer pour louer une voiture, c’est désormais en ligne.
+                        </p>
                 </div>
                 <!-- end col -->
                 <div class="col-sm-6 wow bounceInRight" data-wow-duration="2s" data-wow-delay="1s">
-                    <h2 class="ui-title-inner">MAIN FEATURES</h2>
+                    <h2 class="ui-title-inner">PRINCIPALES CARACTÉRISTIQUES</h2>
                     <div class="decor-1"></div>
                     <ul class="list-mark list-unstyled">
-                        <li> <i class="decor-3 fa fa-caret-right"></i>Maecenas mattis facilisis arcu Ised Morbi accumsan
-                            dignissim sed libero lorem ipsum </li>
-                        <li> <i class="decor-3 fa fa-caret-right"></i>Phasellus eget nisl vel lacus ipsum diui proin
-                            rutrum
-                            turpis non nulla it amet consectetur </li>
-                        <li> <i class="decor-3 fa fa-caret-right"></i>Dhasellus consequat sed acda duia aliquam massa
-                            suspendisse porta do eiusmod tempa </li>
+                        <li> <i class="decor-3 fa fa-caret-right"></i>Services optimisés. </li>
+                        <li> <i class="decor-3 fa fa-caret-right"></i>Assistance 24h/24 et 7j/7.</li>
+                        <li> <i class="decor-3 fa fa-caret-right"></i>Conseils et informations techniques . </li>
+                        <li> <i class="decor-3 fa fa-caret-right"></i>Facturation claire et technique. </li>
                     </ul>
                 </div>
                 <!-- end col -->
@@ -165,9 +164,7 @@
 
             <div class="row">
                 <div class="col-xs-12"> <a class="brand-link text-center wow bounceInUp" data-wow-duration="2s"
-                        data-wow-delay="1s" href="{{route('car-grids')}}"><i class="icon fa fa-caret-right"></i>SEE
-                        LISTED
-                        VEHICLES<i class="icon fa fa-caret-left"></i><span class="br"></span>
+                        data-wow-delay="1s" href="{{route('car-grids')}}"><i class="icon fa fa-caret-right"></i>Sdécouvrez nos véhicules<i class="icon fa fa-caret-left"></i><span class="br"></span>
                         <div class="decor-1 decor-1_mod-b"></div>
                     </a> </div>
                 <!-- end col -->
@@ -185,58 +182,58 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="ui-title-block ui-title-block_mod-a text-center">Our Services</h2>
-                        <div class="ui-subtitle-block_mod-a">we are offering vehicle services 24/7</div>
+                        <h2 class="ui-title-block ui-title-block_mod-a text-center">NOS SERVICES</h2>
+                        <div class="ui-subtitle-block_mod-a">nous offrons des services de véhicules 24 heures sur 24, 7 jours sur 7</div>
                         <div class="slider-services owl-carousel owl-theme owl-theme_mod-a enable-owl-carousel"
                             data-min480="2" data-min768="3" data-min992="4" data-min1200="4" data-pagination="true"
                             data-navigation="false" data-auto-play="4000" data-stop-on-hover="true">
                             <div class="list-services"> <i class="icon flaticon-repairing4"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Vehicle <strong>REPAIRING</strong></h3>
-                                    <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
+                                    <h3 class="list-services__title">Réparation des véhicules</h3>
+                                    {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
-                                        vestibulum fringilla</div>
+                                        vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
                             <div class="list-services"> <i class="icon flaticon-speakers17"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Audio System <strong>INSTALLATION</strong></h3>
-                                    <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
+                                    <h3 class="list-services__title">INSTALLATION du système audio<strong></strong></h3>
+                                    {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
-                                        vestibulum fringilla</div>
+                                        vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
                             <div class="list-services"> <i class="icon flaticon-transport391"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Auto Painting <strong>REPAIRING</strong></h3>
-                                    <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
+                                    <h3 class="list-services__title">Réparation de la peinture automobile<strong></strong></h3>
+                                    {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
-                                        vestibulum fringilla</div>
+                                        vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
                             <div class="list-services"> <i class="icon flaticon-wheels10"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Wheel <strong>BALANCING</strong></h3>
-                                    <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
+                                    <h3 class="list-services__title">Équilibrage des roues <strong></strong></h3>
+                                    {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
-                                        vestibulum fringilla</div>
+                                        vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
                             <div class="list-services"> <i class="icon flaticon-transport391"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Audio System <strong>INSTALLATION</strong></h3>
-                                    <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
+                                    <h3 class="list-services__title">INSTALLATION du système audio<strong></strong></h3>
+                                    {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
-                                        vestibulum fringilla</div>
+                                        vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
@@ -261,8 +258,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="ui-title-block">Latest Offers</h2>
-                <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortor suspendisse potena quisue</div>
+                <h2 class="ui-title-block">Ldernières offres</h2>
+                <div class="ui-subtitle-block_mod-b">découvrez nos nouvelles offres.</div>
                 <div class="slider-grid owl-carousel owl-theme owl-theme_mod-c enable-owl-carousel"
                     data-pagination="true" data-single-item="true" data-auto-play="7000" data-transition-style="fade"
                     data-main-text-animation="true" data-after-init-delay="3000" data-after-move-delay="1000"
@@ -310,8 +307,8 @@
                                             <div class="slider-grid__hover"> <span
                                                     class="slider-grid__price">{{$car->prix_location}} MAD</span>
                                                 <ul class="slider-grid__info list-unstyled">
-                                                    <li><i class="icon icon-speedometer"></i>12,000</li>
-                                                    <li><i class="icon icon-paper-plane"></i>2016</li>
+                                                    <li><i class="icon icon-speedometer"></i>{{$car->boite_vitesses}}</li>
+                                                    <li><i class="icon icon-paper-plane"></i>{{$car->annee_modele}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -338,8 +335,8 @@
                                             <div class="slider-grid__hover"> <span
                                                     class="slider-grid__price">{{$car->prix_location}} MAD</span>
                                                 <ul class="slider-grid__info list-unstyled">
-                                                    <li><i class="icon icon-speedometer"></i>12,000</li>
-                                                    <li><i class="icon icon-paper-plane"></i>2016</li>
+                                                    <li><i class="icon icon-speedometer"></i>{{$car->boite_vitesses}}</li>
+                                                    <li><i class="icon icon-paper-plane"></i>{{$car->annee_modele}}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -367,27 +364,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="ui-title-block ui-title-block_mod-a text-center">Real Facts</h2>
-                        <div class="ui-subtitle-block_mod-a">we have some superb facts here</div>
+                        <h2 class="ui-title-block ui-title-block_mod-a text-center">Faits réels</h2>
+                        <div class="ui-subtitle-block_mod-a">nous avons ici de superbes faits</div>
                         <script src="{{url('assets2/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js')}}">
                         </script>
                         <ul class="list-progress list-unstyled">
                             <li class="list-progress__item"> <i class="icon flaticon-transport391"></i>
-                                <div class="list-progress__inner"> <span class="chart" data-percent="900"><span
-                                            class="percent"></span>+</span> <span class="list-progress__name">COUNTRIES
-                                        REACHED</span>
+                                <div class="list-progress__inner"> <span class="chart" data-percent="10"><span
+                                            class="percent"></span>+</span> <span class="list-progress__name">PAYS ATTEINTS  </span>
                                 </div>
                             </li>
                             <li class="list-progress__item"> <i class="icon flaticon-automobile8"></i>
-                                <div class="list-progress__inner"> <span class="chart" data-percent="10000"><span
-                                            class="percent"></span>+</span> <span class="list-progress__name">PASSED
-                                        GRADUATES</span>
+                                <div class="list-progress__inner"> <span class="chart" data-percent="1000"><span
+                                            class="percent"></span>+</span> <span class="list-progress__name">clients atteints</span>
                                 </div>
                             </li>
                             <li class="list-progress__item"> <i class="icon flaticon-bus6"></i>
-                                <div class="list-progress__inner"> <span class="chart" data-percent="120"><span
-                                            class="percent"></span>+</span> <span class="list-progress__name">QUALIFIED
-                                        STAFF</span>
+                                <div class="list-progress__inner"> <span class="chart" data-percent="352"><span
+                                            class="percent"></span>+</span> <span class="list-progress__name">réservations effectuées </span>
                                 </div>
                             </li>
                         </ul>
@@ -411,32 +405,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2 class="ui-title-block">About Us</h2>
-                    <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortor suspendisse potena</div>
+                    <h2 class="ui-title-block">À PROPOS DE NOUS</h2>
+                    <div class="ui-subtitle-block_mod-b">
+                        Leader marocain de la location de voitures !
+                    </div>
                 </div>
                 <!-- end col -->
             </div>
             <!-- end row -->
             <div class="row">
                 <div class="col-md-5">
-                    <h3 class="ui-title-inner"><i class="decor-3 fa fa-caret-right"></i>trusted name in auto-world</h3>
+                    <h3 class="ui-title-inner"><i class="decor-3 fa fa-caret-right"></i>UN NOM DE CONFIANCE DANS LE MONDE DE L'AUTOMOBILE</h3>
                     <div class="decor-1 decor-1_mod-c"></div>
                     <div class="ui-description">
-                        <p>Integer tortor bibendum estar faucibus gravida aliquam nulla lectus lacinia egar pulvinar
-                            matis nl
-                            risus quisque sagitis lorem acda lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <p>Nous vous offre un service de haute qualité et vous propose différentes gammes de voitures à louer sur Meknès en réponse à tous vos besoins.                            
                         </p>
                     </div>
-                    <p>Integer tortor bibendum est faucibus gravida aliquam nul lectus lacinia eget pulvinar mattis inl
-                        risus. Quisque sagittis lorem acdua er pharetral interdum quisque convallis nulla id ipsum vamus
-                        aliquam arcu arcu.</p>
-                    <p>Etiam imperdiet aliquam eriat volutpat mauris consecteta. Aliquam enisem pretium vitae posuere ac
-                        mats vitae arcu.</p>
-                    <a class="link" href="javascript:void(0);">we have largest vehicles stock</a>
+                    <p> STREETLOCATION c’est le meilleur rapport qualité/prix. Plus besoin de se déplacer pour louer une voiture, c’est désormais en ligne.
+                    </p>
+                    <a class="link" href="javascript:void(0);">Réservation en ligne</a>
                     <div class="decor-1"></div>
-                    <a class="link" href="javascript:void(0);">we got worldwide locations</a>
+                    <a class="link" href="javascript:void(0);">Simplicité, rapidité</a>
                     <div class="decor-1"></div>
-                    <a class="link" href="javascript:void(0);">we deal in all kinds of brands & vehicles</a>
+                    <a class="link" href="javascript:void(0);">Meilleur prix</a>
+                    <div class="decor-1"></div>
+                    <a class="link" href="javascript:void(0);">Diversité de choix</a>
                 </div>
                 <!-- end col -->
             </div>
@@ -497,52 +490,63 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="ui-title-block ui-title-block_mod-a text-center">Types Of Vehicles</h2>
-                        <div class="ui-subtitle-block_mod-a">that we are currently dealing</div>
+                        <h2 class="ui-title-block ui-title-block_mod-a text-center">Types de véhicules</h2>
+                        <div class="ui-subtitle-block_mod-a">que nous traitons actuellement</div>
                         <ul class="list-type">
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> 
+                                <a class="list-type__link" data-cat="motorcycles" onclick="CatFilter('motorcycles')" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto12"></i>
                                         <div class="decor-1 center-block"></div>
-                                        <div class="list-type__name">motorcycle</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__name">moto</div>
+                                        <div class="list-type__info">moto</div>
                                     </div>
                                 </a> </li>
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> <a class="list-type__link" onclick="CatFilter('voitures de luxe')" data-cat="voitures de luxe" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto15"></i>
                                         <div class="decor-1 center-block"></div>
-                                        <div class="list-type__name">LUXURY CARS</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__name">VOITURES DE LUXE</div>
+                                        <div class="list-type__info">VOITURES DE LUXE</div>
                                     </div>
                                 </a> </li>
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> <a class="list-type__link" onclick="CatFilter('voitures sportives')" data-cat="voitures sportives" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto13"></i>
                                         <div class="decor-1 center-block"></div>
                                         <div class="list-type__name">SPORTS</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__info">SPORTS</div>
                                     </div>
                                 </a> </li>
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> <a class="list-type__link" onclick="CatFilter('voitures suvs')" data-cat="voitures suvs" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto13"></i>
                                         <div class="decor-1 center-block"></div>
                                         <div class="list-type__name">SUVS</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__info">SUVS</div>
                                     </div>
                                 </a> </li>
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> <a class="list-type__link" onclick="CatFilter('camions')" data-cat="camions" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto14"></i>
                                         <div class="decor-1 center-block"></div>
-                                        <div class="list-type__name">truck</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__name">camion</div>
+                                        <div class="list-type__info">camion</div>
                                     </div>
                                 </a> </li>
-                            <li class="list-type__item"> <a class="list-type__link" href="javascript:void(0);">
+                            <li class="list-type__item"> <a class="list-type__link" onclick="CatFilter('camionnettes')"  data-cat="camionnettes" href="javascript:void(0);">
                                     <div class="list-type__inner"> <i class="icon auto16"></i>
                                         <div class="decor-1 center-block"></div>
-                                        <div class="list-type__name">VANS & TRUCKS</div>
-                                        <div class="list-type__info">110 Offers</div>
+                                        <div class="list-type__name">FOURGONNETTES</div>
+                                        <div class="list-type__info">FOURGONNETTES </div>
                                     </div>
                                 </a> </li>
                         </ul>
+                        <form action="{{route('filterCategories2')}}"  method="GET" id="catform">
+                        @csrf
+                        <input type="hidden" name="cat" id="catName">
+                        </form>
+                        <script>
+                            function CatFilter(cat){
+                                document.getElementById("catName").value=cat;
+                                document.getElementById("catform").submit();
+                            }
+                        </script>
                     </div>
                     <!-- end col -->
                 </div>
@@ -561,8 +565,8 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="ui-title-block">OUR TEAM</h2>
-                <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortQr suspendisse</div>
+                <h2 class="ui-title-block">NOTRE ÉQUIPE</h2>
+                {{-- <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortQr suspendisse</div> --}}
                 <ul class="list-staff list-unstyled">
                     <li class="list-staff__item clearfix">
                         <div class="list-staff__media"> <img class="img-responsive"

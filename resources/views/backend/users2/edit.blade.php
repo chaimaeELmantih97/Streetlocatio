@@ -9,7 +9,7 @@
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Nom</label>
+          <label for="inputTitle" class="col-form-label">Name</label>
         <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$user->name}}" class="form-control">
         @error('name')
         <span class="text-danger">{{$message}}</span>
@@ -54,10 +54,10 @@
         <div class="form-group">
             <label for="role" class="col-form-label">Role</label>
             <select name="role" class="form-control">
-                <option value="">-----Selectioner Role-----</option>
+                <option value="">-----Select Role-----</option>
                 @foreach($roles as $role)
-                    <option value="{{$role->role}}" {{(($role->role=='admin') ? 'selected' : '')}}>Administrateur</option>
-                    <option value="{{$role->role}}" {{(($role->role=='user') ? 'selected' : '')}}>utilisateur</option>
+                    <option value="{{$role->role}}" {{(($role->role=='admin') ? 'selected' : '')}}>Admin</option>
+                    <option value="{{$role->role}}" {{(($role->role=='user') ? 'selected' : '')}}>User</option>
                 @endforeach
             </select>
           @error('role')

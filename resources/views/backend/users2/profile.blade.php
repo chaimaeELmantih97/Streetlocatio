@@ -11,10 +11,10 @@
         </div>
     </div>
    <div class="card-header py-3">
-     <h4 class=" font-weight-bold">Profil</h4>
+     <h4 class=" font-weight-bold">Profile</h4>
      <ul class="breadcrumbs">
-         <li><a href="{{route('admin')}}" style="color:#999">Tableu de bord</a></li>
-         <li><a href="" class="active text-primary">Profil</a></li>
+         <li><a href="{{route('admin')}}" style="color:#999">Dashboard</a></li>
+         <li><a href="" class="active text-primary">Profile Page</a></li>
      </ul>
    </div>
    <div class="card-body">
@@ -39,7 +39,7 @@
                 <form class="border px-4 pt-2 pb-3" method="POST" action="{{route('profile-update',$profile->id)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="inputTitle" class="col-form-label">Nom</label>
+                        <label for="inputTitle" class="col-form-label">Name</label>
                       <input id="inputTitle" type="text" name="name" placeholder="Enter name"  value="{{$profile->name}}" class="form-control">
                       @error('name')
                       <span class="text-danger">{{$message}}</span>
@@ -63,17 +63,17 @@
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                       </div>
-                      {{-- <div class="form-group">
+                      <div class="form-group">
                           <label for="role" class="col-form-label">Role</label>
                           <select name="role" class="form-control">
                               <option value="">-----Select Role-----</option>
-                                  <option value="admin" {{(($profile->role=='admin')? 'selected' : '')}}>Administrateur</option>
+                                  <option value="admin" {{(($profile->role=='admin')? 'selected' : '')}}>Admin</option>
                                   <option value="user" {{(($profile->role=='user')? 'selected' : '')}}>User</option>
                           </select>
                         @error('role')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                        </div> --}}
+                        </div>
 
                         <button type="submit" class="btn btn-success btn-sm">Update</button>
                 </form>

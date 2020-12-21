@@ -303,7 +303,8 @@
 
                     <!-- Tab Content -->
                     <div class="tab-content " id="pills-tabContent">
-
+                        {{-- {{dd(count($cars))}} --}}
+                        @if(count($cars)>0)
                         {{-- <div class="tab-pane fade mb-5 mb-xl-0 show active" id="pills-one-example1" role="tabpanel" aria-labelledby="pills-one-example1-tab" data-target-group="groups"> --}}
                         <div class="row">
                             @foreach ($cars as $car)
@@ -315,13 +316,13 @@
                                             <img class="card-img-top" style="max-height:200px; min-height:200px; object-fit:cover;"
                                                 src="{{url('storage/cars/'.$car->photo)}}">
                                         </a>
-                                        <div class="position-absolute top-0 right-0 pt-5 pr-3">
+                                        {{-- <div class="position-absolute top-0 right-0 pt-5 pr-3">
                                             <button type="button" class="btn btn-sm btn-icon text-white rounded-circle"
                                                 data-toggle="tooltip" data-placement="top" title=""
                                                 data-original-title="Save for later">
                                                 <span class="flaticon-heart-1 font-size-20"></span>
                                             </button>
-                                        </div>
+                                        </div> --}}
                                         <div class="position-absolute bottom-0 left-0 right-0">
                                             <div class="px-3 pb-2">
                                                 <a href="{{route('car-detail',$car->slug)}}">
@@ -402,6 +403,13 @@
                             </div>
                             @endforeach
                         </div>
+                        @else
+                        <div class="row" style="width: 100%; display: flex; flex-direction:column; justify-content: center; align-items: center">
+                            <img src="{{url('storage/no-car.png')}}" alt="" style="height: 300px; width: 300px;">
+                            
+                            <span style="color: #AB3D47; font-size:30px"> il n'y a pas de véhicules </span>
+                        </div>
+                        @endif
                         {{-- <div class="text-center text-md-left font-size-14 mb-3 text-lh-1">Showing 1–15</div>
                         <nav aria-label="Page navigation">
                             {{ $cars->links() }}

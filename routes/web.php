@@ -64,6 +64,8 @@ Route::post('bookingStep2',[App\http\Controllers\CarController::class,'booking2'
 Route::post('bookingStep3',[App\http\Controllers\CarController::class,'booking3'])->name('bookingStep3');
 Route::match(['get','post'],'/filter',[App\http\Controllers\FrontendController::class,'carFilter'])->name('shop.filter');
 Route::match(['get','post'],'/filterCategory',[App\http\Controllers\FrontendController::class,'carFilter2'])->name('filter');
+Route::match(['get','post'],'/filtrageParCategorie',[App\http\Controllers\FrontendController::class,'carFilter3'])->name('filterCategories2');
+
 
 // Blog
 Route::get('/blog',[App\http\Controllers\FrontendController::class,'blog'])->name('blog');

@@ -94,7 +94,7 @@
                                         <input type="text" class="form-control" name="prenom" placeholder="prénom"
                                             aria-label="prenom" required data-msg="Please enter your first name."
                                             data-error-class="u-has-error" data-success-class="u-has-success"
-                                            value="{{$nom}}">
+                                            value="{{$nom}}" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -109,7 +109,7 @@
                                         <input type="text" class="form-control" name="nom" placeholder="Nom"
                                             aria-label="Nom" required data-msg="Please enter your last name."
                                             data-error-class="u-has-error" data-success-class="u-has-success"
-                                            value="{{$prenom}}">
+                                            value="{{$prenom}}" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -125,7 +125,7 @@
                                             aria-label="creativelayers088@gmail.com" required
                                             data-msg="Please enter a valid email address."
                                             data-error-class="u-has-error" data-success-class="u-has-success"
-                                            value="{{Auth::user()->email}}">
+                                            value="{{Auth::user()->email}}" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -136,10 +136,10 @@
                                         <label class="form-label">
                                             Prénom
                                         </label>
-                                        <input type="text" class="form-control" name="prenom" placeholder="prénom"
+                                        <input type="text" class="form-control" required name="prenom" placeholder="prénom"
                                             aria-label="prenom" required data-msg="Please enter your first name."
                                             data-error-class="u-has-error" data-success-class="u-has-success"
-                                            >
+                                             autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -153,7 +153,7 @@
 
                                         <input type="text" class="form-control" name="nom" placeholder="Nom"
                                             aria-label="Nom" required data-msg="Please enter your last name."
-                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                            data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -168,7 +168,7 @@
                                         <input type="email" class="form-control" name="email" placeholder="Email"
                                             aria-label="creativelayers088@gmail.com" required
                                             data-msg="Please enter a valid email address."
-                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                            data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -185,7 +185,7 @@
                                         <input type="number" class="form-control" name="tel" placeholder="Tel"
                                             aria-label="+90 (254) 458 96 32" required
                                             data-msg="Please enter a valid phone number." data-error-class="u-has-error"
-                                            data-success-class="u-has-success">
+                                            data-success-class="u-has-success" autocomplete="off">
                                     </div>
                                 </div>
                                 <!-- End Input -->
@@ -199,7 +199,7 @@
                                         <input type="text" class="form-control" name="ville" id="ville_input_1"
                                             placeholder="ville" aria-label="creativelayers088@gmail.com" required
                                             data-msg="Please enter a valid email address."
-                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                            data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                     </div>
                                 </div>
 
@@ -213,7 +213,7 @@
 
                                         <div class="input-group">
                                             <textarea class="form-control" rows="4" name="text" placeholder=""
-                                                aria-label="" required data-msg="Please enter a reason."
+                                                aria-label=""  data-msg="Please enter a reason."
                                                 data-error-class="u-has-error"
                                                 data-success-class="u-has-success"></textarea>
                                         </div>

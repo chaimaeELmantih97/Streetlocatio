@@ -18,10 +18,10 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Nom</th>
+              <th>Name</th>
               <th>Email</th>
               <th>Photo</th>
-              <th>date d'adhésion </th>
+              <th>Join Date</th>
               <th>Role</th>
               <th>Status</th>
               <th>Action</th>
@@ -33,22 +33,22 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Photo</th>
-                <th>date d'adhésion </th>
+                <th>Join Date</th>
                 <th>Role</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
           </tfoot>
           <tbody>
-            @foreach($users as $user)  
-                @if($user->role!='admin')
+            @foreach($users as $user)   
+            @if($user->role!='admin')
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
                         @if($user->photo)
-                            <img src="{{url('storage/users/'.$user->photo)}}" class="img-fluid rounded-circle" style="max-width:50px" alt="{{$user->photo}}">
+                            <img src="{{$user->photo}}" class="img-fluid rounded-circle" style="max-width:50px" alt="{{$user->photo}}">
                         @else
                             <img src="{{asset('backend/img/avatar.png')}}" class="img-fluid rounded-circle" style="max-width:50px" alt="avatar.png">
                         @endif
@@ -63,6 +63,7 @@
                         @endif
                     </td>
                     <td>
+                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary btn-sm float-left mr-1" style="height:30px; width:30px;border-radius:50%" data-toggle="tooltip" title="edit" data-placement="bottom"><i class="fas fa-edit"></i></a>
                     <form method="POST" action="{{route('users.destroy',[$user->id])}}">
                       @csrf 
                       @method('delete')
@@ -89,8 +90,8 @@
                           </div>
                         </div>
                     </div> --}}
-                </tr>
-                @endif
+                </tr>  
+            @endif
             @endforeach
           </tbody>
         </table>
@@ -149,8 +150,8 @@
               // alert(dataID);
               e.preventDefault();
               swal({
-                    title: "Etes-vous sûr ?",
-                    text : "Une fois supprimées, vous ne pourrez plus récupérer ces données !",
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this data!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
@@ -159,7 +160,7 @@
                     if (willDelete) {
                        form.submit();
                     } else {
-                        swal ("Vos données sont en sécurité !") ;
+                        swal("Your data is safe!");
                     }
                 });
           })

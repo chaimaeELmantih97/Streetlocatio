@@ -199,7 +199,7 @@
                                 <input type="hidden" class="form-control" name="prenom" value="{{$prenom}}">
                                 <input type="hidden" class="form-control" name="nom" value="{{$nom}}">
 
-                                <input type="hidden" class="form-control" name="email" value="{{$email}}">
+                                <input type="hidden" class="form-control" name="email"  value="{{$email}}">
                                 <input type="hidden" class="form-control" name="tel" value="{{$tel}}">
                                 <input type="hidden" class="form-control" name="ville" value="{{$ville}}">
                                 <textarea hidden>{{$text}}</textarea>
@@ -221,14 +221,14 @@
                                             onclick="$('#file-upload-input1').trigger( 'click' )">Ajouter une image</button>
 
                                         <div class="image-upload-wrap" id="image-upload-wrap1">
-                                            <input class="file-upload-input" id="file-upload-input1" type='file'
+                                            <input class="file-upload-input" id="file-upload-input1" required type='file'
                                                 name="cin" onchange="readURL1(this);" accept="image/*" />
                                             <div class="drag-text">
                                                 <h3>Glisser-déposer un fichier ou sélectionner et Ajouter une image</h3>
                                             </div>
                                         </div>
                                         <div class="file-upload-content" id="file-upload-content1">
-                                            <img class="file-upload-image" id="file-upload-image1" src="#"
+                                            <img class="file-upload-image" id="file-upload-image1" required src="#"
                                                 alt="your image" />
                                             <div class="image-title-wrap" id="image-title-wrap1">
                                                 <button type="button" onclick="removeUpload1()" class="remove-image"

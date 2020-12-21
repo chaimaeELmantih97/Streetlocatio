@@ -26,7 +26,7 @@ class DemandeReservationController extends Controller
 {
     public function index()
     {
-        $demandereservations=DemandeReservation::paginate(6);
+        $demandereservations=DemandeReservation::orderBy('created_at', 'desc')->get();
         // return $cars;
         return view('backend.demandes.index')->with('demandes',$demandereservations);
     }

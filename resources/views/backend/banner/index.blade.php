@@ -19,8 +19,8 @@
           <thead>
             <tr>
               <th>id</th>
-              <th>titre</th>
-              <th>Slug</th>
+              {{-- <th>titre</th>
+              <th>Slug</th> --}}
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -29,8 +29,8 @@
           <tfoot>
             <tr>
               <th>id</th>
-              <th>titre</th>
-              <th>Slug</th>
+              {{-- <th>titre</th>
+              <th>Slug</th> --}}
               <th>Photo</th>
               <th>Status</th>
               <th>Action</th>
@@ -40,8 +40,8 @@
             @foreach($banners as $banner)   
                 <tr>
                     <td>{{$banner->id}}</td>
-                    <td>{{$banner->title}}</td>
-                    <td>{{$banner->slug}}</td>
+                    {{-- <td>{{$banner->title}}</td>
+                    <td>{{$banner->slug}}</td> --}}
                     <td>
                         @if($banner->photo)
                             <img src="{{url('storage/banners/'.$banner->photo)}}" class="img-fluid zoom" style="max-width:80px" alt="{{$banner->photo}}">

@@ -9,7 +9,7 @@
     <div class="card-body">
       <form method="post" action="{{route('banner.store')}}" enctype="multipart/form-data">
         {{csrf_field()}}
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="inputTitle" class="col-form-label">titre  <span class="text-danger">*</span></label>
         <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{old('title')}}" class="form-control">
         @error('title')
@@ -23,7 +23,7 @@
           @error('description')
           <span class="text-danger">{{$message}}</span>
           @enderror
-        </div>
+        </div> --}}
 
         <div class="form-group">
         <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>

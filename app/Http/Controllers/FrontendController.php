@@ -248,6 +248,12 @@ class FrontendController extends Controller
         return view('frontend.pages.product-grids')->with('cars',$cars);
 }
 
+public function carFilter3(Request $request){
+        $cars=Car::where('categorie', $request->cat)
+        ->get();
+    return view('frontend.pages.product-grids')->with('cars',$cars);
+}
+
     public function CarSearch(Request $request){
         $recent_products=Car::where('status','active')->orderBy('id','DESC')->limit(3)->get();
         $cars=Car::orwhere('title','like','%'.$request->search.'%')
@@ -427,7 +433,8 @@ class FrontendController extends Controller
                 }
             }
             Session::put('user',$data['email']);
-            request()->session()->flash('success','Successfully login');
+            toastr()->success("Connexion réussie");
+            // request()->session()->flash('success','Connexion réussie');
             // return redirect()->route('home');
              return Redirect::intended();
             // return redirect()->intended('defaultpage');

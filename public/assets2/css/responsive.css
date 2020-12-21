@@ -246,7 +246,8 @@
 }
 html .header .logo {
 	left: 17px;
-	margin: 0;
+	/* margin: 0; */
+	margin-top: 10px;
 	position: absolute;
 	top: -15px;
 }
@@ -347,20 +348,29 @@ html .yamm .nav {
 
 @media (max-width:990px) and  (min-width:767px) {
 	.logo__img{
-		margin-top:-121px;
+		margin-top:-90px;
 	}
 }
 @media (max-width:766px) and  (min-width:580px) {
 	.logo__img{
-		margin-top:-268px;
+		margin-top:-124px;
+	}
+	.custom-caption{
+		display: none !important;
 	}
 }
 @media (max-width:580px)  and  (min-width:480px){
 	.logo__img{
-		margin-top:-302px;
-		width: 54px;
+		margin-top:-119px;
+	}
+	.custom-caption{
+		display: none !important;
 	}
 }
+
+@media screen and (max-width: 640px) {
+	
+  }
 
 @media (max-width:850px)  and  (min-width:570px){
 	.form-section{
