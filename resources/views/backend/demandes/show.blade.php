@@ -109,7 +109,7 @@
               <table class="table">
                     <tr class="">
                         <td>Numero de la demande</td>
-                        <td> : {{$demande->numero_demande}}</td>
+                        <td> : {{$demande->demande_numero}}</td>
                     </tr>
                     <tr>
                         <td>Date</td>
@@ -129,7 +129,7 @@
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td> : {{number_format($demande->total_amount,2)}}</td>
+                        <td> : {{number_format($demande->total,2)}}</td>
                     </tr>
               </table>
             </div>
@@ -153,11 +153,11 @@
                     </tr>
                     <tr>
                         <td>CIN</td>
-                        <td> : {{$demande->cinN}}</td>
+                        <td> : <a target="_blanck" href="{{url('storage/demandes/'.$demande->cin)}}">voir la photo</a></td>
                     </tr>
                     <tr>
                         <td>Permis</td>
-                        <td> : {{$demande->permisN}}</td>
+                        <td> : <a target="_blanck" href="{{url('storage/demandes/'.$demande->permis)}}">voir la photo</a></td>
                     </tr>
                     <tr>
                         <td>Ville</td>

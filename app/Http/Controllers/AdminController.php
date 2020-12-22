@@ -12,11 +12,17 @@ use Spatie\Activitylog\Models\Activity;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use File;
+use Auth;
 
 class AdminController extends Controller
 {
     public function index(){
-        $data = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+
+        if(Auth::user()->role!='admin'){
+            toastr()->success("vous n'avez pas le droit d'accéder à cette page ");
+            return redirect()->route('home');
+        }else{ 
+            $data = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
         ->where('created_at', '>', Carbon::today()->subDay(6))
         ->groupBy('day_name','day')
         ->orderBy('day')
@@ -28,6 +34,8 @@ class AdminController extends Controller
      }
     //  return $data;
      return view('backend.index')->with('users', json_encode($array));
+    }
+       
     }
 
     public function profile(){

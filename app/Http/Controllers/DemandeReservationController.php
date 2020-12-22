@@ -21,14 +21,19 @@ use App\Models\DemandeReservation;
 use App\Mail\NotificationEmail;
 use Illuminate\Support\Facades\Mail;
 use DB;
-
+use Auth;
 class DemandeReservationController extends Controller
 {
     public function index()
     {
+        if(Auth::user()->role!='admin'){
+            toastr()->success("vous n'avez pas le droit d'accéder à cette page ");
+            return redirect()->route('home');
+        }else{
         $demandereservations=DemandeReservation::orderBy('created_at', 'desc')->get();
         // return $cars;
         return view('backend.demandes.index')->with('demandes',$demandereservations);
+        }
     }
 
     /**

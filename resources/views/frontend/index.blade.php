@@ -164,7 +164,7 @@
 
             <div class="row">
                 <div class="col-xs-12"> <a class="brand-link text-center wow bounceInUp" data-wow-duration="2s"
-                        data-wow-delay="1s" href="{{route('car-grids')}}"><i class="icon fa fa-caret-right"></i>Sdécouvrez nos véhicules<i class="icon fa fa-caret-left"></i><span class="br"></span>
+                        data-wow-delay="1s" href="{{route('car-grids')}}"><i class="icon fa fa-caret-right"></i>Découvrez nos véhicules<i class="icon fa fa-caret-left"></i><span class="br"></span>
                         <div class="decor-1 decor-1_mod-b"></div>
                     </a> </div>
                 <!-- end col -->
@@ -773,12 +773,12 @@
             <div class="col-xs-12">
                 <div class="clearfix">
                     <div class="pull-left">
-                        <h2 class="ui-title-block">news & Articles</h2>
-                        <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortsed ipsum dui Qr suspendisse
+                        <h2 class="ui-title-block">Publications</h2>
+                        <div class="ui-subtitle-block_mod-b">découvrez nos nouveautés et nos articles 
                         </div>
                     </div>
                     <a class="btn btn-success btn-effect pull-right" href="{{route('blog')}}"><span
-                            class="btn-inner">voir tous les posts</span></a>
+                            class="btn-inner">voir tous les publications</span></a>
                 </div>
                 @if($posts)
                 @foreach($posts as $post)
@@ -832,8 +832,13 @@
         <!-- end row -->
     </div>
     <!-- end container -->
-    <div class="map"><img class="img-responsive" src="{{url('assets2/img/map.jpg')}}" height="520" width="1600"
-            alt="map"></div>
+    <div class="map">
+        <!--<img class="img-responsive" src="{{url('assets2/img/map.jpg')}}" height="520" width="1600"-->
+        <!--    alt="map">-->
+            <iframe class="img-responsive"  style="width: 100vw;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13246.195572350618!2d-5.554620280306593!3d33.901270050321735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda044c2cbde666f%3A0x36db441cf31c4e68!2zSGFtcmlhLCBNZWtuw6hz!5e0!3m2!1sfr!2sma!4v1608623794686!5m2!1sfr!2sma" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+            </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-xs-12">

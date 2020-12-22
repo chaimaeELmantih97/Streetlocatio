@@ -162,7 +162,7 @@
                                                 <input class="js-range-slider" type="text" name="price"
                                                     data-extra-classes="u-range-slider height-35" data-type="double"
                                                     data-grid="false" data-hide-from-to="true" data-min="0"
-                                                    data-max="3456" data-from="200" data-to="3456" data-prefix="$"
+                                                    data-max="1000" data-from="0" data-to="1000" data-prefix="$"
                                                     data-result-min="#rangeSliderExample3MinResult"
                                                     data-result-max="#rangeSliderExample3MaxResult">
                                             </div>

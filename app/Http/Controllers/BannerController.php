@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use File;
+use Auth;
 class BannerController extends Controller
 {
     /**
@@ -17,8 +18,13 @@ class BannerController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->role!='admin'){
+            toastr()->success("vous n'avez pas le droit d'accéder à cette page ");
+            return redirect()->route('home');
+        }else{
         $banner=Banner::orderBy('id','DESC')->paginate(10);
         return view('backend.banner.index')->with('banners',$banner);
+        }
     }
 
     /**

@@ -18,7 +18,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Models\DemandeReservation;
-
+use Auth;
 class CarController extends Controller
 {
     /**
@@ -28,9 +28,14 @@ class CarController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->role!='admin'){
+            toastr()->success("vous n'avez pas le droit d'accéder à cette page ");
+            return redirect()->route('home');
+        }else{
         $cars=Car::getAllProduct();
         // return $cars;
         return view('backend.Car.index')->with('cars',$cars);
+        }
     }
 
     /**

@@ -57,11 +57,11 @@ $settings=DB::table('settings')->get();
                                     @auth
                                     @if(Auth::user()->role=='admin')
                                     <li ><a href="{{route('admin')}}"
-                                            target="_blank"><i class="fa fa-user mr-2"></i> Tableu de bord</a></li>
+                                            target="_blank"><i class="fa fa-user mr-2"></i> Tableau de bord</a></li>
                                     @else
                                     <li > <a 
                                             href="{{route('user')}}"
-                                            target="_blank"><i class="fa fa-user mr-2"></i> Tableu dee bord</a></li>
+                                            target="_blank"><i class="fa fa-user mr-2"></i> Tableau de bord</a></li>
                                     @endif
                                     <li> <a href="{{route('user.logout')}}"> <i class="fa fa-power-off mr-2" ></i> se deconnecter</a>
                                     </li>
@@ -70,8 +70,7 @@ $settings=DB::table('settings')->get();
                                     <li > <a 
                                             href="{{route('login.form')}}"><i class="fa fa-user mr-2"></i> s'identifier</a>
                                     </li>
-                                    <li > <a 
-                                        href="{{route('login.form')}}"><i class="fa fa-user mr-2"></i> s'enregister</a>
+                                    <li > <a   href="{{route('register.form')}}" ><i class="fa fa-user mr-2"></i> s'enregister</a>
                                     </li>
                                     @endauth
                                   </ul>
