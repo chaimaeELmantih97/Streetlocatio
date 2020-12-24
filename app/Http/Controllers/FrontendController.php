@@ -196,11 +196,13 @@ class FrontendController extends Controller
         $data= $request->all();
         if($request->Luxe!=null){
             $cars=Car::where('categorie', $request->Luxe)
+            ->where('status','active')
             ->get();
         }
 
         if($request->motorcycles!=null){
             $cars2=Car::where('categorie',$request->motorcycles)
+            ->where('status','active')
             ->get();
             if($cars!=null){
                 $cars= $cars->concat($cars2);
@@ -210,6 +212,7 @@ class FrontendController extends Controller
         }
         if($request->voitures_sportives!=null){
             $cars3=Car::where('categorie',$request->voitures_sportives)
+            ->where('status','active')
             ->get();
             if($cars!=null){
             $cars= $cars->concat($cars3);
@@ -220,6 +223,7 @@ class FrontendController extends Controller
 
         if($request->voitures_suvs!=null){
             $cars4=Car::where('categorie',$request->voitures_suvs)
+            ->where('status','active')
             ->get();
             if($cars!=null){
                  $cars= $cars->concat($cars4);
@@ -229,6 +233,7 @@ class FrontendController extends Controller
         }
         if($request->camionnettes!=null){
             $cars5=Car::where('categorie',$request->camionnettes)
+            ->where('status','active')
             ->get();
             if($cars!=null){
                 $cars= $cars->concat($cars5);
@@ -238,6 +243,7 @@ class FrontendController extends Controller
         }
         if($request->camions!=null){
             $cars6=Car::where('categorie',$request->camions)
+            ->where('status','active')
             ->get();
             if($cars!=null){
                 $cars= $cars->concat($cars6);

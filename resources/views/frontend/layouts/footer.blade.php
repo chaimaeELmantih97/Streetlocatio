@@ -46,7 +46,8 @@ $settings=DB::table('settings')->get();
 			<div class="row">
 			  <div class="col-xs-12">
 				<ul class="social-links list-inline">
-				  <li><a class="icon fa fa-facebook" href="javascript:void(0);"></a></li>
+			     <li><a class="icon fa fa-whatsapp" href="https://api.whatsapp.com/send?phone=+212532777701"></a></li>
+				 <li><a class="icon fa fa-facebook" href="javascript:void(0);"></a></li>
 				  <li><a class="icon fa fa-twitter" href="javascript:void(0);"></a></li>
 				  <li><a class="icon fa fa-youtube-play" href="javascript:void(0);"></a></li>
 				  <li><a class="icon fa fa-instagram" href="javascript:void(0);"></a></li>

@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{{url('modal/modal.css')}}">
+
 
 <div id="sliderpro1" class="slider-pro main-slider">
     <div class="sp-slides">
@@ -182,55 +184,55 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2 class="ui-title-block ui-title-block_mod-a text-center">NOS SERVICES</h2>
+                        <h2 class="ui-title-block ui-title-block_mod-a text-center">pourquoi nous choisir </h2>
                         <div class="ui-subtitle-block_mod-a">nous offrons des services de véhicules 24 heures sur 24, 7 jours sur 7</div>
                         <div class="slider-services owl-carousel owl-theme owl-theme_mod-a enable-owl-carousel"
                             data-min480="2" data-min768="3" data-min992="4" data-min1200="4" data-pagination="true"
                             data-navigation="false" data-auto-play="4000" data-stop-on-hover="true">
-                            <div class="list-services"> <i class="icon flaticon-repairing4"></i>
+                            <div class="list-services"> <i class="icon fa fa-bookmark"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Réparation des véhicules</h3>
+                                    <h3 class="list-services__title">Réservation en ligne</h3>
                                     {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
                                         vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
-                            <div class="list-services"> <i class="icon flaticon-speakers17"></i>
+                            <div class="list-services"> <i class="icon fa fa-tachometer"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">INSTALLATION du système audio<strong></strong></h3>
+                                    <h3 class="list-services__title">Simplicité, rapidité<strong></strong></h3>
                                     {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
                                         vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
-                            <div class="list-services"> <i class="icon flaticon-transport391"></i>
+                            <div class="list-services"> <i class="icon fa fa-check-circle"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Réparation de la peinture automobile<strong></strong></h3>
+                                    <h3 class="list-services__title">Qualité et expérience<strong></strong></h3>
                                     {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
                                         vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
-                            <div class="list-services"> <i class="icon flaticon-wheels10"></i>
+                            <div class="list-services"> <i class="icon fa fa-money"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">Équilibrage des roues <strong></strong></h3>
+                                    <h3 class="list-services__title">Meilleur prix <strong></strong></h3>
                                     {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
                                         vestibulum fringilla</div> --}}
                                 </div>
                             </div>
                             <!-- end list-services -->
-                            <div class="list-services"> <i class="icon flaticon-transport391"></i>
+                            <div class="list-services"> <i class="icon fa fa-tag"></i>
                                 <div class="decor-1"></div>
                                 <div class="list-services__inner">
-                                    <h3 class="list-services__title">INSTALLATION du système audio<strong></strong></h3>
+                                    <h3 class="list-services__title">Diversité de choix<strong></strong></h3>
                                     {{-- <div class="list-services__description">Wliquam sit amet urna sed vel nullam semper
                                         aibers
                                         vestibulum fringilla</div> --}}
@@ -562,11 +564,10 @@
 <!-- end wrap-section-border -->
 
 <section class="section_mod-i wow bounceInRight" data-wow-duration="2s">
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="ui-title-block">NOTRE ÉQUIPE</h2>
-                {{-- <div class="ui-subtitle-block_mod-b">Sed euismod ullamcorper tortQr suspendisse</div> --}}
                 <ul class="list-staff list-unstyled">
                     <li class="list-staff__item clearfix">
                         <div class="list-staff__media"> <img class="img-responsive"
@@ -578,8 +579,6 @@
                                 <li><a class="icon fa fa-google-plus" href="javascript:void(0);"></a></li>
                             </ul>
                         </div>
-                        <!-- end list-staff__media -->
-
                         <div class="list-staff__inner">
                             <div class="list-staff__info">
                                 <div class="list-staff__wrap_name">
@@ -601,9 +600,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end list-staff__inner -->
                     </li>
-                    <!-- end list-staff__item -->
 
                     <li class="list-staff__item clearfix">
                         <div class="list-staff__media"> <img class="img-responsive"
@@ -615,7 +612,6 @@
                                 <li><a class="icon fa fa-google-plus" href="javascript:void(0);"></a></li>
                             </ul>
                         </div>
-                        <!-- end list-staff__media -->
 
                         <div class="list-staff__inner">
                             <div class="list-staff__info">
@@ -638,9 +634,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end list-staff__inner -->
                     </li>
-                    <!-- end list-staff__item -->
 
                     <li class="list-staff__item clearfix">
                         <div class="list-staff__media"> <img class="img-responsive"
@@ -652,7 +646,6 @@
                                 <li><a class="icon fa fa-google-plus" href="javascript:void(0);"></a></li>
                             </ul>
                         </div>
-                        <!-- end list-staff__media -->
 
                         <div class="list-staff__inner">
                             <div class="list-staff__info">
@@ -675,9 +668,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- end list-staff__inner -->
                     </li>
-                    <!-- end list-staff__item -->
 
                     <li class="list-staff__item clearfix">
                         <div class="list-staff__media"> <img class="img-responsive"
@@ -689,7 +680,6 @@
                                 <li><a class="icon fa fa-google-plus" href="javascript:void(0);"></a></li>
                             </ul>
                         </div>
-                        <!-- end list-staff__media -->
 
                         <div class="list-staff__inner">
                             <div class="list-staff__info">
@@ -711,20 +701,13 @@
                                             Complete</span> </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- end list-staff__inner -->
-                    </li>
-                    <!-- end list-staff__item -->
-                </ul>
-                <!-- end list-staff -->
-            </div>
-            <!-- end col -->
+                        </div> 
+                    </li> 
+                </ul> 
+            </div> 
         </div>
-        <!-- end row -->
-    </div>
-    <!-- end container -->
+    </div> --}}
 </section>
-<!-- end section_default -->
 
 <div class="wrap-section-border wow bounceInUp" data-wow-duration="2s">
     <section class="section_mod-f section-bg section-bg_second">
@@ -783,10 +766,11 @@
                 @if($posts)
                 @foreach($posts as $post)
                 <article class="post post_mod-a clearfix">
-                    <div class="entry-media"> <a href="{{url('storage/posts/'.$post->photo)}}" rel="prettyPhoto"> <img
+                    <div class="entry-media modal-open-v2" data-id="1" data-type="image" data-target="{{url('storage/posts/'.$post->photo)}}"> <a href="{{url('storage/posts/'.$post->photo)}}" rel="prettyPhoto"> 
+                        <img
                                 class="img-responsive" src="{{url('storage/posts/'.$post->photo)}}" width="470"
                                 height="280" alt="l'image de vehicule" />
-                            <div class="post-hover helper"><i class="icon icon-magnifier-add"></i></div>
+                            {{-- <div class="post-hover helper"><i class="icon icon-magnifier-add"></i></div> --}}
                         </a> </div>
                     <div class="entry-main entry-main_mod-a">
                         <div class="entry-main__inner entry-main__inner_mod-a">
@@ -835,9 +819,8 @@
     <div class="map">
         <!--<img class="img-responsive" src="{{url('assets2/img/map.jpg')}}" height="520" width="1600"-->
         <!--    alt="map">-->
-            <iframe class="img-responsive"  style="width: 100vw;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13246.195572350618!2d-5.554620280306593!3d33.901270050321735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda044c2cbde666f%3A0x36db441cf31c4e68!2zSGFtcmlhLCBNZWtuw6hz!5e0!3m2!1sfr!2sma!4v1608623794686!5m2!1sfr!2sma" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
-
+            <iframe class="img-responsive"  style="width: 100vw;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52998.93727731773!2d-5.5807659725383125!3d33.87848565722895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9cfda525a68813d8!2sAssurances%20El%20Menzeh!5e0!3m2!1sfr!2sma!4v1608729895725!5m2!1sfr!2sma" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          
             </div>
     <div class="container text-center">
         <div class="row">
@@ -1025,7 +1008,7 @@
     </script>
 </section>
 <!-- end section_default -->
-
+<script src="{{url('modal/modall.js')}}"></script>
 @endsection
 
 @push('styles')
@@ -1076,7 +1059,6 @@
 @endpush
 
 @push('scripts')
-
 
 
 

@@ -28,8 +28,9 @@
         <!-- end row -->
     </div>
     <!-- end container -->
-    <div class="map"><img class="img-responsive" src="{{url('assets2/img/map.jpg')}}" height="520" width="1600"
-            alt="map"></div>
+    <div class="map">            
+        <iframe class="img-responsive"  style="width: 100vw;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52998.93727731773!2d-5.5807659725383125!3d33.87848565722895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9cfda525a68813d8!2sAssurances%20El%20Menzeh!5e0!3m2!1sfr!2sma!4v1608729895725!5m2!1sfr!2sma" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
     <div class="container text-center">
         <div class="row">
             <div class="col-xs-12">
@@ -76,7 +77,7 @@
                             <div class="btn">
                                 <div class="wrap__btn-skew-r">
                                     <button class="btn-skew-r btn-effect " type="submit"><span
-                                            class="btn-skew-r__inner">Envoyer Le messafe</span></button>
+                                            class="btn-skew-r__inner">Envoyer Le message</span></button>
                                 </div>
                             </div>
                         </div>

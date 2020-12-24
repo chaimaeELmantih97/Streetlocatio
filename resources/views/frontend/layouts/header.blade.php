@@ -1,6 +1,37 @@
+
+<style>
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+ background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(253,65,45,0.8832575266434699) 100%);
+ height:200px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+ 
+}
+</style>
 @php
 $settings=DB::table('settings')->get();
 @endphp  
+
+{{-- <div id="dark-overlay-1" class="modal-wrap">
+    <div id="modal-view-1" class="cstm-modal cstm-large-modal">
+      <span id="modal-close-1" onclick="closemodall()" class="modal-close">&times;</span>
+      <div id="modal-content-generalized-1" style="width: 100%;height: 100%;" class="d-flex justify-content-center align-items-center"></div>
+    </div>
+</div>  --}}
 <div class="header">
     <div class="top-header">
         <div class="container">
@@ -48,8 +79,8 @@ $settings=DB::table('settings')->get();
                             <a href="javascript:void(0);" class="navbar-brand"></a> </div>
                         <div id="navbar-collapse-1" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('home')}}">HOME</a></li>
-                                <li><a href="{{route('car-grids')}}">Liste des vehicules</a></li>
+                                <li><a href="{{route('home')}}">Accueil </a></li>
+                                <li><a href="{{route('car-grids')}}">Nos Gammes</a></li>
                                 {{-- <li><a href="{{route('about-us')}}">A propos de nous</a> </li> --}}
                                 <li><a href="{{route('contact-us')}}">Contact</a></li>
                                 <li class="dropdown"><a href="#"><i class="fa fa-user mr-2"></i> </a>
@@ -63,7 +94,7 @@ $settings=DB::table('settings')->get();
                                             href="{{route('user')}}"
                                             target="_blank"><i class="fa fa-user mr-2"></i> Tableau de bord</a></li>
                                     @endif
-                                    <li> <a href="{{route('user.logout')}}"> <i class="fa fa-power-off mr-2" ></i> se deconnecter</a>
+                                    <li> <a href="{{route('user.logout')}}"> <i class="fa fa-power-off mr-2" ></i> se déconnecter</a>
                                     </li>
     
                                     @else

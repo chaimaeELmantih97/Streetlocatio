@@ -124,7 +124,7 @@ class CarController extends Controller
         ->get();
         // $unavailables2=Unavailable::all();
         // dd($unavailables,$from,$to);
-        $cars=Car::all();
+        $cars=Car::where('status','active')->get();
         $cars2=$cars->toArray();
         $AvailableCars=[];
         session()->put('from', $from);

@@ -2024,7 +2024,8 @@ $profile=Auth()->user();
                     {{-- <div class="profile-usertitle-job"> Developer </div> --}}
                 </div>
                 <div class="profile-userbuttons">
-                    <a href="{{route('user.logout')}}" class="btn btn-danger  btn-sm" style="text-decoration: none;">se déconnecter</a>
+                    {{-- <a href="{{route('user.logout')}}" >se déconnecter</a> --}}
+                    <a href="{{route('user.logout')}}" class="btn btn-danger  btn-sm" style="text-decoration: none;"> <i class="fa fa-power-off mr-2" ></i> se deconnecter</a>
                     {{-- <button type="button" class="btn btn-info  btn-sm">Message</button> --}}
                 </div>
                 <div class="profile-usermenu">

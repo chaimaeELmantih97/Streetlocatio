@@ -1,0 +1,147 @@
+@media only screen and (max-width: 1200px) {
+    .cstm-large-modal{
+        width: 80% !important;
+        height: 70% !important;
+    }
+    .cstm-modal {
+        width: 50%;
+
+    }
+    
+}
+
+@media only screen and (max-width: 670px) {
+    .cstm-large-modal{
+        width: 80% !important;
+        height: 40% !important;
+
+    }
+    .cstm-modal {
+        width: 80%;
+    }
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    .cstm-large-modal{
+        width: 70% !important;
+        height: 85% !important;
+    }
+    .cstm-modal {
+        width: 30%;
+
+    }
+    
+}
+
+.modal-wrap {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(10,10,10,0.65);
+    display: flex;
+    z-index: 999999999;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.cstm-modal {
+    position: relative;
+    height: 60%;
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f4f5f7;
+    transition: 0.3s;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999999999;
+}
+
+.modal-close:hover {
+    background-color: #c7cdd8;
+}
+
+.modal-close-dark {
+
+    background-color: #323233;
+    transition: 0.3s;
+
+    color: antiquewhite;
+}
+
+.modal-close-dark:hover {
+    background-color: #4a4a4b;
+}
+
+.modal-show {
+    animation: showmodal 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.modal-hide {
+    animation: hidemodal 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.screen-darken {
+    animation: darkenn 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.screen-undarken {
+    animation: undarken 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes darkenn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes undarken {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes showmodal {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes hidemodal {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
